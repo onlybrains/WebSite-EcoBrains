@@ -1,0 +1,33 @@
+.marginItens{
+    margin-right: 20px;
+}
+
+.navbar-fundo{
+    background-color: #07401B;
+}
+
+.nav-link, .navbar-brand, .navbar-brand:hover{
+    color: white;
+}
+
+.nav-link:hover{
+    background-color: #17BF52;
+    color: white;    
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.dropdown-menu{
+    background-color: #07401B;
+}
+
+.dropdown-item {
+    background-color: #07401B;
+    color: white;
+}
+
+.dropdown-item:hover{
+    background-color: #17BF52;
+    color: white;
+}
