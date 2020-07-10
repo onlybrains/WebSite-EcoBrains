@@ -233,12 +233,14 @@ html, .row, body {
 }
 
 /*FOOOTER*/
+
 .footer {
-    position: static;
     left: 0;
     bottom: 0;
+    padding: 1px;
     width: 100%;
     background-color: #07401B;
     color: white;
     text-align: center;
 }
+
