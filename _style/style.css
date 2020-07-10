@@ -127,3 +127,111 @@
 }
 
 /* FIM DO NAVBAR*/
+html{
+    background-color: #D9D9D9;
+}
+
+
+/*titulo*/
+.text{
+    color: #07401B;
+    float: right;
+
+    font-family: 'Poppins', sans-serif;
+    text-align: justify;
+    font-size: 30pt;
+
+    max-width: 1100px;
+    margin: 0 100px;
+    padding: 5px;
+    margin-top: 90px;
+  
+    display: flex;
+    flex-direction: column;
+}
+
+/*parágrafo*/
+.text2{
+    color: #07401B;
+    float: right;
+
+    font-family: 'Poppins', sans-serif;
+    text-align: justify;
+
+    max-width: 1100px;
+    margin: 0 175px;
+    padding: 5px;
+  
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+/*Botão*/
+.button{    
+ 
+    float: right;
+    
+    text-align: center;
+
+    max-width: 1100px;
+    margin: 0 250px;
+    padding: 5px;
+    margin-top: 100px;
+
+    display: flex;
+
+}
+
+.btneco{
+
+    font-family: 'Poppins', sans-serif;
+    border: 2px solid currentColor;
+    border-radius: 3rem;
+    color: #07401B;
+    font-size: 20px;
+    font-weight: 100;
+    overflow: hidden;
+    padding: 1rem 3rem;
+    position: relative;
+    text-decoration: none;
+    transition: .2s transform ease-in-out;
+    will-change: transform;
+    z-index: 0;
+
+}    
+
+.efeito::after{
+      background-color: #07401B;
+      border-radius: 3rem;
+      content: '';
+      display: block;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      transform: translate(-100%, 0) rotate(10deg);
+      transform-origin: top left;
+      transition: .2s transform ease-out;
+      will-change: transform;
+      z-index: -1;
+}
+      
+.efeito:hover::after{
+    transform: translate(0, 0);
+}
+     
+.efeito:hover{
+    text-decoration: none;
+    border: 2px solid transparent;
+    color: #D9D9D9;
+    transform: scale(1);
+    will-change: transform;
+}
+
+      
+
+  
