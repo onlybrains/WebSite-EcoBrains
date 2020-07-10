@@ -1,6 +1,137 @@
+/*AO ABRIR O SITE A ANIMAÇÃO DE TRAZER OS LINKS PARA CIMA */
+
+@-webkit-keyframes scale-up-center {
+    0% {
+      -webkit-transform: scale(0.5);
+              transform: scale(0.5);
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+  }
+  @keyframes scale-up-center {
+    0% {
+      -webkit-transform: scale(0.5);
+              transform: scale(0.5);
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+  }
+/*FIM DA ANIMAÇÃO*/
+/* MEXER O BOTÃO */
+@-webkit-keyframes swing
+{
+    15%
+    {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+    30%
+    {
+        -webkit-transform: translateX(-5px);
+       transform: translateX(-5px);
+    } 
+    50%
+    {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+    65%
+    {
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+    80%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+@keyframes swing
+{
+    15%
+    {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+    30%
+    {
+        -webkit-transform: translateX(-5px);
+        transform: translateX(-5px);
+    }
+    50%
+    {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+    65%
+    {
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+    80%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+/* FIM DA ANIMAÇÃO */
+/*NAVBAR ITEMS E TAMBÉM O BACKGROUND DO NAVBAR*/
+.marginItens{
+    margin-right: 20px;
+}
+
+.navbar-fundo{
+    background-color: #07401B;
+}
+
+.nav-link, .navbar-brand, .navbar-brand:hover{
+    color: white;
+}
+
+.nav-link:hover{
+    color: #D9D9D9; 
+    -webkit-animation: swing 1s ease;
+    animation: swing 1s ease;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;   
+}
+
+
+
+.dropdown-menu{
+    background-color: #07401B;
+}
+
+.dropdown-item {
+    background-color: #07401B;
+    color: white;
+}
+
+.dropdown-item:hover{
+    background-color: #d9d9d9;
+    color: #07401B;
+}
+
+/* FIM DO NAVBAR*/
 html{
     background-color: #D9D9D9;
 }
+
+
 /*titulo*/
 .text{
     color: #07401B;
@@ -13,7 +144,7 @@ html{
     max-width: 1100px;
     margin: 0 100px;
     padding: 5px;
-    margin-top: 150px;
+    margin-top: 90px;
   
     display: flex;
     flex-direction: column;
@@ -72,7 +203,7 @@ html{
 
 }    
 
-a::after{
+.efeito::after{
       background-color: #07401B;
       border-radius: 3rem;
       content: '';
@@ -89,11 +220,11 @@ a::after{
       z-index: -1;
 }
       
-a:hover::after{
+.efeito:hover::after{
     transform: translate(0, 0);
 }
      
-a:hover{
+.efeito:hover{
     text-decoration: none;
     border: 2px solid transparent;
     color: #D9D9D9;
@@ -101,6 +232,3 @@ a:hover{
     will-change: transform;
 }
 
-      
-
-  
