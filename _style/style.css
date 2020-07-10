@@ -105,7 +105,7 @@ html{
 
 }    
 
-a::after{
+.efeito::after{
       background-color: #07401B;
       border-radius: 3rem;
       content: '';
@@ -122,11 +122,11 @@ a::after{
       z-index: -1;
 }
       
-a:hover::after{
+.efeito:hover::after{
     transform: translate(0, 0);
 }
      
-a:hover{
+.efeito:hover{
     text-decoration: none;
     border: 2px solid transparent;
     color: #D9D9D9;
