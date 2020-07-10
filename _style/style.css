@@ -95,7 +95,7 @@
 }
 
 .navbar-fundo{
-    background-color: #07401B;
+    background-color:#07401B;
 }
 
 .nav-link, .navbar-brand, .navbar-brand:hover{
@@ -127,7 +127,7 @@
 }
 
 /* FIM DO NAVBAR*/
-html{
+html, .row, body {
     background-color: #D9D9D9;
 }
 
@@ -142,7 +142,7 @@ html{
     font-size: 30pt;
 
     max-width: 1100px;
-    margin: 0 100px;
+    margin-left: 700px;
     padding: 5px;
     margin-top: 90px;
   
@@ -159,7 +159,7 @@ html{
     text-align: justify;
 
     max-width: 1100px;
-    margin: 0 175px;
+    margin-left: 700px;
     padding: 5px;
   
     display: flex;
@@ -173,13 +173,13 @@ html{
 .button{    
  
     float: right;
-    
     text-align: center;
 
     max-width: 1100px;
-    margin: 0 250px;
+    margin-left: 850px;
     padding: 5px;
-    margin-top: 100px;
+    margin-top: 70px;
+    margin-bottom: 50px;
 
     display: flex;
 
