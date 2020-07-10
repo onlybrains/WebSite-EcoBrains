@@ -231,3 +231,14 @@ html{
     transform: scale(1);
     will-change: transform;
 }
+
+/*FOOOTER*/
+.footer {
+    position: static;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #07401B;
+    color: white;
+    text-align: center;
+}
