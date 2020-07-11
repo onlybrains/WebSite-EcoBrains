@@ -232,11 +232,6 @@ html, .row, body {
     will-change: transform;
 }
 
-/*FOOOTER*/
-.footer{
-    background-color: #07401B;
-}
-
 
 .cardsNossaEquipe{
     text-transform: uppercase;
@@ -293,4 +288,16 @@ html, .row, body {
     background-color: #07401B;
     height: 100%;
     width: 100%;
+}
+
+/*FOOOTER*/
+.footer{
+    background-color: #07401B;
+}
+.dv {
+    background-color: aqua;
+}
+
+.sv{
+    background-color: red;
 }
