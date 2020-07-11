@@ -233,14 +233,7 @@ html, .row, body {
 }
 
 /*FOOOTER*/
-
-.footer {
-    left: 0;
-    bottom: 0;
-    padding: 1px;
-    width: 100%;
+.footer{
     background-color: #07401B;
-    color: white;
-    text-align: center;
 }
 
