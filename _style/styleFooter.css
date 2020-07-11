@@ -1,0 +1,46 @@
+.footer{
+    background-color: #07401B;
+}
+
+.middle-footer{
+    background-color: #07401B;
+}
+
+.top-footer{
+    background-color: #07401B;
+}
+ 
+.copy{
+    color: #D9D9D9;
+}
+
+.footersRedesSociais{
+    color: #07401B;
+    background-color: #D9D9D9;
+    transition: 5;
+    padding: 20px;
+}
+
+.footersRedesSociais:hover{
+    background-color: #07401B;
+    color: #d9d9d9;
+} 
+
+.a-footer{
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    color:  white;
+    font-weight: 500;
+}
+.a-footer:hover{
+    color: #D9D9D9;
+}
+
+.p-footer{
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    font-size: 20px;
+}
+.line-footer{
+    background-color: #D9D9D9;
+}

@@ -1,0 +1,21 @@
+/*Title*/
+.text{
+    color: #07401B;
+
+    margin-top: 60px;
+    font-family: 'Poppins', sans-serif;
+    text-align: justify;
+    font-size: 30pt;
+
+}
+
+/*Parágrafo*/
+.text2{
+    color: #07401B;
+
+    font-family: 'Poppins', sans-serif;
+    text-align: justify;
+
+    padding: 5px;
+
+}
