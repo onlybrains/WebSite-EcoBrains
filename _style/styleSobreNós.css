@@ -1,0 +1,26 @@
+.ecobrainsNome{
+    color: #07401B;
+    text-transform: uppercase;
+    font-size: 40px;
+    margin-top: -40px;
+    font-family: 'Poppins', sans-serif;
+}
+ .nav-link-verde {
+    color: #07501B;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+  }
+ .nav-link-verde:hover {
+    background-color: #07501B;
+    color: white;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    border-radius: 40px;
+  }
+  
+  .nav-pills-verde .nav-link-verde.active,
+  .nav-pills-verde .show > .nav-link-verde {
+    color: #fff;
+    background-color: #07501B;
+  }
