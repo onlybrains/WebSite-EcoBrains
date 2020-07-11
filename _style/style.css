@@ -7,7 +7,7 @@
     --gray-color: #D9D9D9;
 }
 
-html, .row, body{
+html, body{
     background-color: var(--gray-color);
 }
 

@@ -2,26 +2,14 @@
     background-color: #07401B;
 }
 
-.middle-footer{
-    background-color: #07401B;
-}
-
-.top-footer{
-    background-color: #07401B;
-}
- 
-.copy{
-    color: #D9D9D9;
-}
-
-.footersRedesSociais{
+.footerRedesSociais{
     color: #07401B;
     background-color: #D9D9D9;
     transition: 5;
     padding: 20px;
 }
 
-.footersRedesSociais:hover{
+.footerRedesSociais:hover{
     background-color: #07401B;
     color: #d9d9d9;
 } 
@@ -32,6 +20,7 @@
     color:  white;
     font-weight: 500;
 }
+
 .a-footer:hover{
     color: #D9D9D9;
 }
@@ -41,6 +30,11 @@
     color: white;
     font-size: 20px;
 }
+
 .line-footer{
     background-color: #D9D9D9;
+}
+
+.copyright{
+    color: #D9D9D9;
 }
