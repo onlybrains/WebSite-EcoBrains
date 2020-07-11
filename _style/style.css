@@ -1,8 +1,16 @@
-html, .row, body {
-    background-color: #D9D9D9;
+/*Var Colors*/
+:root{
+    --darkgreen-color: #07401B;
+    --green-color: #17BF52;
+    --mattegreen: #3BBF69;
+    --whitegreen-color: #B0D9BE;
+    --gray-color: #D9D9D9;
+}
+
+html, .row, body{
+    background-color: var(--gray-color);
 }
 
 body{
     margin: 0;
 }
-
