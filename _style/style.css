@@ -8,7 +8,8 @@
 }
 
 html, body{
-    background-color: var(--gray-color);
+    background: rgb(217,217,217);
+    background: radial-gradient(circle, rgba(217,217,217,1) 84%, rgba(170,170,170,1) 100%);
 }
 
 body{

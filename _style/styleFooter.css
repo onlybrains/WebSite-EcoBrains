@@ -14,8 +14,7 @@
     align-items: center;
     justify-content: center;
     color: #07401B;
-    background: rgb(217,217,217);
-    background: radial-gradient(circle, rgba(217,217,217,1) 0%, rgba(182,182,182,1) 100%);
+    background-color: #d9d9dd;
     border-radius: 50%;
     transition: all 0.3s;
     font-size: 0.9rem;
