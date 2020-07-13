@@ -7,9 +7,9 @@
 }
  .nav-link-verde {
     color: #07501B;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    border-radius: 40px;
   }
  .nav-link-verde:hover {
     background-color: #07501B;
