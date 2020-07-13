@@ -4,7 +4,6 @@
     padding: 5px;
     margin-top: 70px;
     margin-bottom: 50px;
-    margin-right: 310px;
 }
 
 .btn-eco{
@@ -17,7 +16,6 @@
     font-weight: 100;
     overflow: hidden;
     padding: 1rem 3rem;
-    position: relative;
     text-decoration: none;
     transition: .2s transform ease-in-out;
     will-change: transform;
