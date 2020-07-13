@@ -1,5 +1,9 @@
 .footer{
-    background-color: #07401B;
+    background: #07401B;
+    background: -webkit-linear-gradient(left, #07401B, rgb(11, 112, 47));
+    background: -o-linear-gradient(left, #07401B, rgb(11, 112, 47));
+    background: -moz-linear-gradient(left, #07401B, rgb(11, 112, 47));
+    background: linear-gradient(left, #07401B, rgb(11, 112, 47));
 }
 
 .footerRedesSociais{
@@ -10,7 +14,8 @@
     align-items: center;
     justify-content: center;
     color: #07401B;
-    background-color: #D9D9D9;
+    background: rgb(217,217,217);
+    background: radial-gradient(circle, rgba(217,217,217,1) 0%, rgba(182,182,182,1) 100%);
     border-radius: 50%;
     transition: all 0.3s;
     font-size: 0.9rem;
@@ -19,6 +24,10 @@
 
 .footerRedesSociais:hover{
     background: #07401B;
+    background: -webkit-linear-gradient(left, #07401B, rgb(11, 112, 47));
+    background: -o-linear-gradient(left, #07401B, rgb(11, 112, 47));
+    background: -moz-linear-gradient(left, #07401B, rgb(11, 112, 47));
+    background: linear-gradient(left, #07401B, rgb(11, 112, 47));
     text-decoration: none;
     color: #d9d9d9;
 } 

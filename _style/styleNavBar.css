@@ -99,7 +99,11 @@
 }
 
 .navbar-fundo{
-    background-color:#07401B;
+    background: #07401B;
+    background: -webkit-linear-gradient(left, #07401B, rgb(11, 112, 47));
+    background: -o-linear-gradient(left, #07401B, rgb(11, 112, 47));
+    background: -moz-linear-gradient(left, #07401B, rgb(11, 112, 47));
+    background: linear-gradient(left, #07401B, rgb(11, 112, 47));
 }
 
 .nav-link, .navbar-brand, .navbar-brand:hover{
@@ -115,15 +119,20 @@
 }
 
 .dropdown-menu{
-    background-color: #07401B;
+    background: #07401B;
+    background: -webkit-linear-gradient(left, #07401B, rgb(11, 112, 47));
+    background: -o-linear-gradient(left, #07401B, rgb(11, 112, 47));
+    background: -moz-linear-gradient(left, #07401B, rgb(11, 112, 47));
+    background: linear-gradient(left, #07401B, rgb(11, 112, 47));
 }
 
 .dropdown-item {
-    background-color: #07401B;
+    background-color: transparent;
     color: white;
 }
 
 .dropdown-item:hover{
-    background-color: #d9d9d9;
+    background: rgb(217,217,217);
+    background: radial-gradient(circle, rgba(217,217,217,1) 0%, rgba(182,182,182,1) 100%);
     color: #07401B;
 }

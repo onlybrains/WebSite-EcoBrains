@@ -290,7 +290,7 @@
   .login100-form-btn {
     font-family: 'Poppins', sans-serif;
     font-size: 15px;
-    color: #fff;
+    color: #07401B;
     line-height: 1.2;
     text-transform: uppercase;
   
@@ -307,7 +307,8 @@
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
     overflow: hidden;
-    background: #111111;
+    background: rgb(217,217,217);
+    background: radial-gradient(circle, rgba(217,217,217,1) 0%, rgba(182,182,182,1) 100%);
   
     -webkit-transition: all 0.4s;
     -o-transition: all 0.4s;
@@ -325,9 +326,11 @@
     width: 100%;
     height: 100%;
     opacity: 0;
-  
-    background: rgb(23,191,82);
-    background: radial-gradient(circle, rgba(23,191,82,1) 0%, rgba(59,191,105,1) 100%);
+    
+
+    background: rgb(217,217,217);
+    background: radial-gradient(circle, rgba(217,217,217,1) 0%, rgba(98,98,98,1) 100%);
+ 
   
     -webkit-transition: all 0.4s;
     -o-transition: all 0.4s;
@@ -340,6 +343,7 @@
   }
   .login100-form-btn:hover:before {
     opacity: 1;
+    color: white;
   }
   
   
