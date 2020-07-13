@@ -61,7 +61,8 @@
 
 .historia{
     font-family: 'Poppins', sans-serif;
-    background-color: var(--gray-color);
+    background: rgb(217,217,217);
+    background: radial-gradient(circle, rgba(217,217,217,1) 0%, rgba(182,182,182,1) 100%);
     color: #07401B;
     border: 2px solid currentColor;
     border-radius: 3rem;
