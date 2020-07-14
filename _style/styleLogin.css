@@ -180,6 +180,27 @@
     text-transform: uppercase;
     text-align: center;
   }
+
+  .login100-form-container{
+    width: 24.8rem;
+    margin: auto;
+  }
+
+  .login100-form-container #logo{
+    width: 6.25rem;
+  }
+
+  .login100-form-container #name{
+    width: 17.5rem;
+  }
+
+  .login100-form-sub-img{
+    margin-top: -25px;
+    margin-right: 8px;
+    text-align: right;
+    font-style: italic;
+    font-size: 1rem;
+  }
   
   
   
