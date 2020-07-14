@@ -11,16 +11,9 @@
     -moz-border-radius: 40px;
     border-radius: 40px;
   }
+  
  .nav-link-verde:hover {
-  background: #07401B;
-  background: -webkit-linear-gradient(left, #07401B, rgb(11, 112, 47));
-  background: -o-linear-gradient(left, #07401B, rgb(11, 112, 47));
-  background: -moz-linear-gradient(left, #07401B, rgb(11, 112, 47));
-  background: linear-gradient(left, #07401B, rgb(11, 112, 47));
-    color: white;
-    -webkit-border-radius: 40px;
-    -moz-border-radius: 40px;
-    border-radius: 40px;
+    color: #07501B;
   }
   
   .nav-pills-verde .nav-link-verde.active,

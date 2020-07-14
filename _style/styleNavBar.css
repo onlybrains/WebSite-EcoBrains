@@ -119,11 +119,7 @@
 }
 
 .dropdown-menu{
-    background: #07401B;
-    background: -webkit-linear-gradient(left, #07401B, rgb(11, 112, 47));
-    background: -o-linear-gradient(left, #07401B, rgb(11, 112, 47));
-    background: -moz-linear-gradient(left, #07401B, rgb(11, 112, 47));
-    background: linear-gradient(left, #07401B, rgb(11, 112, 47));
+    background-color: rgb(11, 112, 47);
 }
 
 .dropdown-item {
