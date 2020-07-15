@@ -136,3 +136,12 @@
 .icon-hambuger{
     background-image:url(../_imgs/icon-toggler.jpg);
 }
+
+.navbar-brand #logo-nav{
+    width: 3rem;
+    margin-right: 5px;
+}
+
+.navbar-brand #name-nav{
+    width: 10rem;
+}
