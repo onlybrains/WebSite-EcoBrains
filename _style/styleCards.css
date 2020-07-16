@@ -98,6 +98,7 @@
     background-size: cover;
     background-position: center;
     border-color: inherit;
+    background-image: url(../_imgs/imgo.jpg);
   }
   
   .card-custom-img::after {
@@ -153,4 +154,8 @@
     margin-top: 40px;
     color: #07401B;
     font-family: 'Poppins', sans-serif;
+}
+
+.card1{
+    height: 450px;
 }
