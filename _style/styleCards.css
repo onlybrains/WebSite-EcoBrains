@@ -88,6 +88,7 @@
 .card-custom {
     overflow: hidden;
     min-height: 450px;
+    height: 450px;
     box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
   }
   
@@ -156,6 +157,6 @@
     font-family: 'Poppins', sans-serif;
 }
 
-.card1{
-    height: 450px;
+.card-footer {
+    background: inherit; border-color: inherit;
 }
