@@ -99,7 +99,7 @@
     background-size: cover;
     background-position: center;
     border-color: inherit;
-    background-image: url(../_imgs/imgo.jpg);
+    background-image: url(../imgs/imgo.jpg);
   }
   
   .card-custom-img::after {
