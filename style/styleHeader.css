@@ -11,5 +11,26 @@
     color: #07401B;
     font-family: 'Poppins', sans-serif;
     padding: 5px;
+    justify-content: center;
 
+}
+
+.text3{
+    color: #07401B;
+    font-family: 'Poppins', sans-serif;
+    padding: 5px;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.text4{
+    color: #07401B;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.text4:hover{
+    color: rgb(9, 82, 35);
+    justify-content: center;
+    font-weight: bold;
 }
