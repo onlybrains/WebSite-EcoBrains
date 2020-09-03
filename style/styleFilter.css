@@ -1,0 +1,152 @@
+/* MEXER O BOTÃO */
+@-webkit-keyframes swing
+{
+    15%
+    {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+    30%
+    {
+        -webkit-transform: translateX(-5px);
+       transform: translateX(-5px);
+    } 
+    50%
+    {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+    65%
+    {
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+    80%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+@keyframes swing
+{
+    15%
+    {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+    30%
+    {
+        -webkit-transform: translateX(-5px);
+        transform: translateX(-5px);
+    }
+    50%
+    {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+    65%
+    {
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+    80%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+/* FIM DA ANIMAÇÃO */
+
+.filterContainer{
+    background: #07401B;
+    background: -webkit-linear-gradient(left, #07401B, rgb(11, 112, 47));
+    background: -o-linear-gradient(left, #07401B, rgb(11, 112, 47));
+    background: -moz-linear-gradient(left, #07401B, rgb(11, 112, 47));
+    background: linear-gradient(left, #07401B, rgb(11, 112, 47));
+}
+
+.ecobrainsTitle2{
+    color: white;
+    text-transform: uppercase;
+    font-size: 40px;
+    margin-top: -40px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.ecobrainsParagraph{
+    color: white;
+    font-size: 18px;
+    text-align: justify;
+}
+
+.ecobrainshref{
+    color: #B0D9BE;
+    font-size: 18px;
+    text-align: justify;
+    font-weight: bold;
+}
+
+.ecobrainshref:hover, .fa-recycle:hover{
+    color: #17BF52;
+    font-size: 18px;
+    text-align: justify;
+    font-weight: bold;
+}
+
+.ecobrainsParagraphBold{
+    font-weight: bold;
+    color: white;
+    font-size: 18px;
+    text-align: justify;
+}
+
+.ecobrainsGreen{
+    color: #07401B;
+    font-size: 18px;
+}
+
+.fa-recycle{
+    color: #B0D9BE;
+}
+
+.line-footer-green{
+    background-color: #07401B;
+}
+
+.filters > select {
+    border-radius: 5%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    color: #07401B;
+    background-color: transparent;
+    border-bottom: 3px  solid #07401B;
+    border-left-style: none;
+    border-right-style: none;
+    border-top-style: none;
+}
+
+/*
+button{
+    border-radius: 10%;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    background-color: #07401B;
+    color: white;
+    border: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}*/
