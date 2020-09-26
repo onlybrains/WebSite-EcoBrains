@@ -1,0 +1,27 @@
+.ecobrainsNome {
+  color: #07401b;
+  text-transform: uppercase;
+  font-size: 40px;
+  margin-top: -40px;
+  font-family: "Poppins", sans-serif;
+}
+.nav-link-verde {
+  color: #07501b;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  border-radius: 40px;
+}
+
+.nav-link-verde:hover {
+  color: #07501b;
+}
+
+.nav-pills-verde .nav-link-verde.active,
+.nav-pills-verde .show > .nav-link-verde {
+  color: #fff;
+  background: #07401b;
+  background: -webkit-linear-gradient(left, #07401b, rgb(11, 112, 47));
+  background: -o-linear-gradient(left, #07401b, rgb(11, 112, 47));
+  background: -moz-linear-gradient(left, #07401b, rgb(11, 112, 47));
+  background: linear-gradient(left, #07401b, rgb(11, 112, 47));
+}
