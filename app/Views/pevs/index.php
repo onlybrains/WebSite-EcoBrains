@@ -8,15 +8,11 @@ $this->extend('layout/index')
 
 <?= $view->render('layout/navbar'); ?>
 
-<?= $view->render('home/header'); ?>
+<?= $view->render('pevs/header'); ?>
 
-<?= $view->render('home/empresas'); ?>
+<?= $view->render('pevs/pevs'); ?>
 
-<?= $view->render('home/quemSomos'); ?>
-
-<?= $view->render('home/team'); ?>
-
-<?= $view->render('home/planos'); ?>
+<?= $view->render('pevs/horarios'); ?>
 
 <?= $view->render('layout/footer'); ?>
 

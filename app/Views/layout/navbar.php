@@ -22,7 +22,7 @@
           <a class="nav-link nav-tamanho" href=<?= base_url('/sobre') ?>>Sobre nós</a>
         </li>
         <li class="nav-item marginItens">
-          <a class="nav-link nav-tamanho" href=<?= base_url('/') ?>>PEV's</a>
+          <a class="nav-link nav-tamanho" href=<?= base_url('/pevs') ?>>PEV's</a>
         </li>
         <li class="nav-item marginItens">
           <a class="nav-link nav-tamanho" href=<?= base_url('/') ?>>Planos</a>
