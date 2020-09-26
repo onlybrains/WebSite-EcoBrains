@@ -13,8 +13,8 @@
 
 
     <!-- CSS Styles -->
-    <?= link_tag('css/styles.css'); ?>
-    <?= link_tag('css/styleNavBar.css'); ?>
+    <?= link_tag(base_url('css/styles.css')); ?>
+    <?= link_tag(base_url('css/styleNavBar.css')); ?>
     <?= link_tag('css/styleHeader.css'); ?>
     <?= link_tag('css/styleButtons.css'); ?>
     <?= link_tag('css/styleCarousel.css'); ?>
