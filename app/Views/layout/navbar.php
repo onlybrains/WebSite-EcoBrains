@@ -25,7 +25,7 @@
           <a class="nav-link nav-tamanho" href=<?= base_url('/pevs') ?>>PEV's</a>
         </li>
         <li class="nav-item marginItens">
-          <a class="nav-link nav-tamanho" href=<?= base_url('/') ?>>Planos</a>
+          <a class="nav-link nav-tamanho" href=<?= base_url('/planos') ?>>Planos</a>
         </li>
         <li class="nav-item marginItens">
           <a class="nav-link nav-tamanho" href=<?= base_url('/') ?>>Login</a>

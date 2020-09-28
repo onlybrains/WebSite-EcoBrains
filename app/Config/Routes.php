@@ -34,6 +34,8 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('/sobre', 'Home::sobre');
 $routes->get('/pevs', 'Home::pevs');
+$routes->get('/planos', 'Home::planos');
+
 
 /**
  * --------------------------------------------------------------------

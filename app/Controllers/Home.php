@@ -18,4 +18,9 @@ class Home extends BaseController
 	{
 		return view('pevs/index');
 	}
+
+	public function planos()
+	{
+		return view('planos/index');
+	}	
 }
