@@ -1,0 +1,169 @@
+.cardsNossaEquipe {
+  text-transform: uppercase;
+  font-size: 30px;
+  margin-top: -40px;
+  color: #d9d9d9;
+  font-family: "Poppins", sans-serif;
+}
+
+.social-link {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  border-radius: 50%;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+}
+
+.social-link:hover,
+.social-link:focus {
+  background: #ddd;
+  text-decoration: none;
+  color: #555;
+}
+
+.cardsCentro {
+  margin: 0 auto;
+  margin-top: 15px;
+  margin-bottom: -10px;
+}
+
+.cardsColor {
+  background: rgb(217, 217, 217);
+  background: radial-gradient(
+    circle,
+    rgba(217, 217, 217, 1) 0%,
+    rgba(182, 182, 182, 1) 100%
+  );
+  color: #07401b;
+}
+
+.cardsCirculo {
+  background: #07401b;
+  background: -webkit-linear-gradient(left, #07401b, rgb(11, 112, 47));
+  background: -o-linear-gradient(left, #07401b, rgb(11, 112, 47));
+  background: -moz-linear-gradient(left, #07401b, rgb(11, 112, 47));
+  background: linear-gradient(left, #07401b, rgb(11, 112, 47));
+}
+
+.cardsRedesSociais {
+  color: #07401b;
+  background: rgb(217, 217, 217);
+  background: radial-gradient(
+    circle,
+    rgba(217, 217, 217, 1) 0%,
+    rgba(182, 182, 182, 1) 100%
+  );
+  border-color: #07401b;
+  transition: 5;
+}
+
+.cardsRedesSociais:hover {
+  background: #07401b;
+  background: -webkit-linear-gradient(left, #07401b, rgb(11, 112, 47));
+  background: -o-linear-gradient(left, #07401b, rgb(11, 112, 47));
+  background: -moz-linear-gradient(left, #07401b, rgb(11, 112, 47));
+  background: linear-gradient(left, #07401b, rgb(11, 112, 47));
+  color: #d9d9d9;
+}
+
+.cards {
+  background: #07401b;
+  background: -webkit-linear-gradient(left, #07401b, rgb(11, 112, 47));
+  background: -o-linear-gradient(left, #07401b, rgb(11, 112, 47));
+  background: -moz-linear-gradient(left, #07401b, rgb(11, 112, 47));
+  background: linear-gradient(left, #07401b, rgb(11, 112, 47));
+  height: 100%;
+  width: 100%;
+}
+
+.cor_Verdes {
+  color: #07401b;
+}
+
+.cor_Verde_Bold,
+.cor_Verde_Bold:hover {
+  color: #07401b;
+  font-weight: bold;
+}
+
+.card-custom {
+  overflow: hidden;
+  min-height: 450px;
+  height: 450px;
+  box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
+}
+
+.card-custom-img {
+  height: 200px;
+  min-height: 200px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-color: inherit;
+  background-image: url(../imgs/imgo.jpg);
+}
+
+.card-custom-img::after {
+  position: absolute;
+  content: "";
+  top: 161px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-top-width: 40px;
+  border-right-width: 0;
+  border-bottom-width: 0;
+  border-left-width: 545px;
+  border-left-width: calc(575px - 5vw);
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: inherit;
+}
+
+.card-custom-avatar img {
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
+  position: absolute;
+  top: 100px;
+  left: 1.25rem;
+  width: 100px;
+  height: 100px;
+}
+
+.cardsPremiumBotão {
+  background: #07401b;
+  background: -webkit-linear-gradient(left, #07401b, rgb(11, 112, 47));
+  background: -o-linear-gradient(left, #07401b, rgb(11, 112, 47));
+  background: -moz-linear-gradient(left, #07401b, rgb(11, 112, 47));
+  background: linear-gradient(left, #07401b, rgb(11, 112, 47));
+  color: #d9d9d9;
+}
+
+.cardsPremiumBotão:hover {
+  color: rgb(255, 255, 255);
+  -webkit-animation: swing 1s ease;
+  animation: swing 1s ease;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+
+.sejaPremiumTexto {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 30px;
+  margin-top: 40px;
+  color: #07401b;
+  font-family: "Poppins", sans-serif;
+}
+
+.card-footer {
+  background: inherit;
+  border-color: inherit;
+}

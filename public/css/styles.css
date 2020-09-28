@@ -1,0 +1,13 @@
+/*Var Colors*/
+:root {
+  --darkgreen-color: #07401b;
+  --green-color: #17bf52;
+  --mattegreen: #3bbf69;
+  --whitegreen-color: #b0d9be;
+  --gray-color: #d9d9d9;
+}
+
+html,
+body {
+  background-color: var(--gray-color);
+}

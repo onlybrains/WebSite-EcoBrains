@@ -1,0 +1,118 @@
+/*AO ABRIR O SITE A ANIMAÇÃO DE TRAZER OS LINKS PARA CIMA */
+
+@-webkit-keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+/*FIM DA ANIMAÇÃO*/
+/* MEXER O BOTÃO */
+@-webkit-keyframes swing {
+  15% {
+    -webkit-transform: translateX(5px);
+    transform: translateX(5px);
+  }
+  30% {
+    -webkit-transform: translateX(-5px);
+    transform: translateX(-5px);
+  }
+  50% {
+    -webkit-transform: translateX(3px);
+    transform: translateX(3px);
+  }
+  65% {
+    -webkit-transform: translateX(-3px);
+    transform: translateX(-3px);
+  }
+  80% {
+    -webkit-transform: translateX(2px);
+    transform: translateX(2px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+@keyframes swing {
+  15% {
+    -webkit-transform: translateX(5px);
+    transform: translateX(5px);
+  }
+  30% {
+    -webkit-transform: translateX(-5px);
+    transform: translateX(-5px);
+  }
+  50% {
+    -webkit-transform: translateX(3px);
+    transform: translateX(3px);
+  }
+  65% {
+    -webkit-transform: translateX(-3px);
+    transform: translateX(-3px);
+  }
+  80% {
+    -webkit-transform: translateX(2px);
+    transform: translateX(2px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+/* FIM DA ANIMAÇÃO */
+/*NAVBAR ITEMS E TAMBÉM O BACKGROUND DO NAVBAR*/
+.marginItens {
+  margin-right: 20px;
+}
+
+.nav-tamanho {
+  font-size: 20px;
+}
+
+.navbar-fundo {
+  background: #07401b;
+  background: -webkit-linear-gradient(left, #07401b, rgb(11, 112, 47));
+  background: -o-linear-gradient(left, #07401b, rgb(11, 112, 47));
+  background: -moz-linear-gradient(left, #07401b, rgb(11, 112, 47));
+  background: linear-gradient(left, #07401b, rgb(11, 112, 47));
+}
+
+.nav-link,
+.navbar-brand,
+.navbar-brand:hover {
+  color: white;
+}
+
+.nav-link:hover {
+  color: #d9d9d9;
+  -webkit-animation: swing 1s ease;
+  animation: swing 1s ease;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+.icon-hambuger {
+  background-image: url(../imgs/icon-toggler.jpg);
+}
+
+.navbar-brand #logo-nav {
+  width: 3rem;
+}
+
+.navbar-brand #name-nav {
+  width: 10rem;
+}
