@@ -28,8 +28,14 @@ class Home extends BaseController
 	{
 		return view('empresas/index');
 	}
+  
 	public function cooperativas()
 	{
 		return view('cooperativas/index');
 	}	
+
+	public function signUp()
+	{
+		return view('sign-up/index');
+	}
 }
