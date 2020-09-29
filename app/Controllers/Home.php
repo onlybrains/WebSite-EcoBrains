@@ -23,4 +23,9 @@ class Home extends BaseController
 	{
 		return view('planos/index');
 	}	
+
+	public function empresas()
+	{
+		return view('empresas/index');
+	}
 }
