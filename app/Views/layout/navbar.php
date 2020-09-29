@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<nav class="fixed-top navbar navbar-expand-lg navbar-fundo">
+<nav class="sticky-top navbar navbar-expand-lg navbar-fundo">
 
   <div class="container-fluid mx-5">
 
@@ -31,7 +31,7 @@
           <a class="nav-link nav-tamanho" href=<?= base_url('/') ?>>Login</a>
         </li>
         <li class="nav-item marginItens">
-          <a class="nav-link nav-tamanho" href=<?= base_url('/') ?>>Cadastre-se</a>
+          <a class="nav-link nav-tamanho" href=<?= base_url('/sign-up') ?>>Cadastre-se</a>
         </li>
       </ul>
 

@@ -1,4 +1,4 @@
-<div class="container-fluid pt-5 mt-4">
+<div class="container-fluid">
   <div class="row my-2">
 
     <div class="col-lg-6 d-none d-lg-block ">

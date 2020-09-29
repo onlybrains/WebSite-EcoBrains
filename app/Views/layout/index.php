@@ -24,6 +24,7 @@
     <?= link_tag('css/styleJumbotronSobreNos.css'); ?>
     <?= link_tag('css/styleFilter.css'); ?>
     <?= link_tag('css/styleFooter.css'); ?>
+    <?= link_tag('css/styleSignUp.css'); ?>
 
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">

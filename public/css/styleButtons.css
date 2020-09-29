@@ -1,11 +1,9 @@
 /*Button "Faça parte dessa revolução ecológica!"*/
 .btn-eco {
-  font-family: "Poppins", sans-serif;
   border: 2px solid currentColor;
   border-radius: 3rem;
   color: #07401b;
   font-size: 20px;
-  font-weight: 100;
   overflow: hidden;
   padding: 1rem 3rem;
   text-decoration: none;
@@ -50,7 +48,7 @@
 /*Button "Conheça nossa história!"*/
 
 .historia {
-  font-family: "Poppins", sans-serif;
+  
   background: rgb(217, 217, 217);
   background: radial-gradient(
     circle,
