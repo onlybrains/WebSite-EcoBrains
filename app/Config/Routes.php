@@ -39,6 +39,8 @@ $routes->get('/empresas', 'Home::empresas');
 $routes->get('/cooperativas', 'Home::cooperativas');
 $routes->get('/sign-up', 'Home::signUp');
 $routes->get('/perfil', 'Home::viewEmpresas');
+$routes->get('/abrirtopico', 'Home::abrirTopico');
+$routes->get('/editartopico', 'Home::editarTopico');
 
 /**
  * --------------------------------------------------------------------

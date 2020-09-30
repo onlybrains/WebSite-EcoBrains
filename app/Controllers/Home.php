@@ -43,4 +43,13 @@ class Home extends BaseController
 	{
 		return view('view-empresas/index');
 	}
+
+	public function abrirTopico()
+	{
+		return view('abrir-topico/index');
+	}
+
+	public function editarTopico(){
+		return view('editar-topico/index.php');
+	}
 }
