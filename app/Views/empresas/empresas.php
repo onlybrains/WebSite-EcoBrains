@@ -3,33 +3,7 @@
     <div class="col-lg-12 col-md-12">
       <h1 class="welcome ml-5 mr-3 mt-3 pt-5">Bem-vindo, $empresa</h1>
     </div>
-    <div class="col-lg-12 col-md-12">
-      <p class="subtitles-coop ml-5 mr-3 mt-3 pt-2">Pesquisar Cooperativas:</p>
-    </div>
   </div>
-  <form>
-    <div class="row my-2 ml-5 mr-5">
-      <div class="input-group">
-        <div class="col-md-3">
-          <input type="text" aria-label="First name" class="form-control p-5">
-        </div>
-        <div class="col-md-3">
-          <input type="text" aria-label="Last name" class="form-control p-5">
-        </div>
-        <div class="col-md-3">
-          <input type="text" aria-label="Last name" class="form-control p-5">
-        </div>
-        <div class="col-md-3">
-          <div class="input-group-append">
-            <button class="btn btn-outline-secondary p-4" type="button">Button</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </form>
-
-
-
   <hr />
 
 
