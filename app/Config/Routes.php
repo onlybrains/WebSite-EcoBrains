@@ -38,6 +38,7 @@ $routes->get('/planos', 'Home::planos');
 $routes->get('/empresas', 'Home::empresas');
 $routes->get('/cooperativas', 'Home::cooperativas');
 $routes->get('/sign-up', 'Home::signUp');
+$routes->get('/perfil', 'Home::viewEmpresas');
 
 /**
  * --------------------------------------------------------------------

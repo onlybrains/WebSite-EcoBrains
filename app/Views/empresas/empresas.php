@@ -1,4 +1,4 @@
-<div class="container-fluid pt-5">
+<div class="container-fluid">
   <div class="row my-2">
     <div class="col-lg-12 col-md-12">
       <h1 class="welcome ml-5 mr-3 mt-3 pt-5">Bem-vindo, $empresa</h1>

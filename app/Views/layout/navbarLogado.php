@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<nav class="fixed-top navbar navbar-expand-lg navbar-fundo">
+<nav class="sticky-top navbar navbar-expand-lg navbar-fundo">
 
   <div class="container-fluid mx-5">
 
