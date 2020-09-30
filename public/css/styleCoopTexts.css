@@ -37,13 +37,5 @@
 
 .topic-button{
   background: linear-gradient(180deg, #0B702F 54.87%, #07401B 100%);
-border-radius: 5px;
-}
-
-#search-teachers{
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  position: absolute;
-  bottom: -28px;
+  border-radius: 5px;
 }
