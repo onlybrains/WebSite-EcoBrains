@@ -44,13 +44,13 @@ class TbDesc extends Migration
 
 		$this->forge->addPrimaryKey('id_desc');
 
-		$this->forge->createTable('id_desc');
+		$this->forge->createTable('tb_desc');
 	}
 
 	//--------------------------------------------------------------------
 
 	public function down()
 	{
-		$this->forge->dropTable('id_desc');
+		$this->forge->dropTable('tb_desc');
 	}
 }
