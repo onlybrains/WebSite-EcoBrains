@@ -24,6 +24,8 @@
     <?= link_tag('css/styleJumbotronSobreNos.css'); ?>
     <?= link_tag('css/styleFilter.css'); ?>
     <?= link_tag('css/styleFooter.css'); ?>
+    <?= link_tag('css/styleDropdown.css'); ?>
+    <?= link_tag('css/styleCoopTexts.css'); ?>
     <?= link_tag('css/styleSignUp.css'); ?>
 
     <!-- Font -->
@@ -35,7 +37,19 @@
 </head>
 
 <body>
-
+    <!-- VLibras -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+    <!-- End VLibras -->
+    
     <?= $this->renderSection('content') ?>
 
     <!-- JavaScript (Opcional) -->

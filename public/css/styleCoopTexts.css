@@ -1,0 +1,41 @@
+.welcome{
+  color: black;
+  font-size: 36px;
+  font-weight: 500;
+}
+
+.subtitles-coop{
+  color: black;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.topic-title{
+  color: black;
+  font-size: 30px;
+  line-height: 45px;
+}
+
+.topic-desc{
+  color: black;
+  font-size: 18px;
+  line-height: 27px;
+}
+
+.card{
+  margin-left: 45px;
+  margin-right: 45px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+}
+
+.card-body{
+  padding: 8px;
+  padding-right: 15px;
+  padding-bottom: 1px;
+}
+
+.topic-button{
+  background: linear-gradient(180deg, #0B702F 54.87%, #07401B 100%);
+border-radius: 5px;
+}
