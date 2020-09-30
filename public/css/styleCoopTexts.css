@@ -22,11 +22,12 @@
   line-height: 27px;
 }
 
-.card{
+.card-coop{
   margin-left: 45px;
   margin-right: 45px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 12px;
+  background-color: white;
 }
 
 .card-body{
@@ -37,5 +38,5 @@
 
 .topic-button{
   background: linear-gradient(180deg, #0B702F 54.87%, #07401B 100%);
-border-radius: 5px;
+  border-radius: 5px;
 }

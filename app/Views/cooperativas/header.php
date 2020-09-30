@@ -10,7 +10,7 @@
   <!-- Topics that the Coop. are offering their services (START) -->
   <div class="row my-2">
     <div class="col-lg-12 col-md-12 pb-3">
-      <div class="card">
+      <div class="card-coop">
         <div class="card-body">
           <a href="#" class="topic-button p-2 mt-4 float-right"><img src="imgs/topics-vector.png" width="37" height="25"> </a>
           <div class="row">
@@ -35,7 +35,7 @@
   <!-- Topics that the Coop. maybe have interest to participate (START) -->
   <div class="row my-2">
     <div class="col-lg-12 col-md-12 pb-3">
-      <div class="card">
+      <div class="card-coop">
         <div class="card-body">
           <a href="#" class="topic-button p-2 mt-4 float-right"><img src="imgs/topics-vector.png" width="37" height="25"> </a>
           <div class="row">
