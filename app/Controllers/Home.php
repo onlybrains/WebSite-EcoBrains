@@ -24,8 +24,21 @@ class Home extends BaseController
 		return view('planos/index');
 	}	
 
+<<<<<<< Updated upstream
+=======
+	public function empresas()
+	{
+		return view('empresas/index');
+	}
+
+>>>>>>> Stashed changes
 	public function cooperativas()
 	{
 		return view('cooperativas/index');
+	}	
+
+	public function pesquisartopicos()
+	{
+		return view('pesquisartopicos/index');
 	}	
 }
