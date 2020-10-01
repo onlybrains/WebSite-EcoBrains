@@ -8,11 +8,6 @@ class UserController extends BaseController
 {
   public function index()
   {
-    return 'UserController';
-  }
-
-  public function signUp()
-  {
     $data = [];
 
     if ($this->request->getMethod() == 'post') {
@@ -70,6 +65,9 @@ class UserController extends BaseController
 
         if ($UserModel->insert($insertData)) {
           $data['msg'] = 'Dados cadastrado com sucesso!';
+          $session = \Config\Services::session();
+          $session->setFlashdata('success', 'step-1');
+          return redirect()->to('sign-up/dados');
         } else {
           $data['msg'] = 'Dados não cadastrados!';
         }
@@ -78,5 +76,12 @@ class UserController extends BaseController
 
 
     return view('sign-up/index', $data);
+  }
+
+  public function dados()
+  {
+    $data = [];
+
+    return view('sign-up/step', $data);
   }
 }
