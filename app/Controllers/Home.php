@@ -22,20 +22,15 @@ class Home extends BaseController
 	public function planos()
 	{
 		return view('planos/index');
-	}	
+	}
 
 	public function empresas()
 	{
 		return view('empresas/index');
 	}
-  
+
 	public function cooperativas()
 	{
 		return view('cooperativas/index');
-	}	
-
-	public function signUp()
-	{
-		return view('sign-up/index');
 	}
 }
