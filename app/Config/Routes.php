@@ -37,7 +37,7 @@ $routes->get('/pevs', 'Home::pevs');
 $routes->get('/planos', 'Home::planos');
 $routes->get('/cooperativas', 'Home::cooperativas');
 $routes->get('/pesquisartopicos', 'Home::pesquisartopicos');
-
+$routes->get('/pesquisarempresas', 'Home::pesquisarempresas');
 
 /**
  * --------------------------------------------------------------------

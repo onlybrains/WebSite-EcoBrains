@@ -38,4 +38,9 @@ class Home extends BaseController
 	{
 		return view('pesquisartopicos/index');
 	}	
+
+	public function pesquisarempresas()
+	{
+		return view('pesquisarempresas/index');
+	}	
 }
