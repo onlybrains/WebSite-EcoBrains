@@ -41,6 +41,7 @@ $routes->get('/pesquisartopicos', 'Home::pesquisartopicos');
 $routes->get('/pesquisarempresas', 'Home::pesquisarempresas');
 $routes->get('/sign-up', 'Home::signUp');
 $routes->get('/perfil', 'Home::viewEmpresas');
+$routes->get('/editarperfil', 'Home::editarPerfil');
 $routes->get('/abrirtopico', 'Home::abrirTopico');
 $routes->get('/editartopico', 'Home::editarTopico');
 $routes->get('/pesquisa', 'Home::pesquisa');
