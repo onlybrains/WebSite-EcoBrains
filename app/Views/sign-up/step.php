@@ -30,6 +30,17 @@ $this->extend('layout/index')
   });
 
 
+  $("#inputTel").keydown(function() {
+
+    $('#inputTel').mask('(00) 0000-0000');
+
+  });
+
+  $("#inputWhats").keydown(function() {
+
+    $('#inputWhats').mask('(00) 00000-0000');
+
+  });
 
 
   $("#inputCEP").focusout(async function() {

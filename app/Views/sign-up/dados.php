@@ -61,6 +61,16 @@
           <label for="inputEnd"><b>Endereço</b></label>
           <input type="text" class="form-control border-0 bg-transparent" name="inputEnd" id="inputEnd" readonly>
         </div>
+        <div class="form-row">
+          <div class="form-group col-md-6 border-right border-bottom p-2 pl-5 m-0">
+            <label for="inputTel"><b>Telefone</b></label>
+            <input type="text" class="form-control border-0 bg-transparent" name="inputTel" id="inputTel">
+          </div>
+          <div class="form-group col-md-6 border-bottom p-2 pl-5 m-0">
+            <label for="inputWhats"><b>WhatsApp</b></label>
+            <input type="text" class="form-control border-0 bg-transparent" name="inputWhats" id="inputWhats">
+          </div>
+        </div>
         <div class="d-flex">
           <button type="submit" class="btn btn-green flex-fill p-3"><b>Confirmar</b></button>
         </div>
