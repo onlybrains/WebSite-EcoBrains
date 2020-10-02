@@ -52,4 +52,9 @@ class Home extends BaseController
 	public function editarTopico(){
 		return view('editar-topico/index.php');
 	}
+
+	public function pesquisa()
+	{
+		return view('pesquisa/index.php');
+	}
 }
