@@ -37,6 +37,8 @@ $routes->get('/pevs', 'Home::pevs');
 $routes->get('/planos', 'Home::planos');
 $routes->get('/empresas', 'Home::empresas');
 $routes->get('/cooperativas', 'Home::cooperativas');
+$routes->get('/pesquisartopicos', 'Home::pesquisartopicos');
+$routes->get('/pesquisarempresas', 'Home::pesquisarempresas');
 $routes->get('/sign-up', 'Home::signUp');
 $routes->get('/perfil', 'Home::viewEmpresas');
 $routes->get('/abrirtopico', 'Home::abrirTopico');

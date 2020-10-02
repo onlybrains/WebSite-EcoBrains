@@ -26,7 +26,9 @@
     <?= link_tag('css/styleFooter.css'); ?>
     <?= link_tag('css/styleDropdown.css'); ?>
     <?= link_tag('css/styleCoopTexts.css'); ?>
+    <?= link_tag('css/styleFilters.css'); ?>
     <?= link_tag('css/styleSignUp.css'); ?>
+
 
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">

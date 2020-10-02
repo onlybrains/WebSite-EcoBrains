@@ -23,7 +23,7 @@ class Home extends BaseController
 	{
 		return view('planos/index');
 	}	
-
+		
 	public function empresas()
 	{
 		return view('empresas/index');
@@ -32,6 +32,16 @@ class Home extends BaseController
 	public function cooperativas()
 	{
 		return view('cooperativas/index');
+	}	
+
+	public function pesquisartopicos()
+	{
+		return view('pesquisartopicos/index');
+	}	
+
+	public function pesquisarempresas()
+	{
+		return view('pesquisarempresas/index');
 	}	
 
 	public function signUp()
@@ -52,7 +62,7 @@ class Home extends BaseController
 	public function editarTopico(){
 		return view('editar-topico/index.php');
 	}
-
+  
 	public function pesquisa()
 	{
 		return view('pesquisa/index.php');
