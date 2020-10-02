@@ -43,6 +43,8 @@ $routes->get('/abrirtopico', 'Home::abrirTopico');
 $routes->get('/editartopico', 'Home::editarTopico');
 $routes->get('/pesquisa', 'Home::pesquisa');
 $routes->get('/topicos', 'Home::viewTopico');
+$routes->get('/premium', 'Home::premium');
+
 /**
  * --------------------------------------------------------------------
  * Additional Routing

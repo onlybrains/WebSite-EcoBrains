@@ -62,4 +62,9 @@ class Home extends BaseController
 	{
 		return view('view-topico/index.php');
 	}
+
+	public function premium()
+	{
+		return view ('premium/index.php');
+	}
 }
