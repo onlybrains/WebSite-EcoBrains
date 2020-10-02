@@ -42,7 +42,7 @@ $routes->get('/perfil', 'Home::viewEmpresas');
 $routes->get('/abrirtopico', 'Home::abrirTopico');
 $routes->get('/editartopico', 'Home::editarTopico');
 $routes->get('/pesquisa', 'Home::pesquisa');
-
+$routes->get('/topicos', 'Home::viewTopico');
 /**
  * --------------------------------------------------------------------
  * Additional Routing

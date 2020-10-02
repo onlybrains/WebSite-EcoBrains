@@ -57,4 +57,9 @@ class Home extends BaseController
 	{
 		return view('pesquisa/index.php');
 	}
+
+	public function viewTopico()
+	{
+		return view('view-topico/index.php');
+	}
 }
