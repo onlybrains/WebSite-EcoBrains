@@ -63,4 +63,8 @@ class Home extends BaseController
 		return view('editar-topico/index.php');
 	}
 
+	public function editarPerfil(){
+		return view('editar-perfil/index.php');
+	}
+
 }
