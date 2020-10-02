@@ -29,6 +29,11 @@ class Home extends BaseController
 		return view('empresas/index');
 	}
 
+	public function empresas()
+	{
+		return view('empresas/index');
+	}
+  
 	public function cooperativas()
 	{
 		return view('cooperativas/index');
@@ -43,4 +48,24 @@ class Home extends BaseController
 	{
 		return view('pesquisarempresas/index');
 	}	
+
+	public function signUp()
+	{
+		return view('sign-up/index');
+	}
+
+	public function viewEmpresas()
+	{
+		return view('view-empresas/index');
+	}
+
+	public function abrirTopico()
+	{
+		return view('abrir-topico/index');
+	}
+
+	public function editarTopico(){
+		return view('editar-topico/index.php');
+	}
+
 }

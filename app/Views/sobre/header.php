@@ -1,4 +1,4 @@
-<div class="container-fluid pt-5">
+<div class="container-fluid">
   <div class="row my-2">
     <div class="col-lg-6 col-md-12">
       <p class="text1 ml-3 mr-3 mt-5 pt-5">Olá, somos a primeira plataforma a conectar empresas e
