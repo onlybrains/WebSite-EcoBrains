@@ -28,7 +28,7 @@
           <a class="nav-link nav-tamanho" href=<?= base_url('/planos') ?>>Planos</a>
         </li>
         <li class="nav-item marginItens">
-          <a class="nav-link nav-tamanho" href=<?= base_url('/') ?>>Login</a>
+          <a class="nav-link nav-tamanho" href=<?= base_url('/login') ?>>Login</a>
         </li>
         <li class="nav-item marginItens">
           <a class="nav-link nav-tamanho" href=<?= base_url('/sign-up') ?>>Cadastre-se</a>

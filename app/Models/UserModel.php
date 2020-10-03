@@ -15,8 +15,21 @@ class UserModel extends Model
 
   protected $beforeInsert = ['hashPassword'];
   protected $beforeUpdate = ['hashPassword'];
-
   protected $afterInsert = ['afterInsert'];
+
+  protected $validationRules = [
+    'email_login'      =>
+    'required|valid_email|is_unique[tb_login.email_login]|min_length[5]|max_length[45]',
+
+    'usuario_login'       =>
+    'required|alpha_dash|is_unique[tb_login.usuario_login]|min_length[5]|max_length[45]',
+
+    'senha_login'   =>
+    'required|min_length[5]|max_length[45]',
+
+    'inputPassword2'  =>
+    'matches[senha_login]',
+  ];
 
   protected function hashPassword(array $data)
   {
@@ -29,12 +42,29 @@ class UserModel extends Model
 
   protected function afterInsert(array $data)
   {
-    if ($data['id'] > 0) {
-      $session = \Config\Services::session();
-      $session->setFlashdata('id_login', $data['id']);
+    if ($data['id_login'] > 0) {
+
+      $user = (object)[];
+
+      $user->id_login = $data['id'];
+
+      session()->set($this->setUserSession($user));
+
+      session()->set('id_login', $data['id']);
     }
 
 
     return $data;
+  }
+
+  private function setUserSession(object $user)
+  {
+    return [
+      'id_login' => $user->id_login,
+      'email_login' => $user->email_login,
+      'usuario_login' => $user->usuario_login,
+      'tipo_login' => $user->tipo_login,
+      'isLoggedIn' => true,
+    ];
   }
 }
