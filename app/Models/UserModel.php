@@ -54,7 +54,7 @@ class UserModel extends Model
     }
   }
 
-  private function setUserSession(object $user)
+  public function setUserSession(object $user)
   {
     return [
       'id_login' => $user->id_login,

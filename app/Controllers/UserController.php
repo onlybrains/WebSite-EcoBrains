@@ -48,14 +48,21 @@ class UserController extends BaseController
       if (!$this->validate($validationRules)) {
         $data['errors'] = $this->validator;
       } else {
-        return redirect()->to('sign-up/dados');
+        $model = new UserModel();
+        $user = $model->where('usuario_login', $this->request->getPost('inputUser'))->first();
+        session()->set($model->setUserSession($user));
+        return redirect()->to('/login');
       }
     }
 
     return view('login/index', $data);
   }
 
-
+  public function logout()
+  {
+    session()->destroy();
+    return redirect()->to('/');
+  }
 
   public function signUp()
   {

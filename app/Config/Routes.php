@@ -38,6 +38,7 @@ $routes->get('/planos', 'Home::planos');
 $routes->get('/empresas', 'Home::empresas');
 $routes->get('/cooperativas', 'Home::cooperativas');
 
+$routes->get('/logout', 'UserController::logout');
 $routes->match(['get', 'post'], '/login', 'UserController::index');
 $routes->match(['get', 'post'], '/sign-up', 'UserController::signUp');
 $routes->match(['get', 'post'], '/sign-up/dados', 'UserController::dados');
