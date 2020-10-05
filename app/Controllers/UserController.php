@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\CoopModel;
 use App\Models\UserModel;
 use App\Models\EmpresaModel;
 
@@ -14,8 +15,20 @@ class UserController extends BaseController
     $data = [];
     helper(['form']);
 
-    if (session()->get('isLoggedIn'))
+    if (session()->get('isLoggedIn')) {
+
+      $modelEmpresa = new EmpresaModel();
+      $coopModel = new CoopModel();
+
+      if ($modelEmpresa->where('id_login', session()->get('id_login'))->first())
+        return redirect()->to('empresas');
+
+      elseif ($coopModel->where('id_login', session()->get('id_login'))->first())
+        return redirect()->to('cooperativas');
+
       return redirect()->to('sign-up/dados');
+    }
+
 
     if ($this->request->getMethod() == 'post') {
 
@@ -35,27 +48,7 @@ class UserController extends BaseController
       if (!$this->validate($validationRules)) {
         $data['errors'] = $this->validator;
       } else {
-        $model = new UserModel();
-
-        $user = $model
-          ->where('usuario_login', $this->request->getPost('inputUser'))
-          ->first();
-
-
-        session()->set($model->setUserSession($user));
-        switch ($user->tipo_login) {
-          case '1':
-            //ir pra rota de empresas
-            break;
-
-          case '2':
-            //ir pra rota de coops
-            break;
-
-          default:
-            return redirect()->to('sign-up/dados');
-            break;
-        }
+        return redirect()->to('sign-up/dados');
       }
     }
 
@@ -104,23 +97,40 @@ class UserController extends BaseController
 
         if ($inputTipo == 'empresa') {
           $model = new EmpresaModel();
+          $insertData = [
+            'inputTipo' => $this->request->getPost('inputTipo'),
+            'cnpj_empresa' => onlyNumbers($this->request->getPost('inputCNPJ')),
+            'nomeFantasia_empresa' => $this->request->getPost('inputFantasia'),
+            'razaoSoc_empresa' => $this->request->getPost('inputRazao'),
+            'cep_empresa' => onlyNumbers($this->request->getPost('inputCEP')),
+            'numEnd_empresa' => $this->request->getPost('inputNumEnd'),
+            'complemento_empresa' => $this->request->getPost('inputComplemento'),
+            'inputEnd' => $this->request->getPost('inputEnd'),
+            'tel_empresa' => onlyNumbers($this->request->getPost('inputTel')),
+            'whatsapp_empresa' => onlyNumbers($this->request->getPost('inputWhats')),
+          ];
         } else {
-          $model = new EmpresaModel();
+          $model = new CoopModel();
+          $insertData = [
+            'inputTipo' => $this->request->getPost('inputTipo'),
+            'cnpj_coop' => onlyNumbers($this->request->getPost('inputCNPJ')),
+            'nomeFantasia_coop' => $this->request->getPost('inputFantasia'),
+            'razaoSoc_coop' => $this->request->getPost('inputRazao'),
+            'cep_coop' => onlyNumbers($this->request->getPost('inputCEP')),
+            'numEnd_coop' => $this->request->getPost('inputNumEnd'),
+            'complemento_coop' => $this->request->getPost('inputComplemento'),
+            'inputEnd' => $this->request->getPost('inputEnd'),
+            'tel_coop' => onlyNumbers($this->request->getPost('inputTel')),
+            'whatsapp_coop' => onlyNumbers($this->request->getPost('inputWhats')),
+          ];
         }
+      } else {
+        $data['errors'] = ['error' => 'Insira o tipo de cadastro'];
+        return view('sign-up/step', $data);
       }
 
-      $insertData = [
-        'inputTipo' => $this->request->getPost('inputTipo'),
-        'cnpj_empresa' => onlyNumbers($this->request->getPost('inputCNPJ')),
-        'nomeFantasia_empresa' => $this->request->getPost('inputFantasia'),
-        'razaoSoc_empresa' => $this->request->getPost('inputRazao'),
-        'cep_empresa' => onlyNumbers($this->request->getPost('inputCEP')),
-        'numEnd_empresa' => $this->request->getPost('inputNumEnd'),
-        'complemento_empresa' => $this->request->getPost('inputComplemento'),
-        'inputEnd' => $this->request->getPost('inputEnd'),
-        'tel_empresa' => onlyNumbers($this->request->getPost('inputTel')),
-        'whatsapp_empresa' => onlyNumbers($this->request->getPost('inputWhats')),
-      ];
+
+
 
       if ($model->insert($insertData)) {
         return redirect()->to('/login');

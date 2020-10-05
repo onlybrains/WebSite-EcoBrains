@@ -42,19 +42,16 @@ class UserModel extends Model
 
   protected function afterInsert(array $data)
   {
-    if ($data['id_login'] > 0) {
+    if ($data['id']) {
 
-      $user = (object)[];
-
-      $user->id_login = $data['id'];
+      $user = (object)[
+        'id_login' => $data['id'],
+        'email_login' => $data['data']['email_login'],
+        'usuario_login' => $data['data']['usuario_login'],
+      ];
 
       session()->set($this->setUserSession($user));
-
-      session()->set('id_login', $data['id']);
     }
-
-
-    return $data;
   }
 
   private function setUserSession(object $user)
@@ -63,7 +60,6 @@ class UserModel extends Model
       'id_login' => $user->id_login,
       'email_login' => $user->email_login,
       'usuario_login' => $user->usuario_login,
-      'tipo_login' => $user->tipo_login,
       'isLoggedIn' => true,
     ];
   }
