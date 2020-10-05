@@ -42,7 +42,7 @@ class TbEmpresas extends Migration
 			],
 			'whatsapp_empresa'		 => [
 				'type'							 => 'VARCHAR',
-				'constraint'				 => '10',
+				'constraint'				 => '11',
 			],
 			'id_login'						 => [
 				'type'							 => 'INT'

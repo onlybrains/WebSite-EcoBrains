@@ -1,4 +1,6 @@
-<?php namespace Config;
+<?php
+
+namespace Config;
 
 class Validation
 {
@@ -17,6 +19,7 @@ class Validation
 		\CodeIgniter\Validation\FormatRules::class,
 		\CodeIgniter\Validation\FileRules::class,
 		\CodeIgniter\Validation\CreditCardRules::class,
+		\App\Validation\UserRules::class,
 	];
 
 	/**
@@ -28,6 +31,7 @@ class Validation
 	public $templates = [
 		'list'   => 'CodeIgniter\Validation\Views\list',
 		'single' => 'CodeIgniter\Validation\Views\single',
+		'my-list' => 'errors\_errors_list',
 	];
 
 	//--------------------------------------------------------------------
