@@ -12,25 +12,27 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
 
-  <!-- CSS Styles -->
-  <?= link_tag('css/styles.css'); ?>
-  <?= link_tag('css/styleNavBar.css'); ?>
-  <?= link_tag('css/styleHeader.css'); ?>
-  <?= link_tag('css/styleButtons.css'); ?>
-  <?= link_tag('css/styleCarousel.css'); ?>
-  <?= link_tag('css/styleCards.css'); ?>
-  <?= link_tag('css/styleHeaderSobreNos.css'); ?>
-  <?= link_tag('css/styleSobreNos.css'); ?>
-  <?= link_tag('css/styleJumbotronSobreNos.css'); ?>
-  <?= link_tag('css/styleFilter.css'); ?>
-  <?= link_tag('css/styleFooter.css'); ?>
-  <?= link_tag('css/styleDropdown.css'); ?>
-  <?= link_tag('css/styleCoopTexts.css'); ?>
-  <?= link_tag('css/styleSignUp.css'); ?>
+    <!-- CSS Styles -->
+    <?= link_tag('css/styles.css'); ?>
+    <?= link_tag('css/styleNavBar.css'); ?>
+    <?= link_tag('css/styleHeader.css'); ?>
+    <?= link_tag('css/styleButtons.css'); ?>
+    <?= link_tag('css/styleCarousel.css'); ?>
+    <?= link_tag('css/styleCards.css'); ?>
+    <?= link_tag('css/styleHeaderSobreNos.css'); ?>
+    <?= link_tag('css/styleSobreNos.css'); ?>
+    <?= link_tag('css/styleJumbotronSobreNos.css'); ?>
+    <?= link_tag('css/styleFilter.css'); ?>
+    <?= link_tag('css/styleFooter.css'); ?>
+    <?= link_tag('css/styleDropdown.css'); ?>
+    <?= link_tag('css/styleCoopTexts.css'); ?>
+    <?= link_tag('css/styleFilters.css'); ?>
+    <?= link_tag('css/styleSignUp.css'); ?>
 
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
 
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+  
   <!-- Icon -->
   <link rel="shortcut icon" href="/imgs/eco-logo-verde.ico">
   <title>EcoBrains</title>

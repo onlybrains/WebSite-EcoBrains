@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<nav class="fixed-top navbar navbar-expand-lg navbar-fundo">
+<nav class="sticky-top navbar navbar-expand-lg navbar-fundo">
 
   <div class="container-fluid mx-5">
 
@@ -21,18 +21,17 @@
         <li class="nav-item marginItens">
           <a class="nav-link nav-tamanho" href=<?= base_url('/') ?>>Pesquisar Empresas</a>
         </li>
-        <li class="nav-item marginItens">
-          <a class="nav-link nav-tamanho" href=<?= base_url('/') ?>>Nome da Cooperativa</a>
-        </li>
-        <div class="dropdown transparentbar marginItens nav-link nav-tamanho" style="z-index:4">
-          <button class="btn btn-default dropdown-toggle dropdown-Color" type="button" id="mybyn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            <span class="caret"></span></button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle nav-tamanho text-white" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Nome da Empresa
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Perfil</a>
+          <a class="dropdown-item" href=<?= base_url('/premium') ?>>Se torne um Premium!</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Sair</a>
         </div>
+      </li>
       </ul>
     </div>
   </div>

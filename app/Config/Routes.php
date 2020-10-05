@@ -41,7 +41,15 @@ $routes->get('/cooperativas', 'Home::cooperativas');
 $routes->match(['get', 'post'], '/login', 'UserController::index');
 $routes->match(['get', 'post'], '/sign-up', 'UserController::signUp');
 $routes->match(['get', 'post'], '/sign-up/dados', 'UserController::dados');
-
+$routes->get('/pesquisartopicos', 'Home::pesquisartopicos');
+$routes->get('/pesquisarempresas', 'Home::pesquisarempresas');
+$routes->get('/perfil', 'Home::viewEmpresas');
+$routes->get('/editarperfil', 'Home::editarPerfil');
+$routes->get('/abrirtopico', 'Home::abrirTopico');
+$routes->get('/editartopico', 'Home::editarTopico');
+$routes->get('/pesquisa', 'Home::pesquisa');
+$routes->get('/topicos', 'Home::viewTopico');
+$routes->get('/premium', 'Home::premium');
 /**
  * --------------------------------------------------------------------
  * Additional Routing
