@@ -7,6 +7,6 @@ $this->extend('layout/index');
 
 <?= $view->render('layout/navbarLogado')?>
 
-<?= $view->render('pesquisa/pesquisa')?>
+<?= $view->render('empresas/view-topico/view-topico')?>
 
 <?= $this->endSection('content');?>

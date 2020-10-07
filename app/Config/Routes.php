@@ -32,25 +32,29 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-$routes->get('/sobre', 'Home::sobre');
+$routes->get('/sobrenos', 'Home::sobre');
 $routes->get('/pevs', 'Home::pevs');
 $routes->get('/planos', 'Home::planos');
-$routes->get('/empresas', 'Home::empresas');
-$routes->get('/cooperativas', 'Home::cooperativas');
 
 $routes->get('/logout', 'UserController::logout');
 $routes->match(['get', 'post'], '/login', 'UserController::index');
 $routes->match(['get', 'post'], '/sign-up', 'UserController::signUp');
 $routes->match(['get', 'post'], '/sign-up/dados', 'UserController::dados');
-$routes->get('/pesquisartopicos', 'Home::pesquisartopicos');
-$routes->get('/pesquisarempresas', 'Home::pesquisarempresas');
-$routes->get('/perfil', 'Home::viewEmpresas');
-$routes->get('/editarperfil', 'Home::editarPerfil');
-$routes->get('/abrirtopico', 'Home::abrirTopico');
-$routes->get('/editartopico', 'Home::editarTopico');
-$routes->get('/pesquisa', 'Home::pesquisa');
-$routes->get('/topicos', 'Home::viewTopico');
-$routes->get('/premium', 'Home::premium');
+
+$routes->get('/empresas', 'EmpresaController::empresas');
+$routes->get('/empresas/abrirtopico', 'EmpresaController::abrirTopico');
+$routes->get('/empresas/editartopico', 'EmpresaController::editarTopico');
+$routes->get('/empresas/topicos', 'EmpresaController::viewTopico');
+
+$routes->get('/cooperativas', 'CoopController::cooperativas');
+$routes->get('/cooperativas/pesquisartopicos', 'CoopController::pesquisartopicos');
+$routes->get('/cooperativas/pesquisarempresas', 'CoopController::pesquisarempresas');
+
+$routes->get('/perfil', 'PerfilController::viewPerfil');
+$routes->get('/editarperfil', 'PerfilController::editarPerfil');
+
+$routes->get('/premium', 'PremiumController::premium');
+
 /**
  * --------------------------------------------------------------------
  * Additional Routing

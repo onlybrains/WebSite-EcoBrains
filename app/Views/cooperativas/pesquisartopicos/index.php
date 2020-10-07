@@ -3,11 +3,10 @@ $view = \Config\Services::renderer();
 $this->extend('layout/index')
 ?>
 
-
 <?= $this->section('content') ?>
 
 <?= $view->render('layout/navbarLogado'); ?>
 
-<?= $view->render('pesquisarempresas/header'); ?>
+<?= $view->render('cooperativas/pesquisartopicos/header'); ?>
 
 <?= $this->endSection('content') ?>

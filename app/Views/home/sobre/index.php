@@ -8,15 +8,11 @@ $this->extend('layout/index')
 
 <?= $view->render('layout/navbar'); ?>
 
-<?= $view->render('home/header'); ?>
+<?= $view->render('home/sobre/header'); ?>
 
-<?= $view->render('home/empresas'); ?>
+<?= $view->render('home/sobre/jumbotron'); ?>
 
-<?= $view->render('home/quemSomos'); ?>
-
-<?= $view->render('home/team'); ?>
-
-<?= $view->render('home/planos'); ?>
+<?= $view->render('home/sobre/projetos'); ?>
 
 <?= $view->render('layout/footer'); ?>
 

@@ -1,12 +1,13 @@
-<?php 
+<?php
 $view = \Config\Services::renderer();
 $this->extend('layout/index')
 ?>
+
 
 <?= $this->section('content') ?>
 
 <?= $view->render('layout/navbarLogado'); ?>
 
-<?= $view->render('abrir-topico/abrir-topico'); ?>
+<?= $view->render('cooperativas/pesquisarempresas/header'); ?>
 
-<?= $this->endSection('content')?>
+<?= $this->endSection('content') ?>

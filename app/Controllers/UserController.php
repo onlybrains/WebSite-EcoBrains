@@ -6,8 +6,6 @@ use App\Models\CoopModel;
 use App\Models\UserModel;
 use App\Models\EmpresaModel;
 
-
-
 class UserController extends BaseController
 {
   public function index()

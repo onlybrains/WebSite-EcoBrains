@@ -3,7 +3,7 @@
   <div class="card mt-5 rounded shadow">
     <img src="..." class="card-img-top" alt="Imagem da Empresa">
     <div class="card-body">
-      <h5 class="card-title text-center">Nome da Empresa</h5>
+      <h5 class="card-title text-center">$Nome</h5>
 
       <div class="row mb-2">
         <div class="col-md-6">

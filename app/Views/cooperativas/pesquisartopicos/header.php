@@ -48,12 +48,11 @@
       <div class="card card-coop">
         <div class="card-body">
           <div class="container">
-              <a href="#" class="topic-button p-2 float-right" style="margin-top: 66px;"><img src="imgs/topics-vector.png" width="37" height="25"> </a>
-              <img src="imgs/image-random.png" class="mr-5 mt-3 float-right">
+              <a href="#" class="topic-button p-2 float-right" style="margin-top: 66px;"><img src="../imgs/topics-vector.png" width="37" height="25"> </a>
+              <img src="../imgs/image-random.png" class="mr-5 mt-3 float-right">
           </div>
           <div class="row">
               <h5 class="card-title topic-title ml-3">Nome do tópico</h5>
-              <img src="imgs/selo-ecoB.png" height="43" width="36" class="ml-3 mt-1 mb-1">
           </div>
           <div class="row ml-3">
             <strong class="topic-desc">Aproximadamente 17 Km |</strong>

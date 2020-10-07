@@ -7,7 +7,7 @@
 
     <div class="col-md-3">
       <div class="row">
-        <a href="<?= base_url('/editartopico') ?>" class="topic-button p-2 mt-2 mr-2 text-white">
+        <a href="<?= base_url('/empresas/editartopico') ?>" class="topic-button p-2 mt-2 mr-2 text-white">
           Editar Tópico
         </a>
         <a href="#" class="topic-button p-2 mt-2 mr-4 text-white"><svg width="37" height="27" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

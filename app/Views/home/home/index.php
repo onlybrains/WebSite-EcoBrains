@@ -8,9 +8,15 @@ $this->extend('layout/index')
 
 <?= $view->render('layout/navbar'); ?>
 
-<?= $view->render('planos/header'); ?>
+<?= $view->render('home/home/header'); ?>
 
-<?= $view->render('planos/planos'); ?>
+<?= $view->render('home/home/empresas'); ?>
+
+<?= $view->render('home/home/quemSomos'); ?>
+
+<?= $view->render('home/home/team'); ?>
+
+<?= $view->render('home/home/planos'); ?>
 
 <?= $view->render('layout/footer'); ?>
 
