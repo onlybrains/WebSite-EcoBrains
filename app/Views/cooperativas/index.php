@@ -10,6 +10,4 @@ $this->extend('layout/index')
 
 <?= $view->render('cooperativas/header'); ?>
 
-<?= $view->render('layout/footer'); ?>
-
 <?= $this->endSection('content') ?>
