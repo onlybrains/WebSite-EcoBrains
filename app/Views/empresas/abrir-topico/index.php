@@ -1,4 +1,4 @@
-<?php
+<?php 
 $view = \Config\Services::renderer();
 $this->extend('layout/index')
 ?>
@@ -7,6 +7,6 @@ $this->extend('layout/index')
 
 <?= $view->render('layout/navbarLogado'); ?>
 
-<?= $view->render('view-empresas/view-empresas'); ?>
+<?= $view->render('empresas/abrir-topico/abrir-topico'); ?>
 
-<?= $this->endSection('content') ?>
+<?= $this->endSection('content')?>

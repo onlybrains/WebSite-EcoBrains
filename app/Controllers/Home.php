@@ -6,73 +6,22 @@ class Home extends BaseController
 {
 	public function index()
 	{
-		return view('home/index');
+		return view('home/home/index');
 	}
 
 	public function sobre()
 	{
-		return view('sobre/index');
+		return view('home/sobre/index');
 	}
 
 	public function pevs()
 	{
-		return view('pevs/index');
+		return view('home/pevs/index');
 	}
 
 	public function planos()
 	{
-		return view('planos/index');
-	}	
-	public function empresas()
-	{
-		return view('empresas/index');
-	}
-
-	public function cooperativas()
-	{
-		return view('cooperativas/index');
+		return view('home/planos/index');
 	}	
 
-	public function pesquisartopicos()
-	{
-		return view('pesquisartopicos/index');
-	}	
-
-	public function pesquisarempresas()
-	{
-		return view('pesquisarempresas/index');
-	}	
-
-	public function viewEmpresas()
-	{
-		return view('view-empresas/index');
-	}
-
-	public function abrirTopico()
-	{
-		return view('abrir-topico/index');
-	}
-
-	public function editarTopico(){
-		return view('editar-topico/index.php');
-	}
-  
-	public function pesquisa()
-	{
-		return view('pesquisa/index.php');
-	}
-
-	public function viewTopico()
-	{
-		return view('view-topico/index.php');
-	}
-
-	public function editarPerfil(){
-		return view('editar-perfil/index.php');
-	}
-
-	public function premium()
-	{
-		return view ('premium/index.php');
-	}
 }

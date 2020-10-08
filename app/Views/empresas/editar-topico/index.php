@@ -7,6 +7,6 @@ $this->extend('layout/index')
 
 <?= $view->render('layout/navbarLogado')?>
 
-<?= $view->render('editar-topico/editar-topico')?>
+<?= $view->render('empresas/editar-topico/editar-topico')?>
 
 <?= $this->endSection('content')?>

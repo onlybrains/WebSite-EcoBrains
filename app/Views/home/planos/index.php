@@ -8,11 +8,9 @@ $this->extend('layout/index')
 
 <?= $view->render('layout/navbar'); ?>
 
-<?= $view->render('sobre/header'); ?>
+<?= $view->render('home/planos/header'); ?>
 
-<?= $view->render('sobre/jumbotron'); ?>
-
-<?= $view->render('sobre/projetos'); ?>
+<?= $view->render('home/planos/planos'); ?>
 
 <?= $view->render('layout/footer'); ?>
 
