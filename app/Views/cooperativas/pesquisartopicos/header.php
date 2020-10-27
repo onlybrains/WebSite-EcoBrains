@@ -43,6 +43,9 @@
     </div>
   </div>
   <!-- Topics that the Coop. are offering their services (START) -->
+  <?php
+    foreach($topicos as $topico):
+  ?>
   <div class="row my-2">
     <div class="col-lg-12 col-md-12 pb-3">
       <div class="card card-coop">
@@ -52,23 +55,33 @@
               <img src="../imgs/image-random.png" class="mr-5 mt-3 float-right">
           </div>
           <div class="row">
-              <h5 class="card-title topic-title ml-3">Nome do tópico</h5>
+              <h5 class="card-title topic-title ml-3"><?=$topico->titulo_topico?></h5>
           </div>
           <div class="row ml-3">
-            <strong class="topic-desc">Aproximadamente 17 Km |</strong>
-            <p class="topic-desc ml-1"> Parque Rizzo - Cotia/SP</p>
+            <a class="topic-desc2" href="https://www.google.com/maps/dir//<?=$topico->cep_empresa?>">Aproximadamente 17 Km |</a>
+            <p class="topic-desc ml-1"> <?=$topico->cep_empresa?> </p>
           </div>
           <div class="row ml-3">
-            <strong class="topic-desc">Data Limite: 30/12/2020</strong>
-            <p class="topic-desc ml-4">Peso: 30 Kg</p>
+            <strong class="topic-desc">Data Limite: </strong>
+            <p class="topic-desc ml-1">
+              <?php
+                setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+                date_default_timezone_set('America/Sao_Paulo');
+                echo ucwords(strftime('%A, %d/%m/%Y', strtotime($topico->dataLimite_topico)));
+              ?>
+            </p>
+            <p class="topic-desc ml-4">Peso: <?=$topico->quant_residuo?> Kg</p>
           </div>
           <div class="row ml-3">
-            <p class="topic-desc">Tipo: Papelão</p>
+            <p class="topic-desc">Tipo: <?=$topico->nome_tpResiduo?></p>
             <p class="topic-desc ml-4">Reputação: </p>
           </div>
         </div>
       </div>
     </div>
   </div>
+  <?php
+    endforeach
+  ?>
   <!-- Topics that the Coop. are offering their services (END) -->
 </div>

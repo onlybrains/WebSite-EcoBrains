@@ -6,7 +6,7 @@
     </div>
   </div>
   <div class="row ml-5 mr-5">
-    <div class="sign-up col-12">
+    <div class="sign-up col-12">0
       <form>
         <div class="form-row">
           <div class="form-group rounded-left col-md-3 bg-light border-right border-bottom m-0 p-2">
@@ -50,6 +50,9 @@
     </div>
   </div>
   <!-- Topics that the Coop. are offering their services (START) -->
+  <?php
+    foreach($empresas as $empresa):
+  ?>
   <div class="row my-2">
     <div class="col-lg-12 col-md-12 pb-3">
       <div class="card card-coop">
@@ -59,12 +62,12 @@
               <img src="../imgs/image-random.png" class="mr-5 mt-3 float-right">
           </div>
           <div class="row">
-              <h5 class="card-title topic-title ml-3">Nome da empresa</h5>
+              <h5 class="card-title topic-title ml-3"><?=$empresa->nomeFantasia_empresa?></h5>
               <img src="../imgs/selo-ecoB.png" height="43" width="36" class="ml-3 mt-1 mb-1">
           </div>
           <div class="row ml-3">
             <strong class="topic-desc">Aproximadamente 17 Km |</strong>
-            <p class="topic-desc ml-1"> Parque Rizzo - Cotia/SP</p>
+            <p class="topic-desc ml-1"> <?=$empresa->cnpj_empresa?></p>
           </div>
           <div class="row ml-3">
             <strong class="topic-desc">Data Limite: 30/12/2020</strong>
@@ -78,5 +81,8 @@
       </div>
     </div>
   </div>
+  <?php
+    endforeach
+  ?>
   <!-- Topics that the Coop. are offering their services (END) -->
 </div>
