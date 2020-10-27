@@ -22,6 +22,7 @@
   <?= link_tag('css/styleHeaderSobreNos.css'); ?>
   <?= link_tag('css/styleSobreNos.css'); ?>
   <?= link_tag('css/styleJumbotronSobreNos.css'); ?>
+  <?= link_tag('css/styleLists.css'); ?>
   <?= link_tag('css/styleFilter.css'); ?>
   <?= link_tag('css/styleFooter.css'); ?>
   <?= link_tag('css/styleDropdown.css'); ?>

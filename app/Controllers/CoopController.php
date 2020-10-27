@@ -14,23 +14,60 @@ Class CoopController extends BaseController
 		echo view('cooperativas/index', $data);
   }	
   
-  public function pesquisartopicos($id=1)
+  public function pesquisartopicos()
 	{
 		$data['titulo'] = 'Pesquisar Empresas';
 		$data['nome'] = '$cooperativa';
 		
 		$coopController = new \App\Models\TopicoModel();
-		$registros = $coopController->table('tb_topico')
+		$registros = $coopController
 		->join('tb_empresas', 'tb_empresas.id_empresa = tb_topico.id_empresa')
 		->join('tb_residuostopico', 'tb_residuostopico.id_topico = tb_topico.id_topico')
 		->join('tb_tpresiduos', 'tb_tpresiduos.id_tpResiduo = tb_residuostopico.id_tpResiduo')
+		->where('dataLimite_topico >= CURRENT_DATE()')
 		->findAll();
-		//$registros = $coopController->find();
-		
+
 		$data['topicos'] = $registros;
+		
 		//var_dump($registros);
 		return view('cooperativas/pesquisartopicos/index', $data);
-	}	
+	}
+
+	// ARRUMAR //
+	public function interesseTopico($id_topico){
+		$coopController = new \App\Models\InteresseTopicoModel();
+		$coopController
+		->set('aprov_interesseTopico', '1')
+		->set('id_topico', $id_topico)
+		->set('id_coop', 1)
+		->insert();
+
+		return redirect()->to(base_url('./cooperativas'));
+	}
+
+	// ARRUMAR A ROTA NA VIEW
+	public function pesquisafiltro(){
+		$tipoResiduo = $this->input->post("tpResiduoFiltro");
+		$dataLimite = $this->input->post("dataLimiteFiltro");
+		$pesoResiduo = $this->input->post("pesoFiltro");
+		
+		$data['titulo'] = 'Pesquisar Empresas';
+		$data['nome'] = '$cooperativa';
+		
+		$coopController = new \App\Models\TopicoModel();
+		$registros = $coopController
+		->join('tb_empresas', 'tb_empresas.id_empresa = tb_topico.id_empresa')
+		->join('tb_residuostopico', 'tb_residuostopico.id_topico = tb_topico.id_topico')
+		->join('tb_tpresiduos', 'tb_tpresiduos.id_tpResiduo = tb_residuostopico.id_tpResiduo')
+		->where('dataLimite_topico >= CURRENT_DATE() AND dataLimite_topico ='. $dataLimite . ' AND tb_tpresiduos.id_tpResiduo ='. $tipoResiduo.' AND tb_residuostopico.quant_residuo ='. $pesoResiduo)
+		->findAll();
+
+		$data['topicos'] = $registros;
+		
+		var_dump($registros);
+		//return view('cooperativas/pesquisartopicos/index', $data);
+		
+	}
 
 	public function pesquisarempresas()
 	{

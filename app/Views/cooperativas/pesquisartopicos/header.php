@@ -6,11 +6,11 @@
   </div>
   <div class="row ml-5 mr-5">
     <div class="sign-up col-12">
-      <form>
+      <form method="POST" action="CoopController/pesquisafiltro">
         <div class="form-row">
           <div class="form-group rounded-left col-md-3 bg-light border-right border-bottom m-0 p-2">
-            <label for="inputEmail">Tipo de Resíduo</label>
-            <select class="form-control" id="exampleFormControlSelect1">
+            <label for="tpResiduo">Tipo de Resíduo</label>
+            <select class="form-control" name="tpResiduoFiltro" id="tpResiduoFiltro">
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -20,11 +20,11 @@
           </div>
           <div class="form-group bg-light col-md-3 border-right border-bottom m-0 p-2">
             <label for="inputUser">Data Limite</label>
-            <input type="date" class="form-control" id="exampleFormControlSelect1">
+            <input type="date" class="form-control" name="dataLimiteFiltro" id="dataLimiteFiltro">
           </div>
           <div class="form-group bg-light col-md-3 border-bottom m-0 p-2">
             <label for="inputUser">Peso</label>
-            <select class="form-control" id="exampleFormControlSelect1">
+            <select class="form-control "name="pesoFiltro" id="pesoFiltro">
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -51,15 +51,13 @@
       <div class="card card-coop">
         <div class="card-body">
           <div class="container">
-              <a href="#" class="topic-button p-2 float-right" style="margin-top: 66px;"><img src="../imgs/topics-vector.png" width="37" height="25"> </a>
-              <img src="../imgs/image-random.png" class="mr-5 mt-3 float-right">
+              <!--<a href="#" class="topic-button p-2 float-right" style="margin-top: 66px;"><img src="../imgs/topics-vector.png" width="37" height="25"></a>-->
+              <a href="<?= base_url('/cooperativas/interessetopico/'.$topico->id_topico);?>" class="btn-eco efeito p-3 float-right" style="margin-top: 66px;">Mostrar interesse</a>
+              <!--<a href="https://www.google.com/maps/dir//<?=$topico->cep_empresa?>" target="_blank" class="btn-eco efeito mr-4 p-4 float-right" style="margin-top: 66px;">Veja a localização da empresa</a>-->
+              <img src="../imgs/image-random.png" class="mr-4 mt-5 float-right">
           </div>
           <div class="row">
               <h5 class="card-title topic-title ml-3"><?=$topico->titulo_topico?></h5>
-          </div>
-          <div class="row ml-3">
-            <a class="topic-titles" href="https://www.google.com/maps/dir//<?=$topico->cep_empresa?>">Aproximadamente 17 Km |</a>
-            <p class="topic-desc ml-1"> <?=$topico->cep_empresa?> </p>
           </div>
           <div class="row ml-3">
             <strong class="topic-desc">Data Limite: </strong>
@@ -70,11 +68,21 @@
                 echo ucwords(strftime('%A, %d/%m/%Y', strtotime($topico->dataLimite_topico)));
               ?>
             </p>
-            <p class="topic-desc ml-4">Peso: <?=$topico->quant_residuo?> Kg</p>
           </div>
           <div class="row ml-3">
-            <p class="topic-desc">Tipo: <?=$topico->nome_tpResiduo?></p>
-            <p class="topic-desc ml-4">Reputação: </p>
+            <strong class="topic-desc">Peso: </strong>
+            <p class="topic-desc ml-2"> <?=$topico->quant_residuo?> Kg</p>
+          </div>
+          <div class="row ml-3">
+            <strong class="topic-desc">Tipo: </strong>
+            <p class="topic-desc ml-2"><?=$topico->nome_tpResiduo?></p>
+          </div>
+          <div class="row ml-3">
+            <strong class="topic-desc">Empresa: </strong>
+            <p class="topic-desc ml-2"><?=$topico->nomeFantasia_empresa?></p>
+          </div>
+          <div class="row ml-3">
+            <a class="topic-maps mb-3" target="_blank" href="https://www.google.com/maps/dir//<?=$topico->cep_empresa?>">Clique aqui e veja a localização da empresa</a>
           </div>
         </div>
       </div>
