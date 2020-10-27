@@ -58,7 +58,7 @@
               <h5 class="card-title topic-title ml-3"><?=$topico->titulo_topico?></h5>
           </div>
           <div class="row ml-3">
-            <a class="topic-desc2" href="https://www.google.com/maps/dir//<?=$topico->cep_empresa?>">Aproximadamente 17 Km |</a>
+            <a class="topic-titles" href="https://www.google.com/maps/dir//<?=$topico->cep_empresa?>">Aproximadamente 17 Km |</a>
             <p class="topic-desc ml-1"> <?=$topico->cep_empresa?> </p>
           </div>
           <div class="row ml-3">

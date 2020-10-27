@@ -16,6 +16,10 @@
   line-height: 45px;
 }
 
+.topic-titles{
+  color:blue;
+}
+
 .topic-desc{
   color: black;
   font-size: 18px;
