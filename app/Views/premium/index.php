@@ -1,14 +1,27 @@
 <?php
 $view = \Config\Services::renderer();
 $this->extend('layout/index');
+helper('html');
 ?>
 
-<?= $this->section('content');?>
+<?= $this->section('styles') ?>
 
-<?= $view->render('layout/navbarLogado')?>
+<?php
+echo link_tag('css/styles.css');
+echo link_tag('css/styleNavBar.css');
+echo link_tag('css/styleCoopTexts.css');
+echo link_tag('css/styleHeader.css');
+?>
 
-<?= $view->render('premium/premium')?>
+<?= $this->endSection('styles') ?>
 
-<?= $view->render('premium/recomendations')?>
 
-<?= $this->endSection('content');?>
+<?= $this->section('content'); ?>
+
+<?php 
+echo $view->render('layout/navbarLogado');
+echo $view->render('premium/premium');
+echo $view->render('premium/recomendations');
+ ?>
+
+<?= $this->endSection('content'); ?>

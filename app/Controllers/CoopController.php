@@ -11,7 +11,7 @@ Class CoopController extends BaseController
     $data['titulo'] = 'Pesquisar Tópicos';
     $data['nome'] = '$cooperativa';
     
-		echo view('cooperativas/index', $data);
+		return view('cooperativas/index', $data);
   }	
   
   public function pesquisartopicos()
@@ -85,6 +85,3 @@ Class CoopController extends BaseController
 	}	
 
 }
-
-
-?>

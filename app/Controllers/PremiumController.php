@@ -11,8 +11,9 @@ Class PremiumController extends BaseController
 
   public function premium()
 	{
-		return view ('premium/index.php');
+    $data['titulo'] = 'Pesquisar Cooperativas';
+    $data['nome'] = '$empresa';
+		return view ('premium/index.php', $data);
   }
   
 }
-?>

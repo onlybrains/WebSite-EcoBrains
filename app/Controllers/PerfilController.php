@@ -14,14 +14,14 @@ Class PerfilController extends BaseController
     $data['titulo'] = 'Pesquisar Cooperativas';
     $data['nome'] = 'Nome da Empresa';
 
-		return view('perfil/view-empresas/index', $data);
+		return view('perfil/view-perfil/index', $data);
 	}
 
 	public function editarPerfil(){
     $data['titulo'] = 'Pesquisar Cooperativas';
     $data['nome'] = 'Nome da Empresa';
 
-		return view('perfil/editar-perfil/index.php', $data);
+		return view('perfil/editar-perfil/index', $data);
   }
   
 }
