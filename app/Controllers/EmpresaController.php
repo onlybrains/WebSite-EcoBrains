@@ -11,7 +11,7 @@ Class EmpresaController extends BaseController
     $data['titulo'] = 'Pesquisar Cooperativas';
     $data['nome'] = '$empresa';
 
-		echo view('empresas/index', $data);
+		return view('empresas/index', $data);
   }	
   
   public function abrirTopico()
@@ -19,7 +19,7 @@ Class EmpresaController extends BaseController
     $data['titulo'] = 'Pesquisar Cooperativas';
     $data['nome'] = 'Nome da Empresa';
 
-		echo view('empresas/abrir-topico/index', $data);
+		return view('empresas/abrir-topico/index', $data);
   }
   
   public function editarTopico()
@@ -27,7 +27,7 @@ Class EmpresaController extends BaseController
     $data['titulo'] = 'Pesquisar Cooperativas';
     $data['nome'] = 'Nome da Empresa';
 
-		echo view('empresas/editar-topico/index', $data);
+		return view('empresas/editar-topico/index', $data);
   }
 
   public function viewTopico()
@@ -35,9 +35,7 @@ Class EmpresaController extends BaseController
     $data['titulo'] = 'Pesquisar Cooperativas';
     $data['nome'] = 'Nome da Empresa';
 
-		echo view('empresas/view-topico/index', $data);
+		return view('empresas/view-topico/index', $data);
   }
 
 }
-
-?>

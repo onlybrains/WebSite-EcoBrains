@@ -1,12 +1,24 @@
 <?php 
 $view = \Config\Services::renderer();
-$this->extend('layout/index')
+$this->extend('layout/index');
+helper('html');
 ?>
+
+<?= $this->section('styles') ?>
+
+<?php
+echo link_tag('css/styles.css');
+echo link_tag('css/styleNavBar.css');
+echo link_tag('css/styleSignUp.css');
+?>
+
+<?= $this->endSection('styles') ?>
 
 <?= $this->section('content') ?>
 
-<?= $view->render('layout/navbarLogado'); ?>
-
-<?= $view->render('empresas/abrir-topico/abrir-topico'); ?>
+<?php
+echo $view->render('layout/navbarLogado');
+echo $view->render('empresas/abrir-topico/abrir-topico'); 
+?>
 
 <?= $this->endSection('content')?>

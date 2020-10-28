@@ -1,12 +1,25 @@
 <?php
 $view = \Config\Services::renderer();
-$this->extend('layout/index')
+$this->extend('layout/index');
+helper('html');
 ?>
 
-<?= $this->section('content')?>
+<?= $this->section('styles') ?>
 
-<?= $view->render('layout/navbarLogado')?>
+<?php
+echo link_tag('css/styles.css');
+echo link_tag('css/styleNavBar.css');
+echo link_tag('css/styleSignUp.css');
+?>
 
-<?= $view->render('editar-perfil/editar-perfil')?>
+<?= $this->endSection('styles') ?>
 
-<?= $this->endSection('content')?>
+
+<?= $this->section('content') ?>
+
+<?php 
+echo $view->render('layout/navbarLogado');
+echo $view->render('perfil/editar-perfil/editar-perfil'); 
+?>
+
+<?= $this->endSection('content') ?>

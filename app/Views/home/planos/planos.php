@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row my-2">
       <div class="col-12 text-center">
-        <h2 class="text text-center mb-4" style="color: white;">PLANOS</h2>
+        <h2 class="text text-center mb-4">PLANOS</h2>
         <hr class="line-footer-green" />
       </div>
     </div>
