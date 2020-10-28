@@ -6,7 +6,7 @@
   </div>
   <div class="row ml-5 mr-5">
     <div class="sign-up col-12">
-      <form method="POST" action="CoopController/pesquisafiltro">
+      <form method="POST" action="pesquisafiltro">
         <div class="form-row">
           <div class="form-group rounded-left col-md-3 bg-light border-right border-bottom m-0 p-2">
             <label for="tpResiduo">Tipo de Resíduo</label>

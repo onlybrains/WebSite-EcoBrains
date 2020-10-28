@@ -11,6 +11,7 @@ echo link_tag('css/styles.css');
 echo link_tag('css/styleNavBar.css');
 echo link_tag('css/styleFilter.css');
 echo link_tag('css/styleFooter.css');
+echo link_tag('css/styleButtons.css');
 ?>
 
 <?= $this->endSection('styles') ?>

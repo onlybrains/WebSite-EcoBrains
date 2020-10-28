@@ -49,6 +49,7 @@ $routes->get('/empresas/topicos', 'EmpresaController::viewTopico');
 $routes->get('/cooperativas', 'CoopController::cooperativas');
 $routes->get('/cooperativas/pesquisartopicos', 'CoopController::pesquisartopicos');
 $routes->get('/cooperativas/mostrarinteresse', 'CoopController::interesseTopico');
+$routes->get('/cooperativas/pesquisafiltro', 'CoopController::pesquisafiltro');
 $routes->get('/cooperativas/pesquisarempresas', 'CoopController::pesquisarempresas');
 
 $routes->get('/perfil', 'PerfilController::viewPerfil');
