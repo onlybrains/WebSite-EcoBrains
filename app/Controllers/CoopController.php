@@ -34,15 +34,17 @@ Class CoopController extends BaseController
 	}
 
 	// ARRUMAR //
-	public function interesseTopico($id_topico){
+	public function interesseTopico($id_topico = 1, $id_coop = 1){
 		$coopController = new \App\Models\InteresseTopicoModel();
 		$coopController
 		->set('aprov_interesseTopico', '1')
-		->set('id_topico', $id_topico)
+		->set('id_topico', 1)
 		->set('id_coop', 1)
 		->insert();
 
-		return redirect()->to(base_url('./cooperativas'));
+		var_dump($coopController);
+
+		//return redirect()->to(base_url('CoopController/Cooperativas'));
 	}
 
 	// ARRUMAR A ROTA NA VIEW

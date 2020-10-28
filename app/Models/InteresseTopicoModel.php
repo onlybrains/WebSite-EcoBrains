@@ -3,8 +3,6 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
-use App\Models\DescModel;
-
 
 class InteresseTopicoModel extends Model
 {
@@ -26,14 +24,14 @@ class InteresseTopicoModel extends Model
     'inputTipo'        =>
     'required',
 
-    'aprov_interesseTopico'    =>
-    'required|min_length[1]|max_length[1]',
+    'aprov_interesseTopico'         =>
+    'min_length[1]',
 
-    'id_topico'    =>
-    'required|min_length[1]|max_length[1]',
+    'id_topico'         =>
+    'min_length[1]',
 
-    'id_coop'    =>
-    'required|min_length[1]|max_length[1]',
+    'id_coop'         =>
+    'min_length[1]',
   ];
 
   // protected $validationMessages = [
