@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\CoopModel;
 use App\Models\UserModel;
 use App\Models\EmpresaModel;
+use App\Models\DadosModel;
 
 class UserController extends BaseController
 {
@@ -95,49 +96,24 @@ class UserController extends BaseController
 
 
     if ($this->request->getMethod() == 'post') {
+      $model = new DadosModel();
+      $data = [
+        'inputTipo' => $this->request->getPost('inputTipo'),
+        'cnpj_dados' => onlyNumbers($this->request->getPost('inputCNPJ')),
+        'nomeFantasia_dados' => $this->request->getPost('inputFantasia'),
+        'razaoSoc_dados' => $this->request->getPost('inputRazao'),
+        'cep_dados' => onlyNumbers($this->request->getPost('inputCEP')),
+        'numEnd_dados' => $this->request->getPost('inputNumEnd'),
+        'complemento_dados' => $this->request->getPost('inputComplemento'),
+        'inputEnd' => $this->request->getPost('inputEnd'),
+        'tel_dados' => onlyNumbers($this->request->getPost('inputTel')),
+        'whatsapp_dados' => onlyNumbers($this->request->getPost('inputWhats')),
+      ];
 
-      if ($this->request->getPost('inputTipo')) {
+      // $data['errors'] = ['error' => 'Insira o tipo de cadastro'];
+      // return view('sign-up/step', $data);
 
-        $inputTipo = $this->request->getPost('inputTipo');
-
-        if ($inputTipo == 'empresa') {
-          $model = new EmpresaModel();
-          $insertData = [
-            'inputTipo' => $this->request->getPost('inputTipo'),
-            'cnpj_empresa' => onlyNumbers($this->request->getPost('inputCNPJ')),
-            'nomeFantasia_empresa' => $this->request->getPost('inputFantasia'),
-            'razaoSoc_empresa' => $this->request->getPost('inputRazao'),
-            'cep_empresa' => onlyNumbers($this->request->getPost('inputCEP')),
-            'numEnd_empresa' => $this->request->getPost('inputNumEnd'),
-            'complemento_empresa' => $this->request->getPost('inputComplemento'),
-            'inputEnd' => $this->request->getPost('inputEnd'),
-            'tel_empresa' => onlyNumbers($this->request->getPost('inputTel')),
-            'whatsapp_empresa' => onlyNumbers($this->request->getPost('inputWhats')),
-          ];
-        } else {
-          $model = new CoopModel();
-          $insertData = [
-            'inputTipo' => $this->request->getPost('inputTipo'),
-            'cnpj_coop' => onlyNumbers($this->request->getPost('inputCNPJ')),
-            'nomeFantasia_coop' => $this->request->getPost('inputFantasia'),
-            'razaoSoc_coop' => $this->request->getPost('inputRazao'),
-            'cep_coop' => onlyNumbers($this->request->getPost('inputCEP')),
-            'numEnd_coop' => $this->request->getPost('inputNumEnd'),
-            'complemento_coop' => $this->request->getPost('inputComplemento'),
-            'inputEnd' => $this->request->getPost('inputEnd'),
-            'tel_coop' => onlyNumbers($this->request->getPost('inputTel')),
-            'whatsapp_coop' => onlyNumbers($this->request->getPost('inputWhats')),
-          ];
-        }
-      } else {
-        $data['errors'] = ['error' => 'Insira o tipo de cadastro'];
-        return view('sign-up/step', $data);
-      }
-
-
-
-
-      if ($model->insert($insertData)) {
+      if ($model->insert($data)) {
         return redirect()->to('/login');
       } else {
         $data['errors'] = $model->errors();

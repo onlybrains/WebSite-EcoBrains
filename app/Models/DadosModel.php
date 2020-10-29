@@ -4,55 +4,61 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 use App\Models\DescModel;
+use App\Models\EmpresaModel;
 
 
-class EmpresaModel extends Model
+class DadosModel extends Model
 {
-  protected $table      = 'tb_empresas';
-  protected $primaryKey = 'id_empresa';
+  protected $table      = 'tb_dados';
+  protected $primaryKey = 'id_dados';
 
   protected $returnType     = 'object';
 
   protected $allowedFields = [
-    'id_login',
-    'id_desc',
-    'id_dados',
+    'nomeFantasia_dados',
+    'razaoSoc_dados',
+    'cnpj_dados',
+    'cep_dados',
+    'numEnd_dados',
+    'tel_dados',
+    'whatsapp_dados',
+    'complemento_dados',
   ];
 
-  // protected $beforeInsert = ['beforeInsert'];
-  // protected $beforeUpdate = ['hashPassword'];
+  protected $beforeInsert = ['beforeInsert'];
+  protected $afterInsert = ['afterInsert'];
 
-  // protected $validationRules = [
-  //   'inputTipo'        =>
-  //   'required',
+  protected $validationRules = [
+    'inputTipo'        =>
+    'required',
 
-  //   'cnpj_empresa'        =>
-  //   'required|min_length[14]|is_unique[tb_empresas.cnpj_empresa]',
+    'cnpj_dados'        =>
+    'required|min_length[14]|is_unique[tb_dados.cnpj_dados]',
 
-  //   'nomeFantasia_empresa'    =>
-  //   'required|alpha_numeric_space|min_length[5]|max_length[100]',
+    'nomeFantasia_dados'    =>
+    'required|alpha_numeric_space|min_length[5]|max_length[100]',
 
-  //   'razaoSoc_empresa'       =>
-  //   'required|alpha_numeric_space|min_length[5]|max_length[100]',
+    'razaoSoc_dados'       =>
+    'required|alpha_numeric_space|min_length[5]|max_length[100]',
 
-  //   'cep_empresa'         =>
-  //   'required|min_length[8]',
+    'cep_dados'         =>
+    'required|min_length[8]',
 
-  //   'numEnd_empresa'      =>
-  //   'required|alpha_numeric|greater_than[0]|max_length[5]',
+    'numEnd_dados'      =>
+    'required|alpha_numeric|greater_than[0]|max_length[5]',
 
-  //   'complemento_empresa' =>
-  //   'alpha_numeric_space|max_length[10]',
+    'complemento_dados' =>
+    'alpha_numeric_space|max_length[10]',
 
-  //   'inputEnd'         =>
-  //   'min_length[13]',
+    'inputEnd'         =>
+    'min_length[13]',
 
-  //   'tel_empresa'         =>
-  //   'min_length[10]',
+    'tel_dados'         =>
+    'min_length[10]',
 
-  //   'whatsapp_empresa'         =>
-  //   'min_length[11]',
-  // ];
+    'whatsapp_dados'         =>
+    'min_length[11]',
+  ];
 
   // protected $validationMessages = [
   //   'inputTipo'             => [
@@ -102,15 +108,29 @@ class EmpresaModel extends Model
 
 
 
-  // protected function beforeInsert(array $data)
-  // {
-  //   $model = new DescModel();
+  protected function beforeInsert(array $data)
+  {
+    $model = new DescModel();
 
-  //   $id_desc = $model->insert(['info_desc' => null]);
+    $id_desc = $model->insert(['info_desc' => null]);
 
-  //   $data['data']['id_desc'] = strval($id_desc);
-  //   $data['data']['id_login'] = session()->get('id_login');
+    $data['data']['id_desc'] = strval($id_desc);
 
-  //   return $data;
-  // }
+    return $data;
+  }
+
+  protected function afterInsert($id, array $data)
+  {
+    if ($data['data']['inputTipo'] == 'empresa') {
+      $model = new EmpresaModel();
+      $dataInsert = [
+        'id_dados' => $id,
+        'id_desc' => $data['id_desc'],
+        'id_login' => session()->get('id_login')
+      ];
+
+      $model->insert($dataInsert);
+    } else {
+    }
+  }
 }
