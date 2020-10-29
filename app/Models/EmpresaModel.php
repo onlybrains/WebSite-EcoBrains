@@ -108,7 +108,6 @@ class EmpresaModel extends Model
   // ];
 
 
-
   protected function beforeInsert(array $data)
   {
     $model = new DescModel();
