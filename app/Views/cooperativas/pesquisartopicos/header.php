@@ -11,26 +11,23 @@
           <div class="form-group rounded-left col-md-3 bg-light border-right border-bottom m-0 p-2">
             <label for="tpResiduo">Tipo de Resíduo</label>
             <select class="form-control" name="tpResiduoFiltro" id="tpResiduoFiltro">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+              <option disabled selected>Selecione o resíduo</option>
+            <?php 
+              foreach ($tipos as $tipo):
+            ?>
+              <option><?=$tipo->nome_tpResiduo?></option>
+            <?php 
+              endforeach 
+            ?>
             </select>
           </div>
           <div class="form-group bg-light col-md-3 border-right border-bottom m-0 p-2">
             <label for="inputUser">Data Limite</label>
-            <input type="date" class="form-control" name="dataLimiteFiltro" id="dataLimiteFiltro">
+            <input type="date" class="form-control" name="dataLimiteFiltro" id="dataLimiteFiltro" value="<?= date('Y-m-d');?>">
           </div>
           <div class="form-group bg-light col-md-3 border-bottom m-0 p-2">
             <label for="inputUser">Peso</label>
-            <select class="form-control "name="pesoFiltro" id="pesoFiltro">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
+            <input type="number" class="form-control" name="pesoFiltro" id="pesoFiltro" placeholder="Até..."/>
           </div>
           <button type="submit" class="btn btn-green form-group col-md-3 m-0 p-2">Pesquisar</button>
         </div>

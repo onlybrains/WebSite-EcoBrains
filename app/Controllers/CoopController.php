@@ -27,9 +27,13 @@ class CoopController extends BaseController
 			->where('dataLimite_topico >= CURRENT_DATE()')
 			->findAll();
 
-		$data['topicos'] = $registros;
+		$coopController = new \App\Models\TipoResiduoModel();
+		$registrosTipos = $coopController -> findAll();
 
-		//var_dump($registros);
+		$data['topicos'] = $registros;
+		$data['tipos'] = $registrosTipos;
+
+		//var_dump($registrosTipos);
 		return view('cooperativas/pesquisartopicos/index', $data);
 	}
 
@@ -62,9 +66,9 @@ class CoopController extends BaseController
 	// ARRUMAR A ROTA NA VIEW
 	public function pesquisafiltro()
 	{
-		$tipoResiduo = $this->input->post("tpResiduoFiltro");
-		$dataLimite = $this->input->post("dataLimiteFiltro");
-		$pesoResiduo = $this->input->post("pesoFiltro");
+		$tipoResiduo = $this->request->getPost("tpResiduoFiltro");
+		$dataLimite = $this->request->getPost("dataLimiteFiltro");
+		$pesoResiduo = $this->request->getPost("pesoFiltro");
 
 		$data['titulo'] = 'Pesquisar Empresas';
 		$data['nome'] = '$cooperativa';
@@ -74,13 +78,19 @@ class CoopController extends BaseController
 			->join('tb_empresas', 'tb_empresas.id_empresa = tb_topico.id_empresa')
 			->join('tb_residuostopico', 'tb_residuostopico.id_topico = tb_topico.id_topico')
 			->join('tb_tpresiduos', 'tb_tpresiduos.id_tpResiduo = tb_residuostopico.id_tpResiduo')
-			->where('dataLimite_topico >= CURRENT_DATE() AND dataLimite_topico =' . $dataLimite . ' AND tb_tpresiduos.id_tpResiduo =' . $tipoResiduo . ' AND tb_residuostopico.quant_residuo =' . $pesoResiduo)
+			->where("dataLimite_topico >= CURRENT_DATE() AND dataLimite_topico <='{$dataLimite}' AND nome_tpResiduo ='{$tipoResiduo}' AND quant_residuo <= '{$pesoResiduo}'")
+			//" AND nome_tpResiduo = 'Madeira' AND quant_residuo <= '450'")
 			->findAll();
-
+			
+		$coopController = new \App\Models\TipoResiduoModel();
+		$registrosTipos = $coopController -> findAll();
+	
 		$data['topicos'] = $registros;
+		$data['tipos'] = $registrosTipos;
 
-		var_dump($registros);
-		//return view('cooperativas/pesquisartopicos/index', $data);
+		//echo "<pre>";
+		//var_dump($dataLimite, $pesoResiduo, $tipoResiduo);
+		return view('cooperativas/pesquisartopicos/index', $data);
 
 	}
 

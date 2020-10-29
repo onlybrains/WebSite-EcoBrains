@@ -3,8 +3,6 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
-use App\Models\DescModel;
-
 
 class TopicoModel extends Model
 {
@@ -23,9 +21,6 @@ class TopicoModel extends Model
   // protected $beforeUpdate = ['hashPassword'];
 
   protected $validationRules = [
-    'inputTipo'        =>
-    'required',
-
     'titulo_topico'    =>
     'required|alpha_numeric_space|min_length[5]|max_length[100]',
 
