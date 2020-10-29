@@ -97,6 +97,7 @@ class UserController extends BaseController
 
     if ($this->request->getMethod() == 'post') {
       $model = new DadosModel();
+      session()->setFlashdata('inputTipo', $this->request->getPost('inputTipo'));
       $data = [
         'inputTipo' => $this->request->getPost('inputTipo'),
         'cnpj_dados' => onlyNumbers($this->request->getPost('inputCNPJ')),
@@ -110,8 +111,6 @@ class UserController extends BaseController
         'whatsapp_dados' => onlyNumbers($this->request->getPost('inputWhats')),
       ];
 
-      // $data['errors'] = ['error' => 'Insira o tipo de cadastro'];
-      // return view('sign-up/step', $data);
 
       if ($model->insert($data)) {
         return redirect()->to('/login');
