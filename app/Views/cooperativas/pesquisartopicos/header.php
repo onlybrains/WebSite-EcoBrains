@@ -49,7 +49,7 @@
         <div class="card-body">
           <div class="container">
               <!--<a href="#" class="topic-button p-2 float-right" style="margin-top: 66px;"><img src="../imgs/topics-vector.png" width="37" height="25"></a>-->
-              <a href="<?= base_url('/CoopController/interesseTopico/'.$topico->id_topico);?>" class="btn-eco efeito p-3 float-right" style="margin-top: 66px;">Mostrar interesse</a>
+              <a href="<?= base_url('/CoopController/interesseTopico/'.$topico->id_topico);?>" class="btn-eco efeito p-3 float-right" style="margin-top: 90px;">Mostrar interesse</a>
               <!--<a href="https://www.google.com/maps/dir//<?=$topico->cep_empresa?>" target="_blank" class="btn-eco efeito mr-4 p-4 float-right" style="margin-top: 66px;">Veja a localização da empresa</a>-->
               <img src="../imgs/image-random.png" class="mr-4 mt-5 float-right">
           </div>
