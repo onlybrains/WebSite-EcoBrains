@@ -9,5 +9,4 @@ class InteresseTopicoModel extends Model{
     protected $allowedFields = ['aprov_interesseTopico', 'id_topico', 'id_coop'];
     protected $returnType = 'object';
 }
-
 ?>
