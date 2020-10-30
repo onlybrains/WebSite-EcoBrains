@@ -16,46 +16,26 @@ class TbCooperativas extends Migration
 				'unsigned'				=> true,
 				'auto_increment'  => true,
 			],
-			'nomeFantasia_coop' => [
-				'type' 						=> 'VARCHAR',
-				'constraint' 			=> '100',
-			],
-			'razaoSoc_coop' 		=> [
-				'type' 						=> 'VARCHAR',
-				'constraint' 			=> '100',
-			],
-			'cnpj_coop' 				=> [
-				'type' 						=> 'VARCHAR',
-				'constraint' 			=> '14',
-			],
-			'cep_coop' 					=> [
-				'type' 						=> 'VARCHAR',
-				'constraint' 			=> '8',
-			],
-			'numEnd_coop' 			=> [
-				'type' 						=> 'VARCHAR',
-				'constraint' 			=> '5',
-			],
-			'tel_coop' 					=> [
-				'type' 						=> 'VARCHAR',
-				'constraint' 			=> '10',
-			],
-			'whatsapp_coop' 		=> [
-				'type' 						=> 'VARCHAR',
-				'constraint' 			=> '10',
-			],
 			'id_login' 					=> [
 				'type' 						=> 'INT'
 			],
 			'id_desc' 					=> [
 				'type' 						=> 'INT'
 			],
+			'id_dados' 					=> [
+				'type' 						=> 'INT',
+				'unsigned'					 => true,
+
+			],
 		]);
 
 		$this->forge->addPrimaryKey('id_coop');
-
 		$this->forge->addForeignKey('id_login', 'tb_login', 'id_login');
 		$this->forge->addForeignKey('id_desc', 'tb_desc', 'id_desc');
+
+
+		$this->forge->addForeignKey('id_dados', 'tb_dados', 'id_dados');
+
 
 		$this->forge->createTable('tb_cooperativas');
 
