@@ -42,7 +42,7 @@ $routes->match(['get', 'post'], '/sign-up', 'UserController::signUp');
 $routes->match(['get', 'post'], '/sign-up/dados', 'UserController::dados');
 
 $routes->get('/empresas', 'EmpresaController::empresas');
-$routes->get('/empresas/abrirtopico', 'EmpresaController::abrirTopico');
+$routes->match(['get', 'post'],'/empresas/abrirtopico', 'EmpresaController::abrirTopico');
 $routes->get('/empresas/editartopico', 'EmpresaController::editarTopico');
 $routes->get('/empresas/topicos', 'EmpresaController::viewTopico');
 

@@ -6,7 +6,7 @@
 
   <div class="row justify-content-center align-items-center my-5">
     <div class="col-8 bg-light p-0 rounded-lg sign-up">
-      <form method="post" action="/empresas/abrirtopico">
+      <form method="post">
         <div class="form-group border-bottom p-2 pl-4 pr-4 m-0">
           <label for="titulo_topico">Título do Tópico</label>
           <input type="text" class="form-control border-0" name="titulo_topico" id="titulo_topico" placeholder="Tópico de Negociação 1">
@@ -15,7 +15,7 @@
           <label for="tipoResiduos">Tipo de Resíduo:</label>
           <select class="form-control " name="tipoResiduos" id="tipoResiduos">
             <?php
-            foreach ($tpresiduos as $residuo) :
+            foreach ($tpResiduos as $residuo) :
             ?>
               <option value="<?= $residuo->id_tpResiduo ?>">
                 <?= $residuo->nome_tpResiduo ?>

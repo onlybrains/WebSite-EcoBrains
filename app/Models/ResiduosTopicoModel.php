@@ -6,7 +6,7 @@ class ResiduosTopicoModel extends Model{
 
   protected $table = 'tb_residuostopico';
   protected $primaryKey = 'id_residuo';
-  protected $allowedFields = ['quant_residuo, id_tpResiduo, id_topico'];
+  protected $allowedFields = ['quant_residuo', 'id_tpResiduo', 'id_topico'];
   protected $returnType = 'object';
 
 }
