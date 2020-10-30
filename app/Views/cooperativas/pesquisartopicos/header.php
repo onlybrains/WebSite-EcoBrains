@@ -50,7 +50,7 @@
           <div class="container">
               <!--<a href="#" class="topic-button p-2 float-right" style="margin-top: 66px;"><img src="../imgs/topics-vector.png" width="37" height="25"></a>-->
               <a href="<?= base_url('/CoopController/interesseTopico/'.$topico->id_topico);?>" class="btn-eco efeito p-3 float-right" style="margin-top: 90px;">Mostrar interesse</a>
-              <!--<a href="https://www.google.com/maps/dir//<?=$topico->cep_empresa?>" target="_blank" class="btn-eco efeito mr-4 p-4 float-right" style="margin-top: 66px;">Veja a localização da empresa</a>-->
+              <!--<a href="https://www.google.com/maps/dir//<?=$topico->cep_dados?>" target="_blank" class="btn-eco efeito mr-4 p-4 float-right" style="margin-top: 66px;">Veja a localização da empresa</a>-->
               <img src="../imgs/image-random.png" class="mr-4 mt-5 float-right">
           </div>
           <div class="row">
@@ -76,10 +76,10 @@
           </div>
           <div class="row ml-3">
             <strong class="topic-desc">Empresa: </strong>
-            <p class="topic-desc ml-2"><?=$topico->nomeFantasia_empresa?></p>
+            <p class="topic-desc ml-2"><?=$topico->nomeFantasia_dados?></p>
           </div>
           <div class="row ml-3">
-            <a class="topic-maps mb-3" target="_blank" href="https://www.google.com/maps/dir//<?=$topico->cep_empresa?>">Clique aqui e veja a localização da empresa</a>
+            <a class="topic-maps mb-3" target="_blank" href="https://www.google.com/maps/dir//<?=$topico->cep_dados?>">Clique aqui e veja a localização da empresa</a>
           </div>
         </div>
       </div>

@@ -50,10 +50,10 @@ $routes->group('empresas', ['filter' => 'empresa'], function ($routes) {
 
 $routes->group('cooperativas', ['filter' => 'coop'], function ($routes) {
 	$routes->get('/', 'CoopController::cooperativas');
-	$routes->get('/pesquisartopicos', 'CoopController::pesquisartopicos');
-	$routes->get('/mostrarinteresse', 'CoopController::interesseTopico');
-	$routes->POST('/pesquisafiltro', 'CoopController::pesquisafiltro');
-	$routes->get('/pesquisarempresas', 'CoopController::pesquisarempresas');
+	$routes->get('pesquisartopicos', 'CoopController::pesquisartopicos');
+	$routes->get('mostrarinteresse', 'CoopController::interesseTopico');
+	$routes->POST('pesquisafiltro', 'CoopController::pesquisafiltro');
+	$routes->get('pesquisarempresas', 'CoopController::pesquisarempresas');
 });
 
 $routes->get('/perfil', 'PerfilController::viewPerfil');
