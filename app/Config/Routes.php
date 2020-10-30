@@ -43,8 +43,8 @@ $routes->match(['get', 'post'], '/sign-up/dados', 'UserController::dados');
 
 $routes->group('empresas', ['filter' => 'empresa'], function ($routes) {
 	$routes->get('/', 'EmpresaController::empresas');
-	$routes->get('abrirtopico', 'EmpresaController::abrirTopico');
-	$routes->get('editartopico', 'EmpresaController::editarTopico');
+	$routes->match(['get', 'post'],'abrirtopico', 'EmpresaController::abrirTopico');
+	$routes->match(['get', 'post'],'editartopico', 'EmpresaController::editarTopico');
 	$routes->get('topicos', 'EmpresaController::viewTopico');
 });
 

@@ -33,11 +33,11 @@ class TopicoModel extends Model
 
   protected function afterInsert(array $data)
   { 
-    var_dump($data);
+    // var_dump($data);
     $residuosTopicoModel = new \App\Models\ResiduosTopicoModel();
-    $residuosTopicoModel->set('id_topico', '8' );
-    $residuosTopicoModel->set('quant_residuo', '10' );
-    $residuosTopicoModel->set('id_tpResiduo', '1' );
+    $residuosTopicoModel->set('id_topico', '10' );
+    $residuosTopicoModel->set('quant_residuo', '100' );
+    $residuosTopicoModel->set('id_tpResiduo', '2' );
 
     $residuosTopicoModel->insert();
     
