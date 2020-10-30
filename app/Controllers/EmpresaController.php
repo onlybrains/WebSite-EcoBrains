@@ -8,37 +8,45 @@ class EmpresaController extends BaseController
 {
   public function empresas()
   {
-    // $modelDados = new \App\Models\DadosModel();
-    // $nomeEmpresa = $modelDados
-    //  ->select('nomeFantasia_dados')
-    //  ->findAll();
+    $modelEmpresas = new \App\Models\EmpresaModel();
+    $topicoModel = new \App\Models\TopicoModel();
+
+    $Empresa = $modelEmpresas
+      ->select('id_empresa, nomeFantasia_dados, razaoSoc_dados')
+      ->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
+      ->where('id_login', session()->get('id_login'))->first();
+
+    $registros = $topicoModel
+      ->join('tb_empresas', 'tb_empresas.id_empresa = tb_topico.id_empresa')
+      ->join('tb_residuostopico', 'tb_residuostopico.id_topico = tb_topico.id_topico')
+      ->join('tb_tpresiduos', 'tb_tpresiduos.id_tpResiduo = tb_residuostopico.id_tpResiduo')
+      ->findAll();
 
     $data['titulo'] = 'Pesquisar Cooperativas';
-    $data['nome'] = '$nomeEmpresa';
+    $data['nome'] = $Empresa->razaoSoc_dados;
+    $data['topicos'] = $registros;
 
-    // var_dump($nomeEmpresa);
     return view('empresas/index', $data);
   }
-  //*CRIAR TÓPICO DE NEGOCIAÇÃO*//
+
   public function abrirTopico()
   {
-    $data['titulo'] = 'Pesquisar Cooperativas';
-    $data['nome'] = 'Nome da Empresa';
-
-    //LISTAR OS TIPO DE RESÍDUOS PARA INSERIR OS DADOS
+    $modelEmpresas = new \App\Models\EmpresaModel();
     $tipoResiduosModel = new \App\Models\TipoResiduoModel();
+
+    $Empresa = $modelEmpresas
+      ->select('id_empresa, nomeFantasia_dados, razaoSoc_dados')
+      ->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
+      ->where('id_login', session()->get('id_login'))->first();
+
     $residuos = $tipoResiduosModel->find();
 
-    $data['tpResiduos'] = $residuos;
-
-    //INSERIR NAS TABELAS
     if ($this->request->getMethod() === 'post') {
       $topicoModel = new \App\Models\TopicoModel();
-      // $residuosTopicoModel = new \App\Models\ResiduosTopicoModel();
       $modelEmpresa = new \App\Models\EmpresaModel();
 
       $Empresa = $modelEmpresa->where('id_login', session()->get('id_login'))->first();
-      //TB_TOPICO
+
       $topicoModel->set('titulo_topico', $this->request->getPost('titulo_topico'));
       $topicoModel->set('dataLimite_topico', $this->request->getPost('dataLimite_topico'));
       $topicoModel->set('id_empresa', $Empresa->id_empresa);
@@ -47,46 +55,42 @@ class EmpresaController extends BaseController
       $topicoModel->set('id_tpResiduo', $this->request->getPost('id_tpResiduo'));
 
       if ($topicoModel->insert()) {
-
-        // var_dump($topicoController->getInsertID());
-        //TB_RESIDUOSTOPICO
-
-        // $residuosTopicoModel->set('id_topico', $topicoController->getInsertID());
-
-        // $insertResiduos = [
-        //   'quant_residuo' => ('700'),
-        //   'id_tpResiduo'=> ('1'),
-        //   'id_topico'=> ('15'),
-        // ];
-
-        // $residuosTopicoModel->insert($insertResiduos);
-
         $data['msg'] = "Tópico de Negociação Criado!";
       } else {
         $data['msg'] = $topicoModel->errors();
       }
     }
 
+    $data['titulo'] = 'Pesquisar Cooperativas';
+    $data['nome'] = $Empresa->razaoSoc_dados;
+    $data['tpResiduos'] = $residuos;
+
     return view('empresas/abrir-topico/index', $data);
   }
 
-  //*ATUALIZAR TÓPICO DE NEGOCIAÇÃO*//
-  public function editarTopico()
+
+  public function editarTopico($id_topico)
   {
-    $data['titulo'] = 'Pesquisar Cooperativas';
-    $data['nome'] = 'Nome da Empresa';
-
+    $modelEmpresas = new \App\Models\EmpresaModel();
     $topicoModel = new \App\Models\TopicoModel();
-    $topicoDadosModel = $topicoModel
-    ->where('id_topico = 10')
-    ->findAll();
-
     $residuosTopicoModel = new \App\Models\ResiduosTopicoModel();
-    $topicoDadosResiduos = $residuosTopicoModel
-    ->join('tb_tpresiduos', 'tb_tpresiduos.id_tpResiduo = tb_residuostopico.id_tpResiduo')
-    ->where('id_topico = 10')
-    ->findAll();
+    $tipoResiduosModel = new \App\Models\TipoResiduoModel();
 
+    $Empresa = $modelEmpresas
+      ->select('id_empresa, nomeFantasia_dados, razaoSoc_dados')
+      ->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
+      ->where('id_login', session()->get('id_login'))->first();
+
+    $topicoDadosModel = $topicoModel
+      ->where('id_topico = ' . $id_topico)
+      ->findAll();
+
+    $topicoDadosResiduos = $residuosTopicoModel
+      ->join('tb_tpresiduos', 'tb_tpresiduos.id_tpResiduo = tb_residuostopico.id_tpResiduo')
+      ->where("id_topico = '{$id_topico}'")
+      ->findAll();
+
+    $residuos = $tipoResiduosModel->find();
 
     if ($this->request->getMethod() === 'post') {
 
@@ -99,31 +103,35 @@ class EmpresaController extends BaseController
 
     $data['dados'] = $topicoDadosModel;
     $data['dadosResiduos'] = $topicoDadosResiduos;
-
-    $tipoResiduosModel = new \App\Models\TipoResiduoModel();
-    $residuos = $tipoResiduosModel->find();
-
+    $data['titulo'] = 'Pesquisar Cooperativas';
+    $data['nome'] = $Empresa->razaoSoc_dados;
     $data['tpResiduos'] = $residuos;
 
-    // var_dump($topicoDadosModel);
-    // var_dump($topicoDadosResiduos);
     return view('empresas/editar-topico/index', $data);
   }
 
-    //*LISTAR TÓPICO DE NEGOCIAÇÃO*//
   public function viewTopico()
   {
+    $modelEmpresas = new \App\Models\EmpresaModel();
+    $topicoModel = new \App\Models\TopicoModel();
+
+    $Empresa = $modelEmpresas
+      ->select('id_empresa, nomeFantasia_dados, razaoSoc_dados')
+      ->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
+      ->where('id_login', session()->get('id_login'))->first();
+
+    $registros = $topicoModel
+      ->join('tb_empresas', 'tb_empresas.id_empresa = tb_topico.id_empresa')
+      ->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
+      ->join('tb_interessetopico', 'tb_interessetopico.id_topico = tb_topico.id_topico')
+      ->join('tb_residuostopico', 'tb_residuostopico.id_topico = tb_topico.id_topico')
+      ->join('tb_tpresiduos', 'tb_tpresiduos.id_tpResiduo = tb_residuostopico.id_tpResiduo')
+      ->findAll();
+
+
     $data['titulo'] = 'Pesquisar Cooperativas';
-    $data['nome'] = 'Nome da Empresa';
-
-    $coopController = new \App\Models\TopicoModel();
-		$registros = $coopController
-			->join('tb_empresas', 'tb_empresas.id_empresa = tb_topico.id_empresa')
-			->join('tb_residuostopico', 'tb_residuostopico.id_topico = tb_topico.id_topico')
-			->join('tb_tpresiduos', 'tb_tpresiduos.id_tpResiduo = tb_residuostopico.id_tpResiduo')
-			->findAll();
-
-		$data['topicos'] = $registros;
+    $data['nome'] = $Empresa->razaoSoc_dados;
+    $data['registros'] = $registros;
 
     return view('empresas/view-topico/index', $data);
   }
