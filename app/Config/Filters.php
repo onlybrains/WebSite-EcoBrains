@@ -1,4 +1,6 @@
-<?php namespace Config;
+<?php
+
+namespace Config;
 
 use CodeIgniter\Config\BaseConfig;
 
@@ -10,6 +12,10 @@ class Filters extends BaseConfig
 		'csrf'     => \CodeIgniter\Filters\CSRF::class,
 		'toolbar'  => \CodeIgniter\Filters\DebugToolbar::class,
 		'honeypot' => \CodeIgniter\Filters\Honeypot::class,
+		'empresa' => \App\Filters\Empresa::class,
+		'coop' => \App\Filters\Coop::class,
+		'globalFilter' => \App\Filters\GlobalFilter::class,
+		'user' => \App\Filters\User::class,
 	];
 
 	// Always applied before every request
@@ -32,5 +38,8 @@ class Filters extends BaseConfig
 	// List filter aliases and any before/after uri patterns
 	// that they should run on, like:
 	//    'isLoggedIn' => ['before' => ['account/*', 'profiles/*']],
-	public $filters = [];
+	public $filters = [
+		'globalFilter' => ['before' => ['sign-up/dados']],
+		'user' => ['before' => ['sign-up', 'login']]
+	];
 }
