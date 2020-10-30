@@ -2,9 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\CoopModel;
 use App\Models\UserModel;
-use App\Models\EmpresaModel;
 use App\Models\DadosModel;
 
 class UserController extends BaseController
@@ -12,21 +10,7 @@ class UserController extends BaseController
   public function index()
   {
     $data = [];
-    helper(['form']);
-
-    if (session()->get('isLoggedIn')) {
-
-      $modelEmpresa = new EmpresaModel();
-      $coopModel = new CoopModel();
-
-      if ($modelEmpresa->where('id_login', session()->get('id_login'))->first())
-        return redirect()->to('empresas');
-
-      elseif ($coopModel->where('id_login', session()->get('id_login'))->first())
-        return redirect()->to('cooperativas');
-
-      return redirect()->to('sign-up/dados');
-    }
+    helper(['form', 'auth']);
 
 
     if ($this->request->getMethod() == 'post') {
@@ -49,7 +33,8 @@ class UserController extends BaseController
       } else {
         $model = new UserModel();
         $user = $model->where('usuario_login', $this->request->getPost('inputUser'))->first();
-        session()->set($model->setUserSession($user));
+
+        setUserSession($user);
         return redirect()->to('/login');
       }
     }
