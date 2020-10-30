@@ -41,16 +41,20 @@ $routes->match(['get', 'post'], '/login', 'UserController::index');
 $routes->match(['get', 'post'], '/sign-up', 'UserController::signUp');
 $routes->match(['get', 'post'], '/sign-up/dados', 'UserController::dados');
 
-$routes->get('/empresas', 'EmpresaController::empresas');
-$routes->get('/empresas/abrirtopico', 'EmpresaController::abrirTopico');
-$routes->get('/empresas/editartopico', 'EmpresaController::editarTopico');
-$routes->get('/empresas/topicos', 'EmpresaController::viewTopico');
+$routes->group('empresas', ['filter' => 'empresa'], function ($routes) {
+	$routes->get('/', 'EmpresaController::empresas');
+	$routes->get('/abrirtopico', 'EmpresaController::abrirTopico');
+	$routes->get('/editartopico', 'EmpresaController::editarTopico');
+	$routes->get('/topicos', 'EmpresaController::viewTopico');
+});
 
-$routes->get('/cooperativas', 'CoopController::cooperativas');
-$routes->get('/cooperativas/pesquisartopicos', 'CoopController::pesquisartopicos');
-$routes->get('/cooperativas/mostrarinteresse', 'CoopController::interesseTopico');
-$routes->POST('/cooperativas/pesquisafiltro', 'CoopController::pesquisafiltro');
-$routes->get('/cooperativas/pesquisarempresas', 'CoopController::pesquisarempresas');
+$routes->group('cooperativas', ['filter' => 'coop'], function ($routes) {
+	$routes->get('/', 'CoopController::cooperativas');
+	$routes->get('/pesquisartopicos', 'CoopController::pesquisartopicos');
+	$routes->get('/mostrarinteresse', 'CoopController::interesseTopico');
+	$routes->POST('/pesquisafiltro', 'CoopController::pesquisafiltro');
+	$routes->get('/pesquisarempresas', 'CoopController::pesquisarempresas');
+});
 
 $routes->get('/perfil', 'PerfilController::viewPerfil');
 $routes->get('/editarperfil', 'PerfilController::editarPerfil');

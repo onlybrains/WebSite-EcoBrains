@@ -50,17 +50,8 @@ class UserModel extends Model
         'usuario_login' => $data['data']['usuario_login'],
       ];
 
-      session()->set($this->setUserSession($user));
+      helper('auth');
+      setUserSession($user);
     }
-  }
-
-  public function setUserSession(object $user)
-  {
-    return [
-      'id_login' => $user->id_login,
-      'email_login' => $user->email_login,
-      'usuario_login' => $user->usuario_login,
-      'isLoggedIn' => true,
-    ];
   }
 }
