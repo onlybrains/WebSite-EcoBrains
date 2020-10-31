@@ -39,9 +39,14 @@ class EmpresaController extends BaseController
       ->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
       ->where('id_login', session()->get('id_login'))->first();
 
+    $data['titulo'] = 'Pesquisar Cooperativas';
+    $data['nome'] = $Empresa->razaoSoc_dados;
+
     $residuos = $tipoResiduosModel->find();
+    $data['tpResiduos'] = $residuos;
 
     if ($this->request->getMethod() === 'post') {
+      $residuosTopicoModel = new \App\Models\ResiduosTopicoModel();
       $topicoModel = new \App\Models\TopicoModel();
       $modelEmpresa = new \App\Models\EmpresaModel();
 
@@ -51,20 +56,21 @@ class EmpresaController extends BaseController
       $topicoModel->set('dataLimite_topico', $this->request->getPost('dataLimite_topico'));
       $topicoModel->set('id_empresa', $Empresa->id_empresa);
 
-      $topicoModel->set('quant_residuo', $this->request->getPost('quant_residuo'));
-      $topicoModel->set('id_tpResiduo', $this->request->getPost('id_tpResiduo'));
+      $residuosTopicoModel->set('quant_residuo', $this->request->getPost('quant_residuo'));
+      $residuosTopicoModel->set('id_tpResiduo', $this->request->getPost('id_tpResiduo'));
 
       if ($topicoModel->insert()) {
-        $data['msg'] = "Tópico de Negociação Criado!";
+        $residuosTopicoModel->set('id_topico', $topicoModel->getInsertID());
+        if ($residuosTopicoModel->insert()) {
+          return redirect()->to('/empresas');
+        } else {
+          $data['errors'] = $residuosTopicoModel->errors();
+          $topicoModel->delete($topicoModel->getInsertID());
+        }
       } else {
-        $data['msg'] = $topicoModel->errors();
+        $data['errors'] = $topicoModel->errors();
       }
     }
-
-    $data['titulo'] = 'Pesquisar Cooperativas';
-    $data['nome'] = $Empresa->razaoSoc_dados;
-    $data['tpResiduos'] = $residuos;
-
     return view('empresas/abrir-topico/index', $data);
   }
 
@@ -81,32 +87,38 @@ class EmpresaController extends BaseController
       ->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
       ->where('id_login', session()->get('id_login'))->first();
 
-    $topicoDadosModel = $topicoModel
-      ->where('id_topico = ' . $id_topico)
-      ->findAll();
-
-    $topicoDadosResiduos = $residuosTopicoModel
+    $topicos = $topicoModel
+      ->join('tb_residuostopico', 'tb_residuostopico.id_topico = tb_topico.id_topico')
       ->join('tb_tpresiduos', 'tb_tpresiduos.id_tpResiduo = tb_residuostopico.id_tpResiduo')
-      ->where("id_topico = '{$id_topico}'")
-      ->findAll();
+      ->where('tb_topico.id_topico', $id_topico)->first();
 
     $residuos = $tipoResiduosModel->find();
 
-    if ($this->request->getMethod() === 'post') {
-
-      $topicoModel->titulo_topico = $this->request->getPost('titulo_topico');
-      $topicoModel->dataLimite_topico = $this->request->getPost('dataLimite_topico');
-
-      $topicoModel->quant_residuo = $this->request->getPost('quant_residuo');
-      $topicoModel->id_tpResiduo = $this->request->getPost('id_tpResiduo');
-    }
-
-    $data['dados'] = $topicoDadosModel;
-    $data['dadosResiduos'] = $topicoDadosResiduos;
     $data['titulo'] = 'Pesquisar Cooperativas';
     $data['nome'] = $Empresa->razaoSoc_dados;
     $data['tpResiduos'] = $residuos;
+    $data['topicos'] = $topicos;
+    
 
+    if ($this->request->getMethod() === 'post') {
+
+      $topicoModel->set('titulo_topico', $this->request->getPost('titulo_topico'));
+      $topicoModel->set('dataLimite_topico', $this->request->getPost('dataLimite_topico'));
+
+      $residuosTopicoModel->set('quant_residuo', $this->request->getPost('quant_residuo'));
+      $residuosTopicoModel->set('id_tpResiduo', $this->request->getPost('id_tpResiduo'));
+
+      if ($topicoModel->update($id_topico)) {
+
+        if ($residuosTopicoModel->update($topicos->id_residuo)) {
+          return redirect()->to('/empresas');
+        } else {
+          $data['errors'] = $residuosTopicoModel->errors();
+        }
+      } else {
+        $data['errors'] = $topicoModel->errors();
+      }
+    }
     return view('empresas/editar-topico/index', $data);
   }
 

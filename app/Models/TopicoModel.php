@@ -18,8 +18,6 @@ class TopicoModel extends Model
     'id_empresa',
   ];
 
-  protected $afterInsert = ['afterInsert'];
-
   protected $validationRules = [
     'titulo_topico'    =>
     'required|alpha_numeric_space|min_length[5]|max_length[100]',
@@ -30,17 +28,5 @@ class TopicoModel extends Model
     'id_empresa'         =>
     'min_length[1]|max_length[1]',
   ];
-
-  protected function afterInsert(array $data)
-  { 
-    //var_dump($data);
-    $residuosTopicoModel = new \App\Models\ResiduosTopicoModel();
-    $residuosTopicoModel->set('id_topico', '10' );
-    $residuosTopicoModel->set('quant_residuo', '100' );
-    $residuosTopicoModel->set('id_tpResiduo', '2' );
-
-    $residuosTopicoModel->insert();
-    
-  }
 
 }
