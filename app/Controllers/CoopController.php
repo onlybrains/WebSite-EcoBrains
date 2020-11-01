@@ -942,7 +942,7 @@ class CoopController extends BaseController
 
 		$data['topicos'] = $registros;
 		$data['tipos'] = $registrosTipos;
-
+		
 		//echo "<pre>";
 		//var_dump($dataLimite, $pesoResiduo, $tipoResiduo);
 		return view('cooperativas/pesquisartopicos/index', $data);

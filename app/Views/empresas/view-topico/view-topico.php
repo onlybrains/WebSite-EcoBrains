@@ -2,21 +2,16 @@
 
   <div class="row mt-5">
     <div class="col-md-9">
-      <?php
-      foreach ($registros as $registro) :
-      ?>
-        <h1><?= $registro->titulo_topico ?></h1>
-      <?php
-      endforeach;
-      ?>
+      <h1><?= $registroEmpresa->titulo_topico ?></h1>
     </div>
 
     <div class="col-md-3">
       <div class="row">
-        <a href="<?= base_url('/empresas/editartopico') ?>" class="topic-button p-2 mt-2 mr-2 text-white">
+        <a href="<?= base_url('/empresas/editartopico/' . $registroEmpresa->id_topico) ?>" class="topic-button p-2 mt-2 mr-2 text-white">
           Editar Tópico
         </a>
-        <a href="#" class="topic-button p-2 mt-2 mr-4 text-white"><svg width="37" height="27" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <a href="<?= base_url('/empresas/deletartopico/' .$registroEmpresa->id_topico)?>" class="topic-button p-2 mt-2 mr-4 text-white">
+          <svg width="37" height="27" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
           </svg></a>
       </div>
@@ -30,16 +25,16 @@
       <form>
         <div class="form-row">
           <div class="form-group col-md-4 border-right border-bottom m-0 p-2">
-            <label for="inputEmail">Tipo de Resíduo</label>
-            <input class="form-control" type="text" placeholder="Papel" readonly>
+            <label for="nome_tpResiduo">Tipo de Resíduo</label>
+            <input class="form-control" type="text" readonly value="<?= $registroEmpresa->nome_tpResiduo ?>">
           </div>
           <div class="form-group col-md-4 border-right border-bottom m-0 p-2">
-            <label for="inputUser">Quantidade de resíduos</label>
-            <input class="form-control" type="text" placeholder="26/10/2020" readonly>
+            <label for="quant_residuo">Quantidade de resíduos</label>
+            <input class="form-control" type="text" readonly value="<?= $registroEmpresa->quant_residuo ?> Kg">
           </div>
           <div class="form-group col-md-4 border-bottom m-0 p-2">
-            <label for="inputUser">Distância</label>
-            <input class="form-control" type="text" placeholder="25Kg" readonly>
+            <label for="dataLimite_topico">Data Limite:</label>
+            <input class="form-control" type="text" readonly value="<?php echo date('d/m/Y', strtotime(($registroEmpresa->dataLimite_topico))); ?>">
       </form>
     </div>
 
@@ -50,18 +45,17 @@
 
       <h6>Cooperativas Interessadas:</h6>
       <?php
-      foreach ($registros as $registro) :
+      foreach ($registrosInteresseCooperativa as $registro) :
       ?>
         <div class="card-coop border">
-
           <div class="card-body">
             <div class="row">
               <div class="col-md-8">
                 <div class="row">
-                  <h5 class="card-title topic-title ml-3"><?= $registro->titulo_topico ?></h5>
+                  <h5 class="card-title topic-title ml-3"><?= $registro->nomeFantasia_dados ?></h5>
                 </div>
                 <div class="row">
-                  <p class="topic-desc ml-3">Data: 26/10/2020</p>
+                  <p class="topic-desc ml-3">CNPJ da Cooperativa: <?= $registro->cnpj_dados ?></p>
                 </div>
               </div>
               <div class="col-md-4">

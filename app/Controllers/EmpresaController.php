@@ -98,7 +98,7 @@ class EmpresaController extends BaseController
     $data['nome'] = $Empresa->razaoSoc_dados;
     $data['tpResiduos'] = $residuos;
     $data['topicos'] = $topicos;
-    
+
 
     if ($this->request->getMethod() === 'post') {
 
@@ -122,7 +122,19 @@ class EmpresaController extends BaseController
     return view('empresas/editar-topico/index', $data);
   }
 
-  public function viewTopico()
+  public function deletarTopico($id_topico)
+  {
+
+    $topicoModel = new \App\Models\TopicoModel();
+
+    $topicoModel
+    ->where('id_topico', $id_topico)
+    ->delete();
+
+    return redirect()->to(base_url('empresas'));
+  }
+
+  public function viewTopico($id_topico)
   {
     $modelEmpresas = new \App\Models\EmpresaModel();
     $topicoModel = new \App\Models\TopicoModel();
@@ -132,18 +144,24 @@ class EmpresaController extends BaseController
       ->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
       ->where('id_login', session()->get('id_login'))->first();
 
-    $registros = $topicoModel
-      ->join('tb_empresas', 'tb_empresas.id_empresa = tb_topico.id_empresa')
-      ->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
+    $topicosDadosEmpresa = $topicoModel
+      ->join('tb_residuostopico', 'tb_residuostopico.id_topico = tb_topico.id_topico')
+      ->join('tb_tpresiduos', 'tb_tpresiduos.id_tpResiduo = tb_residuostopico.id_tpResiduo')
+      ->where('tb_topico.id_topico', $id_topico)->first();
+
+    $registrosInteresseCooperativa = $topicoModel
       ->join('tb_interessetopico', 'tb_interessetopico.id_topico = tb_topico.id_topico')
       ->join('tb_residuostopico', 'tb_residuostopico.id_topico = tb_topico.id_topico')
       ->join('tb_tpresiduos', 'tb_tpresiduos.id_tpResiduo = tb_residuostopico.id_tpResiduo')
+      ->join('tb_cooperativas', 'tb_cooperativas.id_coop = tb_interessetopico.id_coop')
+      ->join('tb_dados', 'tb_dados.id_dados = tb_cooperativas.id_dados')
+      ->where("tb_topico.id_topico= '{$id_topico}'")
       ->findAll();
-
 
     $data['titulo'] = 'Pesquisar Cooperativas';
     $data['nome'] = $Empresa->razaoSoc_dados;
-    $data['registros'] = $registros;
+    $data['registroEmpresa'] = $topicosDadosEmpresa;
+    $data['registrosInteresseCooperativa'] = $registrosInteresseCooperativa;
 
     return view('empresas/view-topico/index', $data);
   }
