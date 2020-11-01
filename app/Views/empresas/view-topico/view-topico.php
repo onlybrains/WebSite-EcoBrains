@@ -11,9 +11,7 @@
           Editar Tópico
         </a>
         <a href="<?= base_url('/empresas/deletartopico/' .$registroEmpresa->id_topico)?>" class="topic-button p-2 mt-2 mr-4 text-white">
-          <svg width="37" height="27" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-          </svg></a>
+          Excluir Tópico</a>
       </div>
     </div>
 
@@ -43,7 +41,7 @@
 
     <div class="col-lg-12 col-md-12 pb-3 mt-4">
 
-      <h6>Cooperativas Interessadas:</h6>
+      <h4>Cooperativas Interessadas:</h4>
       <?php
       foreach ($registrosInteresseCooperativa as $registro) :
       ?>
@@ -51,11 +49,11 @@
           <div class="card-body">
             <div class="row">
               <div class="col-md-8">
-                <div class="row">
+                <div class="row ml-2 mt-2">
                   <h5 class="card-title topic-title ml-3"><?= $registro->nomeFantasia_dados ?></h5>
                 </div>
-                <div class="row">
-                  <p class="topic-desc ml-3">CNPJ da Cooperativa: <?= $registro->cnpj_dados ?></p>
+                <div class="row ml-2">
+                  <p class="topic-desc ml-3">CNPJ da Cooperativa: <?=substr($registro->cnpj_dados,0,2).".".substr($registro->cnpj_dados,2,3).".".substr($registro->cnpj_dados,5,3)."/".substr($registro->cnpj_dados,8,4)."-".substr($registro->cnpj_dados,-2);?></p>
                 </div>
               </div>
               <div class="col-md-4">

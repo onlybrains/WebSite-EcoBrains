@@ -47,6 +47,7 @@ $routes->group('empresas', ['filter' => 'empresa'], function ($routes) {
 	$routes->match(['get', 'post'],'editartopico/(:num)', 'EmpresaController::editarTopico/$1');
 	$routes->get('deletartopico/(:num)', 'EmpresaController::deletarTopico/$1');
 	$routes->get('topicos/(:num)', 'EmpresaController::viewTopico/$1');
+	$routes->get('pesquisarcooperativas', 'EmpresaController::pesquisaCooperativas');
 });
 
 $routes->group('cooperativas', ['filter' => 'coop'], function ($routes) {

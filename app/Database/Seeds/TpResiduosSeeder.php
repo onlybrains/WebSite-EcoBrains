@@ -7,15 +7,28 @@ class TpResiduosSeeder extends \CodeIgniter\Database\Seeder
   public function run()
   {
     $data = [
-      'nome_tpResiduo' => 'Metal',
+      [
+        'nome_tpResiduo' => 'Metal',
+      ],
+
+      [
+        'nome_tpResiduo' => 'Pihas e Baterias',
+      ],
+
+      [
+        'nome_tpResiduo' => 'Papel',
+      ],
+
+      [
+        'nome_tpResiduo' => 'Madeira',
+      ],
+      
+      [
+        'nome_tpResiduo' => 'Lixo Hospitalar',
+      ],
     ];
 
-
     // Using Query Builder
-    $tpResiduosModel = new \App\Models\TipoResiduoModel();
-
-    $tpResiduosModel
-      ->table('tb_tpresiduos')
-      ->insert($data);
+    $this->db->table('tb_tpresiduos')->insertBatch($data);
   }
 }
