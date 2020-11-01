@@ -45,7 +45,7 @@ $routes->group('empresas', ['filter' => 'empresa'], function ($routes) {
 	$routes->get('/', 'EmpresaController::empresas');
 	$routes->match(['get', 'post'],'abrirtopico', 'EmpresaController::abrirTopico');
 	$routes->match(['get', 'post'],'editartopico/(:num)', 'EmpresaController::editarTopico/$1');
-	$routes->get('topicos', 'EmpresaController::viewTopico');
+	$routes->get('topicos/(:num)', 'EmpresaController::viewTopico/$1');
 });
 
 $routes->group('cooperativas', ['filter' => 'coop'], function ($routes) {
@@ -74,6 +74,7 @@ $routes->get('/premium', 'PremiumController::premium');
  * You will have access to the $routes object within that file without
  * needing to reload it.
  */
+
 if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
 	require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }
