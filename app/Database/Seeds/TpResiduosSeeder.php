@@ -8,24 +8,41 @@ class TpResiduosSeeder extends \CodeIgniter\Database\Seeder
   {
     $data = [
       [
+        'nome_tpResiduo' => 'Papel/Papelão',
+      ],
+
+      [
+        'nome_tpResiduo' => 'Plástico',
+      ],
+
+      [
+        'nome_tpResiduo' => 'Vidro',
+      ],
+
+      [
         'nome_tpResiduo' => 'Metal',
-      ],
-
-      [
-        'nome_tpResiduo' => 'Pihas e Baterias',
-      ],
-
-      [
-        'nome_tpResiduo' => 'Papel',
       ],
 
       [
         'nome_tpResiduo' => 'Madeira',
       ],
-      
+
       [
-        'nome_tpResiduo' => 'Lixo Hospitalar',
+        'nome_tpResiduo' => 'Resíduos Perigosos',
       ],
+
+      [
+        'nome_tpResiduo' => 'Hospitalar',
+      ],
+
+      [
+        'nome_tpResiduo' => 'Radioativos',
+      ],
+
+      [
+        'nome_tpResiduo' => 'Orgânicos',
+      ],
+      
     ];
 
     // Using Query Builder
