@@ -12,6 +12,8 @@ echo link_tag('css/styleNavBar.css');
 echo link_tag('css/styleFilter.css');
 echo link_tag('css/styleFooter.css');
 echo link_tag('css/styleButtons.css');
+echo link_tag('css/styleHeader.css');
+echo link_tag('css/styleHeaderSobreNos.css');
 ?>
 
 <?= $this->endSection('styles') ?>
@@ -24,6 +26,7 @@ echo $view->render('layout/navbar');
 echo $view->render('home/pevs/header');
 echo $view->render('home/pevs/pevs');
 echo $view->render('home/pevs/horarios');
+echo $view->render('home/pevs/coletaSeletiva');
 echo $view->render('layout/footer');
 ?>
 
