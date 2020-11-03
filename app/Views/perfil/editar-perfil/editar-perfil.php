@@ -1,45 +1,139 @@
+<?php
+$uri = new \CodeIgniter\HTTP\URI(current_url());
+?>
 <div class="container">
+  <div class="card my-5 rounded shadow">
+    <div class="card-body">
+      <form method="POST">
+        <div class="row">
+          <div class="col">
+            <div id="img-container-preview-logo" class="mx-4 mb-4 text-center">
+            </div>
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="inputLogo" accept="image/png, image/jpeg">
+              <label class="custom-file-label" for="inputLogo" data-browse="Buscar">Selecionar Logo</label>
+            </div>
+          </div>
+          <div class="col">
+            <div id="img-container-preview-banner" class="mx-4 mb-4 text-center">
+            </div>
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="inputBanner">
+              <label class="custom-file-label" for="inputBanner" data-browse="Buscar">Selecionar Banner</label>
+            </div>
+          </div>
+        </div>
 
-  <div class="text-center mt-5">
-    <h2>Editar Perfil de $NomeDaEmpresa</h2>
-  </div>
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <div class="form-group p-2 border-bottom">
+              <div class="d-flex align-items-end justify-content-between">
+                <label for="inputCNPJ"><b>CNPJ:</b></label>
+                <input type="text" class="form-control border-0 ml-2" name="inputCNPJ" id="inputCNPJ">
+              </div>
+              <small class="form-text text-muted">
+                0000000000000000000000
+              </small>
+            </div>
+            <div class="form-group p-2 border-bottom">
+              <div class="d-flex align-items-end justify-content-between">
+                <label for="inputTempMercado"><b>Tempo de Mercado (Fundação):</b></label>
+                <input type="date" class="form-control border-0 ml-2 col" name="inputTempMercado" id="inputTempMercado">
+              </div>
+              <small class="form-text text-muted">
+                00/00/0000
+              </small>
+            </div>
+            <div class="form-group p-2 border-bottom">
+              <div class="d-flex align-items-end justify-content-between">
+                <label for="inputCEP"><b>CEP:</b></label>
+                <input type="text" class="form-control border-0 ml-2 mr-4" name="inputCEP" id="inputCEP">
+                <label for="inputNumEnd"><b>Número:</b></label>
+                <input type="number" class="form-control border-0 col-3" name="inputNumEnd" id="inputNumEnd" min="0" max="99999">
+              </div>
+              <div class="d-flex justify-content-between">
+                <small class="form-text text-muted">
+                  07193-270
+                </small>
+                <small class="form-text text-muted">
+                  0000
+                </small>
+              </div>
+            </div>
+            <div class="form-group p-2 border-bottom">
+              <div class="d-flex align-items-end justify-content-between">
+                <label for="inputTempMercado"><b>Endereço:</b></label>
+                <input type="text" class="form-control border-0 ml-2" name="inputTempMercado" id="inputTempMercado">
+              </div>
+              <small class="form-text text-muted">
+                TRua Castelo Branco, 215 - Casa Dois
+              </small>
+            </div>
+            <div class="form-group p-2 border-bottom">
+              <div class="d-flex align-items-end justify-content-between">
+                <label for="inputComplemento"><b>Complemento:</b></label>
+                <input type="text" class="form-control border-0 ml-2" name="inputComplemento" id="inputComplemento">
+              </div>
+              <small class="form-text text-muted">
+                Casa 02
+              </small>
+            </div>
+            <div class="form-group p-2 border-bottom">
+              <div class="d-flex align-items-end justify-content-between">
+                <label for="inputTel"><b>Telefone:</b></label>
+                <input type="text" class="form-control border-0 ml-2 mr-4" name="inputTel" id="inputTel">
+                <label for="inputWhats"><b>WhatsApp:</b></label>
+                <input type="number" class="form-control border-0 col-3" name="inputWhats" id="inputWhats" min="0" max="99999">
+              </div>
+              <div class="d-flex justify-content-between">
+                <small class="form-text text-muted">
+                  11 005555505050
+                </small>
+                <small class="form-text text-muted">
+                  11 005555505050
+                </small>
+              </div>
+            </div>
+          </div>
 
-  <div class="row justify-content-center align-items-center my-5">
-    <div class="col-8 bg-light p-0 rounded-lg sign-up">
-      <form>
-      <div class="form-group border-bottom p-2 pl-4 pr-4 m-0">
-          <label for="inputName">Nome da Empresa</label>
-          <input type="text" class="form-control border-0" name="inputName" id="inputName" placeholder="Nome da minha empresa">
-        </div>
-          <div class="form-group border-bottom p-2 pl-4 pr-4 m-0">
-          <label for="inputCNPJ">CNPJ</label>
-          <input type="text" class="form-control border-0" name="inputCNPJ" id="inputCNPJ" placeholder="00.000.000/0000-00">
-        </div>
-        <div class="form-group border-bottom p-2 pl-4 pr-4 m-0">
-          <label for="inputTempoMercado">Tempo de mercado</label>
-          <input type="date" class="form-control border-0" name="inputTempoMercado" id="inputTempoMercado" placeholder="00/00/0000">
-        </div>
-        <div class="form-group p-2 pl-4 pr-4 m-0">
-          <label for="inputEmail">Email</label>
-          <input type="text" class="form-control border-0" name="inputEmail" id="inputEmail" placeholder="email@dominio.com">
-        </div>
-        <div class="form-group p-2 pl-4 pr-4 m-0">
-          <label for="inputCelular">Celular</label>
-          <input type="text" class="form-control border-0" name="inputCelular" id="inputCelular" placeholder="(00) 00000-0000">
-        </div>
-        <div class="form-group p-2 pl-4 pr-4 m-0">
-          <label for="inputTelefone">Telefone</label>
-          <input type="text" class="form-control border-0" name="inputTelefone" id="inputTelefone" placeholder="(00) 0000-0000">
-        </div>
-        <div class="form-group p-2 pl-4 pr-4 m-0">
-          <label for="inputDescricao">Descrição</label>
-          <textarea class="form-control border-0" name="inputDescricao" id="inputDescricao" placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, animi, dignissimos explicabo aut eius provident laudantium similique nostrum quos illo ab. Voluptas temporibus nihil aliquid ipsam non aspernatur rerum sequi!"></textarea>
+          <div class="col-md-6">
+            <div class="form-group p-2 border-bottom">
+              <div class="d-flex align-items-end justify-content-between">
+                <label for="inputFantasia"><b>Nome Fantasia:</b></label>
+                <input type="text" class="form-control border-0 ml-2 col" name="inputFantasia" id="inputFantasia">
+              </div>
+              <small class="form-text text-muted">
+                Nome Fantasia
+              </small>
+            </div>
+            <div class="form-group p-2 border-bottom">
+              <div class="d-flex align-items-end justify-content-between">
+                <label for="inputRazao"><b>Razão Social:</b></label>
+                <input type="text" class="form-control border-0 ml-2 col" name="inputRazao" id="inputRazao">
+              </div>
+              <small class="form-text text-muted">
+                Razão Social
+              </small>
+            </div>
+            <div class="form-group">
+              <label for="inputTxtArea"><b>Descrição:</b></label>
+              <textarea class="form-control" id="inputTxtArea" rows="10"></textarea>
+            </div>
+            <div class="form-group p-2 border-bottom">
+              <div class="d-flex align-items-end justify-content-between">
+                <label for="inputSite"><b>Site:</b></label>
+                <input type="text" class="form-control border-0 ml-2" name="inputSite" id="inputSite">
+              </div>
+              <small class="form-text text-muted">
+                www.site.com
+              </small>
+            </div>
+          </div>
         </div>
         <div class="d-flex">
-          <button type="submit" class="btn btn-green flex-fill p-3">Salvar Alterações</button>
+          <a href=<?= base_url($uri->getSegment(1) . '/perfil/editar') ?> class="btn btn-green flex-fill p-2">Editar Perfil</a>
         </div>
       </form>
     </div>
   </div>
-
 </div>

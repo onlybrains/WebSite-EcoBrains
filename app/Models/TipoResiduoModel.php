@@ -4,7 +4,7 @@ use CodeIgniter\Model;
 
 class TipoResiduoModel extends Model{
     
-    protected $table = 'tb_tpresiduos';
+    protected $table = 'tb_tpResiduos';
     protected $primaryKey = 'id_tpResiduo';
     protected $allowedFields = ['nome_tpResiduo'];
     protected $returnType = 'object';
@@ -35,4 +35,3 @@ class TipoResiduoModel extends Model{
       return $data;
     }*/
 }
-?>

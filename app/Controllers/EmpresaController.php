@@ -6,175 +6,175 @@ use App\Models\EmpresaModel;
 
 class EmpresaController extends BaseController
 {
-  public function empresas()
-  {
-    $modelEmpresas = new \App\Models\EmpresaModel();
-    $topicoModel = new \App\Models\TopicoModel();
-
-    $Empresa = $modelEmpresas
-      ->select('id_empresa, nomeFantasia_dados, razaoSoc_dados')
-      ->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
-      ->where('id_login', session()->get('id_login'))->first();
-
-    $registros = $topicoModel
-      ->join('tb_empresas', 'tb_empresas.id_empresa = tb_topico.id_empresa')
-      ->join('tb_residuostopico', 'tb_residuostopico.id_topico = tb_topico.id_topico')
-      ->join('tb_tpresiduos', 'tb_tpresiduos.id_tpResiduo = tb_residuostopico.id_tpResiduo')
-      ->findAll();
-
-    $data['titulo'] = 'Pesquisar Cooperativas';
-    $data['nome'] = $Empresa->razaoSoc_dados;
-    $data['topicos'] = $registros;
-
-    return view('empresas/index', $data);
-  }
-
-  public function abrirTopico()
-  {
-    $modelEmpresas = new \App\Models\EmpresaModel();
-    $tipoResiduosModel = new \App\Models\TipoResiduoModel();
-
-    $Empresa = $modelEmpresas
-      ->select('id_empresa, nomeFantasia_dados, razaoSoc_dados')
-      ->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
-      ->where('id_login', session()->get('id_login'))->first();
-
-    $data['titulo'] = 'Pesquisar Cooperativas';
-    $data['nome'] = $Empresa->razaoSoc_dados;
-
-    $residuos = $tipoResiduosModel->find();
-    $data['tpResiduos'] = $residuos;
-
-    if ($this->request->getMethod() === 'post') {
-      $residuosTopicoModel = new \App\Models\ResiduosTopicoModel();
-      $topicoModel = new \App\Models\TopicoModel();
-      $modelEmpresa = new \App\Models\EmpresaModel();
-
-      $Empresa = $modelEmpresa->where('id_login', session()->get('id_login'))->first();
-
-      $topicoModel->set('titulo_topico', $this->request->getPost('titulo_topico'));
-      $topicoModel->set('dataLimite_topico', $this->request->getPost('dataLimite_topico'));
-      $topicoModel->set('id_empresa', $Empresa->id_empresa);
-
-      $residuosTopicoModel->set('quant_residuo', $this->request->getPost('quant_residuo'));
-      $residuosTopicoModel->set('id_tpResiduo', $this->request->getPost('id_tpResiduo'));
-
-      if ($topicoModel->insert()) {
-        $residuosTopicoModel->set('id_topico', $topicoModel->getInsertID());
-        if ($residuosTopicoModel->insert()) {
-          return redirect()->to('/empresas');
-        } else {
-          $data['errors'] = $residuosTopicoModel->errors();
-          $topicoModel->delete($topicoModel->getInsertID());
-        }
-      } else {
-        $data['errors'] = $topicoModel->errors();
-      }
-    }
-    return view('empresas/abrir-topico/index', $data);
-  }
-
-
-  public function editarTopico($id_topico)
-  {
-    $modelEmpresas = new \App\Models\EmpresaModel();
-    $topicoModel = new \App\Models\TopicoModel();
-    $residuosTopicoModel = new \App\Models\ResiduosTopicoModel();
-    $tipoResiduosModel = new \App\Models\TipoResiduoModel();
-
-    $Empresa = $modelEmpresas
-      ->select('id_empresa, nomeFantasia_dados, razaoSoc_dados')
-      ->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
-      ->where('id_login', session()->get('id_login'))->first();
-
-    $topicos = $topicoModel
-      ->join('tb_residuostopico', 'tb_residuostopico.id_topico = tb_topico.id_topico')
-      ->join('tb_tpresiduos', 'tb_tpresiduos.id_tpResiduo = tb_residuostopico.id_tpResiduo')
-      ->where('tb_topico.id_topico', $id_topico)->first();
-
-    $residuos = $tipoResiduosModel->find();
-
-    $data['titulo'] = 'Pesquisar Cooperativas';
-    $data['nome'] = $Empresa->razaoSoc_dados;
-    $data['tpResiduos'] = $residuos;
-    $data['topicos'] = $topicos;
-
-
-    if ($this->request->getMethod() === 'post') {
-
-      $topicoModel->set('titulo_topico', $this->request->getPost('titulo_topico'));
-      $topicoModel->set('dataLimite_topico', $this->request->getPost('dataLimite_topico'));
-
-      $residuosTopicoModel->set('quant_residuo', $this->request->getPost('quant_residuo'));
-      $residuosTopicoModel->set('id_tpResiduo', $this->request->getPost('id_tpResiduo'));
-
-      if ($topicoModel->update($id_topico)) {
-
-        if ($residuosTopicoModel->update($topicos->id_residuo)) {
-          return redirect()->to('/empresas');
-        } else {
-          $data['errors'] = $residuosTopicoModel->errors();
-        }
-      } else {
-        $data['errors'] = $topicoModel->errors();
-      }
-    }
-    return view('empresas/editar-topico/index', $data);
-  }
-
-  public function deletarTopico($id_topico)
-  {
-
-    $topicoModel = new \App\Models\TopicoModel();
-
-    $topicoModel
-    ->where('id_topico', $id_topico)
-    ->delete();
-
-    return redirect()->to(base_url('empresas'));
-  }
-
-  public function viewTopico($id_topico)
-  {
-    $modelEmpresas = new \App\Models\EmpresaModel();
-    $topicoModel = new \App\Models\TopicoModel();
-
-    $Empresa = $modelEmpresas
-      ->select('id_empresa, nomeFantasia_dados, razaoSoc_dados')
-      ->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
-      ->where('id_login', session()->get('id_login'))->first();
-
-    $topicosDadosEmpresa = $topicoModel
-      ->join('tb_residuostopico', 'tb_residuostopico.id_topico = tb_topico.id_topico')
-      ->join('tb_tpresiduos', 'tb_tpresiduos.id_tpResiduo = tb_residuostopico.id_tpResiduo')
-      ->where('tb_topico.id_topico', $id_topico)->first();
-
-    $registrosInteresseCooperativa = $topicoModel
-      ->join('tb_interessetopico', 'tb_interessetopico.id_topico = tb_topico.id_topico')
-      ->join('tb_residuostopico', 'tb_residuostopico.id_topico = tb_topico.id_topico')
-      ->join('tb_tpresiduos', 'tb_tpresiduos.id_tpResiduo = tb_residuostopico.id_tpResiduo')
-      ->join('tb_cooperativas', 'tb_cooperativas.id_coop = tb_interessetopico.id_coop')
-      ->join('tb_dados', 'tb_dados.id_dados = tb_cooperativas.id_dados')
-      ->where("tb_topico.id_topico= '{$id_topico}'")
-      ->findAll();
-
-    $data['titulo'] = 'Pesquisar Cooperativas';
-    $data['nome'] = $Empresa->razaoSoc_dados;
-    $data['registroEmpresa'] = $topicosDadosEmpresa;
-    $data['registrosInteresseCooperativa'] = $registrosInteresseCooperativa;
-
-    return view('empresas/view-topico/index', $data);
-  }
-
-  public function pesquisaCooperativas()
+	public function empresas()
 	{
-    $modelCooperativas = new \App\Models\CoopModel();
-    $modelEmpresas = new \App\Models\EmpresaModel();
-    
-    $empresa = $modelEmpresas
-      ->select('id_empresa, nomeFantasia_dados, razaoSoc_dados')
-      ->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
-      ->where('id_login', session()->get('id_login'))->first();
+		$modelEmpresas = new \App\Models\EmpresaModel();
+		$topicoModel = new \App\Models\TopicoModel();
+
+		$Empresa = $modelEmpresas
+			->select('id_empresa, nomeFantasia_dados, razaoSoc_dados')
+			->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
+			->where('id_login', session()->get('id_login'))->first();
+
+		$registros = $topicoModel
+			->join('tb_empresas', 'tb_empresas.id_empresa = tb_topico.id_empresa')
+			->join('tb_residuosTopico', 'tb_residuosTopico.id_topico = tb_topico.id_topico')
+			->join('tb_tpResiduos', 'tb_tpResiduos.id_tpResiduo = tb_residuosTopico.id_tpResiduo')
+			->findAll();
+
+		$data['titulo'] = 'Pesquisar Cooperativas';
+		$data['nome'] = $Empresa->razaoSoc_dados;
+		$data['topicos'] = $registros;
+
+		return view('empresas/index', $data);
+	}
+
+	public function abrirTopico()
+	{
+		$modelEmpresas = new \App\Models\EmpresaModel();
+		$tipoResiduosModel = new \App\Models\TipoResiduoModel();
+
+		$Empresa = $modelEmpresas
+			->select('id_empresa, nomeFantasia_dados, razaoSoc_dados')
+			->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
+			->where('id_login', session()->get('id_login'))->first();
+
+		$data['titulo'] = 'Pesquisar Cooperativas';
+		$data['nome'] = $Empresa->razaoSoc_dados;
+
+		$residuos = $tipoResiduosModel->find();
+		$data['tpResiduos'] = $residuos;
+
+		if ($this->request->getMethod() === 'post') {
+			$residuosTopicoModel = new \App\Models\ResiduosTopicoModel();
+			$topicoModel = new \App\Models\TopicoModel();
+			$modelEmpresa = new \App\Models\EmpresaModel();
+
+			$Empresa = $modelEmpresa->where('id_login', session()->get('id_login'))->first();
+
+			$topicoModel->set('titulo_topico', $this->request->getPost('titulo_topico'));
+			$topicoModel->set('dataLimite_topico', $this->request->getPost('dataLimite_topico'));
+			$topicoModel->set('id_empresa', $Empresa->id_empresa);
+
+			$residuosTopicoModel->set('quant_residuo', $this->request->getPost('quant_residuo'));
+			$residuosTopicoModel->set('id_tpResiduo', $this->request->getPost('id_tpResiduo'));
+
+			if ($topicoModel->insert()) {
+				$residuosTopicoModel->set('id_topico', $topicoModel->getInsertID());
+				if ($residuosTopicoModel->insert()) {
+					return redirect()->to('/empresas');
+				} else {
+					$data['errors'] = $residuosTopicoModel->errors();
+					$topicoModel->delete($topicoModel->getInsertID());
+				}
+			} else {
+				$data['errors'] = $topicoModel->errors();
+			}
+		}
+		return view('empresas/abrir-topico/index', $data);
+	}
+
+
+	public function editarTopico($id_topico)
+	{
+		$modelEmpresas = new \App\Models\EmpresaModel();
+		$topicoModel = new \App\Models\TopicoModel();
+		$residuosTopicoModel = new \App\Models\ResiduosTopicoModel();
+		$tipoResiduosModel = new \App\Models\TipoResiduoModel();
+
+		$Empresa = $modelEmpresas
+			->select('id_empresa, nomeFantasia_dados, razaoSoc_dados')
+			->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
+			->where('id_login', session()->get('id_login'))->first();
+
+		$topicos = $topicoModel
+			->join('tb_residuosTopico', 'tb_residuosTopico.id_topico = tb_topico.id_topico')
+			->join('tb_tpResiduos', 'tb_tpResiduos.id_tpResiduo = tb_residuosTopico.id_tpResiduo')
+			->where('tb_topico.id_topico', $id_topico)->first();
+
+		$residuos = $tipoResiduosModel->find();
+
+		$data['titulo'] = 'Pesquisar Cooperativas';
+		$data['nome'] = $Empresa->razaoSoc_dados;
+		$data['tpResiduos'] = $residuos;
+		$data['topicos'] = $topicos;
+
+
+		if ($this->request->getMethod() === 'post') {
+
+			$topicoModel->set('titulo_topico', $this->request->getPost('titulo_topico'));
+			$topicoModel->set('dataLimite_topico', $this->request->getPost('dataLimite_topico'));
+
+			$residuosTopicoModel->set('quant_residuo', $this->request->getPost('quant_residuo'));
+			$residuosTopicoModel->set('id_tpResiduo', $this->request->getPost('id_tpResiduo'));
+
+			if ($topicoModel->update($id_topico)) {
+
+				if ($residuosTopicoModel->update($topicos->id_residuo)) {
+					return redirect()->to('/empresas');
+				} else {
+					$data['errors'] = $residuosTopicoModel->errors();
+				}
+			} else {
+				$data['errors'] = $topicoModel->errors();
+			}
+		}
+		return view('empresas/editar-topico/index', $data);
+	}
+
+	public function deletarTopico($id_topico)
+	{
+
+		$topicoModel = new \App\Models\TopicoModel();
+
+		$topicoModel
+			->where('id_topico', $id_topico)
+			->delete();
+
+		return redirect()->to(base_url('empresas'));
+	}
+
+	public function viewTopico($id_topico)
+	{
+		$modelEmpresas = new \App\Models\EmpresaModel();
+		$topicoModel = new \App\Models\TopicoModel();
+
+		$Empresa = $modelEmpresas
+			->select('id_empresa, nomeFantasia_dados, razaoSoc_dados')
+			->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
+			->where('id_login', session()->get('id_login'))->first();
+
+		$topicosDadosEmpresa = $topicoModel
+			->join('tb_residuosTopico', 'tb_residuosTopico.id_topico = tb_topico.id_topico')
+			->join('tb_tpResiduos', 'tb_tpResiduos.id_tpResiduo = tb_residuosTopico.id_tpResiduo')
+			->where('tb_topico.id_topico', $id_topico)->first();
+
+		$registrosInteresseCooperativa = $topicoModel
+			->join('tb_interessetopico', 'tb_interessetopico.id_topico = tb_topico.id_topico')
+			->join('tb_residuosTopico', 'tb_residuosTopico.id_topico = tb_topico.id_topico')
+			->join('tb_tpResiduos', 'tb_tpResiduos.id_tpResiduo = tb_residuosTopico.id_tpResiduo')
+			->join('tb_cooperativas', 'tb_cooperativas.id_coop = tb_interessetopico.id_coop')
+			->join('tb_dados', 'tb_dados.id_dados = tb_cooperativas.id_dados')
+			->where("tb_topico.id_topico= '{$id_topico}'")
+			->findAll();
+
+		$data['titulo'] = 'Pesquisar Cooperativas';
+		$data['nome'] = $Empresa->razaoSoc_dados;
+		$data['registroEmpresa'] = $topicosDadosEmpresa;
+		$data['registrosInteresseCooperativa'] = $registrosInteresseCooperativa;
+
+		return view('empresas/view-topico/index', $data);
+	}
+
+	public function pesquisaCooperativas()
+	{
+		$modelCooperativas = new \App\Models\CoopModel();
+		$modelEmpresas = new \App\Models\EmpresaModel();
+
+		$empresa = $modelEmpresas
+			->select('id_empresa, nomeFantasia_dados, razaoSoc_dados')
+			->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
+			->where('id_login', session()->get('id_login'))->first();
 
 		$data['titulo'] = 'Pesquisar Cooperativas';
 		$data['nome'] = $empresa->razaoSoc_dados;
@@ -231,8 +231,8 @@ class EmpresaController extends BaseController
 
 		foreach ($registros as $registro) :
 
-		$email->setSubject("♻️ Aqui estão as informações de contato da Cooperativa: {$registro->nomeFantasia_dados}  ♻️");
-		$email->setMessage("
+			$email->setSubject("♻️ Aqui estão as informações de contato da Cooperativa: {$registro->nomeFantasia_dados}  ♻️");
+			$email->setMessage("
 		<!doctype html>
 		<html ⚡4email>
 		
@@ -966,10 +966,10 @@ class EmpresaController extends BaseController
 																	<tr>
 																		<td class='es-p15t'>
 																			<p style='color: #07401b;text-align: justify'>Você demonstrou interesse por uma cooperativa registrada em nossa plataforma e portanto enviamos a você os meios de contato da cooperativa <strong>{$registro->nomeFantasia_dados}</strong>.<br/>
-																			<strong>CNPJ: </strong>". substr($registro->cnpj_dados,0,2).'.'.substr($registro->cnpj_dados,2,3).'.'.substr($registro->cnpj_dados,5,3).'/'.substr($registro->cnpj_dados,8,4).'-'.substr($registro->cnpj_dados,-2). "<br/>
+																			<strong>CNPJ: </strong>" . substr($registro->cnpj_dados, 0, 2) . '.' . substr($registro->cnpj_dados, 2, 3) . '.' . substr($registro->cnpj_dados, 5, 3) . '/' . substr($registro->cnpj_dados, 8, 4) . '-' . substr($registro->cnpj_dados, -2) . "<br/>
 																			<strong>CEP: </strong>  <a target='_blank' href='https://www.google.com/maps/dir//{$registro->cep_dados}'>Clique aqui e veja a localização da cooperativa</a><br/>
-																			<strong>Telefone: </strong>". substr($registro->tel_dados, 0, 2) . ') ' . substr($registro->tel_dados, 2, 4) . '-' . substr($registro->tel_dados, 6)."<br/>
-																			<strong>Whatsapp: </strong>". '(' . substr($registro->whatsapp_dados, 0, 2) . ') ' . substr($registro->whatsapp_dados, 2, 1) . ' ' . substr($registro->whatsapp_dados, 3, 4) . '-' . substr($registro->whatsapp_dados, 7) ."<br/>
+																			<strong>Telefone: </strong>" . substr($registro->tel_dados, 0, 2) . ') ' . substr($registro->tel_dados, 2, 4) . '-' . substr($registro->tel_dados, 6) . "<br/>
+																			<strong>Whatsapp: </strong>" . '(' . substr($registro->whatsapp_dados, 0, 2) . ') ' . substr($registro->whatsapp_dados, 2, 1) . ' ' . substr($registro->whatsapp_dados, 3, 4) . '-' . substr($registro->whatsapp_dados, 7) . "<br/>
 																			<strong>Email: </strong> {$registro->email_login}
 																			<br>Esperamos
 																				que tudo dê certo e que tenham um negócio próspero afinal mentes ecológicas mudam o
@@ -1035,11 +1035,10 @@ class EmpresaController extends BaseController
 		
 		</html>
 		");
-	endforeach;
+		endforeach;
 
 		$email->send();
 
 		return redirect()->to(base_url('empresas'));
 	}
 }
-
