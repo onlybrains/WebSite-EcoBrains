@@ -19,8 +19,8 @@ class CoopController extends BaseController
 		$topicoModel = new \App\Models\topicoModel();
 		$topicosParticipantes = $topicoModel
 			->join('tb_interessetopico', 'tb_interessetopico.id_topico = tb_topico.id_topico')
-			->join('tb_residuostopico', 'tb_residuostopico.id_topico = tb_topico.id_topico')
-			->join('tb_tpresiduos', 'tb_tpresiduos.id_tpResiduo = tb_residuostopico.id_tpResiduo')
+			->join('tb_residuosTopico', 'tb_residuosTopico.id_topico = tb_topico.id_topico')
+			->join('tb_tpResiduos', 'tb_tpResiduos.id_tpResiduo = tb_residuosTopico.id_tpResiduo')
 			->where('dataLimite_topico >= CURRENT_DATE() AND id_coop =' . $Cooperativa->id_coop)
 			->findAll();
 
@@ -46,8 +46,8 @@ class CoopController extends BaseController
 		$registros = $topicoModel
 			->join('tb_empresas', 'tb_empresas.id_empresa = tb_topico.id_empresa')
 			->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
-			->join('tb_residuostopico', 'tb_residuostopico.id_topico = tb_topico.id_topico')
-			->join('tb_tpresiduos', 'tb_tpresiduos.id_tpResiduo = tb_residuostopico.id_tpResiduo')
+			->join('tb_residuosTopico', 'tb_residuosTopico.id_topico = tb_topico.id_topico')
+			->join('tb_tpResiduos', 'tb_tpResiduos.id_tpResiduo = tb_residuosTopico.id_tpResiduo')
 			->where('dataLimite_topico >= CURRENT_DATE()')
 			->findAll();
 
@@ -931,8 +931,8 @@ class CoopController extends BaseController
 		$registros = $coopController
 			->join('tb_empresas', 'tb_empresas.id_empresa = tb_topico.id_empresa')
 			->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
-			->join('tb_residuostopico', 'tb_residuostopico.id_topico = tb_topico.id_topico')
-			->join('tb_tpresiduos', 'tb_tpresiduos.id_tpResiduo = tb_residuostopico.id_tpResiduo')
+			->join('tb_residuosTopico', 'tb_residuosTopico.id_topico = tb_topico.id_topico')
+			->join('tb_tpResiduos', 'tb_tpResiduos.id_tpResiduo = tb_residuosTopico.id_tpResiduo')
 			->where("dataLimite_topico >= CURRENT_DATE() AND dataLimite_topico <='{$dataLimite}' AND nome_tpResiduo ='{$tipoResiduo}' AND quant_residuo <= '{$pesoResiduo}'")
 			//" AND nome_tpResiduo = 'Madeira' AND quant_residuo <= '450'")
 			->findAll();
@@ -942,7 +942,7 @@ class CoopController extends BaseController
 
 		$data['topicos'] = $registros;
 		$data['tipos'] = $registrosTipos;
-		
+
 		//echo "<pre>";
 		//var_dump($dataLimite, $pesoResiduo, $tipoResiduo);
 		return view('cooperativas/pesquisartopicos/index', $data);
@@ -1012,8 +1012,8 @@ class CoopController extends BaseController
 
 		foreach ($registros as $registro) :
 
-		$email->setSubject("♻️ Aqui estão as informações de contato da empresa: {$registro->nomeFantasia_dados}  ♻️");
-		$email->setMessage("
+			$email->setSubject("♻️ Aqui estão as informações de contato da empresa: {$registro->nomeFantasia_dados}  ♻️");
+			$email->setMessage("
 		<!doctype html>
 		<html ⚡4email>
 		
@@ -1747,10 +1747,10 @@ class CoopController extends BaseController
 																	<tr>
 																		<td class='es-p15t'>
 																			<p style='color: #07401b;text-align: justify'>Você demonstrou interesse por uma empresa registrada em nossa plataforma e portanto enviamos a você os meios de contato da empresa <strong>{$registro->nomeFantasia_dados}</strong>.<br/>
-																			<strong>CNPJ: </strong>". substr($registro->cnpj_dados,0,2).'.'.substr($registro->cnpj_dados,2,3).'.'.substr($registro->cnpj_dados,5,3).'/'.substr($registro->cnpj_dados,8,4).'-'.substr($registro->cnpj_dados,-2). "<br/>
+																			<strong>CNPJ: </strong>" . substr($registro->cnpj_dados, 0, 2) . '.' . substr($registro->cnpj_dados, 2, 3) . '.' . substr($registro->cnpj_dados, 5, 3) . '/' . substr($registro->cnpj_dados, 8, 4) . '-' . substr($registro->cnpj_dados, -2) . "<br/>
 																			<strong>CEP: </strong>  <a target='_blank' href='https://www.google.com/maps/dir//{$registro->cep_dados}'>Clique aqui e veja a localização da empresa</a><br/>
-																			<strong>Telefone: </strong>". substr($registro->tel_dados, 0, 2) . ') ' . substr($registro->tel_dados, 2, 4) . '-' . substr($registro->tel_dados, 6)."<br/>
-																			<strong>Whatsapp: </strong>". '(' . substr($registro->whatsapp_dados, 0, 2) . ') ' . substr($registro->whatsapp_dados, 2, 1) . ' ' . substr($registro->whatsapp_dados, 3, 4) . '-' . substr($registro->whatsapp_dados, 7) ."<br/>
+																			<strong>Telefone: </strong>" . substr($registro->tel_dados, 0, 2) . ') ' . substr($registro->tel_dados, 2, 4) . '-' . substr($registro->tel_dados, 6) . "<br/>
+																			<strong>Whatsapp: </strong>" . '(' . substr($registro->whatsapp_dados, 0, 2) . ') ' . substr($registro->whatsapp_dados, 2, 1) . ' ' . substr($registro->whatsapp_dados, 3, 4) . '-' . substr($registro->whatsapp_dados, 7) . "<br/>
 																			<strong>Email: </strong> {$registro->email_login}
 																			<br>Esperamos
 																				que tudo dê certo e que tenham um negócio próspero afinal mentes ecológicas mudam o
@@ -1816,7 +1816,7 @@ class CoopController extends BaseController
 		
 		</html>
 		");
-	endforeach;
+		endforeach;
 
 		$email->send();
 

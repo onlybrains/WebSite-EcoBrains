@@ -1,4 +1,7 @@
 <!-- Navbar -->
+<?php
+$uri = new \CodeIgniter\HTTP\URI(current_url());
+?>
 <nav class="sticky-top navbar navbar-expand-lg navbar-fundo">
 
   <div class="container-fluid mx-5">
@@ -26,7 +29,7 @@
             <?= $nome ?>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Perfil</a>
+            <a class="dropdown-item" href=<?= base_url($uri->getSegment(1) . '/perfil') ?>>Perfil</a>
             <a class="dropdown-item" href=<?= base_url('/premium') ?>>Se torne um Premium!</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="/logout">Sair</a>

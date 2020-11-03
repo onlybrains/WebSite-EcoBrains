@@ -42,10 +42,10 @@ class TpResiduosSeeder extends \CodeIgniter\Database\Seeder
       [
         'nome_tpResiduo' => 'Orgânicos',
       ],
-      
+
     ];
 
     // Using Query Builder
-    $this->db->table('tb_tpresiduos')->insertBatch($data);
+    $this->db->table('tb_tpResiduos')->insertBatch($data);
   }
 }
