@@ -4,15 +4,8 @@
   <div class="container-fluid mx-5">
 
     <a class="navbar-brand h1 mt-2" href=<?= base_url('/') ?>>
-
-      <?php
-
-      echo isset($titulo) ? '<img src=' . "../imgs/eco-logo-branco.png" . ' id="logo-nav"' . '>' . '
-      <img src=' . "../imgs/eco-branco.png" . ' id="name-nav"' . '>' : '<img src=' . "imgs/eco-logo-branco.png" . '>' . '
-      <img src=' . "../imgs/eco-branco.png" . ' id="name-nav"' . '>';
-
-      ?>
-
+      <img src="/imgs/eco-logo-branco.png" id="logo-nav" alt="Logo da EcoBrains">
+      <img src="/imgs/eco-branco.png" id="name-nav" alt="Logo da EcoBrains">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
       <span class="navbar-toggler-icon icon-hambuger"></span>

@@ -28,7 +28,7 @@ class TbResiduosTopico extends Migration
 		$this->forge->addPrimaryKey('id_residuo');
 
 		$this->forge->addForeignKey('id_tpResiduo', 'tb_tpResiduos', 'id_tpResiduo');
-		$this->forge->addForeignKey('id_topico', 'tb_topico', 'id_topico');
+		$this->forge->addForeignKey('id_topico', 'tb_topico', 'id_topico', 'CASCADE', 'CASCADE');
 
 		$this->forge->createTable('tb_residuosTopico');
 

@@ -22,7 +22,7 @@ echo link_tag('css/styleSignUp.css');
 
 <?php
 echo $view->render('layout/navbarLogado');
-echo $view->render('cooperativas/pesquisarempresas/header'); 
+echo $view->render('empresas/pesquisarcoop/header'); 
 ?>
 
 <?= $this->endSection('content') ?>

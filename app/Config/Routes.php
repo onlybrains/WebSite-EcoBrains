@@ -43,15 +43,19 @@ $routes->match(['get', 'post'], '/sign-up/dados', 'UserController::dados');
 
 $routes->group('empresas', ['filter' => 'empresa'], function ($routes) {
 	$routes->get('/', 'EmpresaController::empresas');
-	$routes->get('/abrirtopico', 'EmpresaController::abrirTopico');
-	$routes->get('/editartopico', 'EmpresaController::editarTopico');
-	$routes->get('/topicos', 'EmpresaController::viewTopico');
+	$routes->match(['get', 'post'],'abrirtopico', 'EmpresaController::abrirTopico');
+	$routes->match(['get', 'post'],'editartopico/(:num)', 'EmpresaController::editarTopico/$1');
+	$routes->get('deletartopico/(:num)', 'EmpresaController::deletarTopico/$1');
+	$routes->get('topicos/(:num)', 'EmpresaController::viewTopico/$1');
+	$routes->get('pesquisarcooperativas', 'EmpresaController::pesquisaCooperativas');
 });
 
 $routes->group('cooperativas', ['filter' => 'coop'], function ($routes) {
 	$routes->get('/', 'CoopController::cooperativas');
-	$routes->get('/pesquisartopicos', 'CoopController::pesquisartopicos');
-	$routes->get('/pesquisarempresas', 'CoopController::pesquisarempresas');
+	$routes->get('pesquisartopicos', 'CoopController::pesquisartopicos');
+	$routes->get('mostrarinteresse', 'CoopController::interesseTopico');
+	$routes->POST('pesquisafiltro', 'CoopController::pesquisafiltro');
+	$routes->get('pesquisarempresas', 'CoopController::pesquisarempresas');
 });
 
 $routes->get('/perfil', 'PerfilController::viewPerfil');
@@ -72,6 +76,7 @@ $routes->get('/premium', 'PremiumController::premium');
  * You will have access to the $routes object within that file without
  * needing to reload it.
  */
+
 if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
 	require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }

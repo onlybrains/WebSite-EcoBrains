@@ -29,7 +29,7 @@ class TbInteresseTopico extends Migration
 		]);
 		$this->forge->addPrimaryKey('id_interesseTopico');
 
-		$this->forge->addForeignKey('id_topico', 'tb_topico', 'id_topico');
+		$this->forge->addForeignKey('id_topico', 'tb_topico', 'id_topico', 'CASCADE', 'CASCADE');
 		$this->forge->addForeignKey('id_coop', 'tb_cooperativas', 'id_coop');
 
 		$this->forge->createTable('tb_interesseTopico');
