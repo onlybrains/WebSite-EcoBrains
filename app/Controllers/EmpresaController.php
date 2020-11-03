@@ -8,13 +8,10 @@ class EmpresaController extends BaseController
 {
 	public function empresas()
 	{
-		$modelEmpresas = new \App\Models\EmpresaModel();
+		helper('auth_helper');
 		$topicoModel = new \App\Models\TopicoModel();
 
-		$Empresa = $modelEmpresas
-			->select('id_empresa, nomeFantasia_dados, razaoSoc_dados')
-			->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
-			->where('id_login', session()->get('id_login'))->first();
+		$Empresa = getBasicUserInfo();
 
 		$registros = $topicoModel
 			->join('tb_empresas', 'tb_empresas.id_empresa = tb_topico.id_empresa')
@@ -31,13 +28,10 @@ class EmpresaController extends BaseController
 
 	public function abrirTopico()
 	{
-		$modelEmpresas = new \App\Models\EmpresaModel();
+		helper('auth_helper');
 		$tipoResiduosModel = new \App\Models\TipoResiduoModel();
 
-		$Empresa = $modelEmpresas
-			->select('id_empresa, nomeFantasia_dados, razaoSoc_dados')
-			->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
-			->where('id_login', session()->get('id_login'))->first();
+		$Empresa = getBasicUserInfo();
 
 		$data['titulo'] = 'Pesquisar Cooperativas';
 		$data['nome'] = $Empresa->razaoSoc_dados;
@@ -77,15 +71,12 @@ class EmpresaController extends BaseController
 
 	public function editarTopico($id_topico)
 	{
-		$modelEmpresas = new \App\Models\EmpresaModel();
+		helper('auth_helper');
 		$topicoModel = new \App\Models\TopicoModel();
 		$residuosTopicoModel = new \App\Models\ResiduosTopicoModel();
 		$tipoResiduosModel = new \App\Models\TipoResiduoModel();
 
-		$Empresa = $modelEmpresas
-			->select('id_empresa, nomeFantasia_dados, razaoSoc_dados')
-			->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
-			->where('id_login', session()->get('id_login'))->first();
+		$Empresa = getBasicUserInfo();
 
 		$topicos = $topicoModel
 			->join('tb_residuosTopico', 'tb_residuosTopico.id_topico = tb_topico.id_topico')
@@ -124,7 +115,6 @@ class EmpresaController extends BaseController
 
 	public function deletarTopico($id_topico)
 	{
-
 		$topicoModel = new \App\Models\TopicoModel();
 
 		$topicoModel
@@ -136,13 +126,10 @@ class EmpresaController extends BaseController
 
 	public function viewTopico($id_topico)
 	{
-		$modelEmpresas = new \App\Models\EmpresaModel();
+		helper('auth_helper');
 		$topicoModel = new \App\Models\TopicoModel();
 
-		$Empresa = $modelEmpresas
-			->select('id_empresa, nomeFantasia_dados, razaoSoc_dados')
-			->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
-			->where('id_login', session()->get('id_login'))->first();
+		$Empresa = getBasicUserInfo();
 
 		$topicosDadosEmpresa = $topicoModel
 			->join('tb_residuosTopico', 'tb_residuosTopico.id_topico = tb_topico.id_topico')
@@ -168,13 +155,10 @@ class EmpresaController extends BaseController
 
 	public function pesquisaCooperativas()
 	{
+		helper('auth_helper');
 		$modelCooperativas = new \App\Models\CoopModel();
-		$modelEmpresas = new \App\Models\EmpresaModel();
 
-		$empresa = $modelEmpresas
-			->select('id_empresa, nomeFantasia_dados, razaoSoc_dados')
-			->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
-			->where('id_login', session()->get('id_login'))->first();
+		$empresa = getBasicUserInfo();
 
 		$data['titulo'] = 'Pesquisar Cooperativas';
 		$data['nome'] = $empresa->razaoSoc_dados;
@@ -195,10 +179,9 @@ class EmpresaController extends BaseController
 
 	public function solicitarContato($id_coop)
 	{
+		helper('auth_helper');
+		$empresa = getBasicUserInfo();
 		$modelEmpresa = new \App\Models\EmpresaModel();
-		$empresa = $modelEmpresa
-			->select('id_empresa')
-			->where('id_login', session()->get('id_login'))->first();
 
 		$empresaEmail = $modelEmpresa
 			->select('nomeFantasia_dados, email_login')

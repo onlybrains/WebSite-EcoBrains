@@ -10,11 +10,9 @@ class CoopController extends BaseController
 {
 	public function cooperativas()
 	{
-		$modelCooperativas = new \App\Models\CoopModel();
-		$Cooperativa = $modelCooperativas
-			->select('id_coop, nomeFantasia_dados, razaoSoc_dados')
-			->join('tb_dados', 'tb_dados.id_dados = tb_cooperativas.id_dados')
-			->where('id_login', session()->get('id_login'))->first();
+		//função para pegar info basica de login
+		helper('auth_helper');
+		$Cooperativa = getBasicUserInfo();
 
 		$topicoModel = new \App\Models\topicoModel();
 		$topicosParticipantes = $topicoModel
@@ -33,13 +31,10 @@ class CoopController extends BaseController
 
 	public function pesquisartopicos()
 	{
-		$modelCooperativas = new \App\Models\CoopModel();
-		$Cooperativa = $modelCooperativas
-			->select('id_coop, nomeFantasia_dados, razaoSoc_dados')
-			->join('tb_dados', 'tb_dados.id_dados = tb_cooperativas.id_dados')
-			->where('id_login', session()->get('id_login'))->first();
+		helper('auth_helper');
+		$Cooperativa = getBasicUserInfo();
 
-		$data['titulo'] = 'Pesquisar Empresas';
+		$data['titulo'] = 'Pesquisar Tópicos';
 		$data['nome'] = $Cooperativa->razaoSoc_dados;
 
 		$topicoModel = new \App\Models\TopicoModel();
@@ -65,10 +60,8 @@ class CoopController extends BaseController
 	// ARRUMAR //
 	public function interesseTopico($id_topico, $id_coop = 1)
 	{
-		$modelCooperativas = new \App\Models\CoopModel();
-		$Cooperativa = $modelCooperativas
-			->select('id_coop')
-			->where('id_login', session()->get('id_login'))->first();
+		helper('auth_helper');
+		$Cooperativa = getBasicUserInfo();
 
 		/* INTERESSE MOSTRADO — Falta apenas colocar para a inserir o valor da cooperativa que está logada */
 		$coopController = new \App\Models\InteresseTopicoModel();
