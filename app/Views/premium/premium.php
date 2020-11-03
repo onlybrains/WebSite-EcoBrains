@@ -5,7 +5,7 @@
   </div>
 
   <div class="row">
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro aut commodi assumenda cum unde eos sed exercitationem dolor temporibus, est esse modi officia eaque. Vel, consectetur! Eum eligendi cum debitis.</p>
+    <p>Contribua para a revolução ecológica! Pensando cada vez mais em atender as suas necessidades da melhor forma possível, desenvolvemos os serviços premium. Nossos serviços premium são pensados tanto para as cooperativas quanto para as empresas. Seja premium e aumente seu campo dvisão e status nesta evolução.</p>
   </div>
 
   <hr />
