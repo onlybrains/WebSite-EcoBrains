@@ -54,7 +54,7 @@ class Email extends BaseConfig
 	 * @var string
 	 */
 	// Enter your email id from where you send email
-	public $SMTPUser = 'grouponlybrains@gmail.com';
+	public $SMTPUser = '###############';
 	
 
 	/**
@@ -63,7 +63,7 @@ class Email extends BaseConfig
 	 * @var string
 	 */
 	// Enter your email's password
-	public $SMTPPass = 'obclm2020';
+	public $SMTPPass = '##############';
 
 	/**
 	 * SMTP Port
