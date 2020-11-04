@@ -137,10 +137,10 @@ class EmpresaController extends BaseController
 			->where('tb_topico.id_topico', $id_topico)->first();
 
 		$registrosInteresseCooperativa = $topicoModel
-			->join('tb_interessetopico', 'tb_interessetopico.id_topico = tb_topico.id_topico')
+			->join('tb_interesseTopico', 'tb_interesseTopico.id_topico = tb_topico.id_topico')
 			->join('tb_residuosTopico', 'tb_residuosTopico.id_topico = tb_topico.id_topico')
 			->join('tb_tpResiduos', 'tb_tpResiduos.id_tpResiduo = tb_residuosTopico.id_tpResiduo')
-			->join('tb_cooperativas', 'tb_cooperativas.id_coop = tb_interessetopico.id_coop')
+			->join('tb_cooperativas', 'tb_cooperativas.id_coop = tb_interesseTopico.id_coop')
 			->join('tb_dados', 'tb_dados.id_dados = tb_cooperativas.id_dados')
 			->where("tb_topico.id_topico= '{$id_topico}'")
 			->findAll();

@@ -5,6 +5,8 @@ namespace App\Controllers;
 use App\Models\CoopModel;
 use CodeIgniter\Email\Email;
 use CodeIgniter\HTTP\RequestInterface;
+use CodeIgniter\HTTP\Response;
+
 
 class CoopController extends BaseController
 {
@@ -14,9 +16,9 @@ class CoopController extends BaseController
 		helper('auth_helper');
 		$Cooperativa = getBasicUserInfo();
 
-		$topicoModel = new \App\Models\topicoModel();
+		$topicoModel = new \App\Models\TopicoModel();
 		$topicosParticipantes = $topicoModel
-			->join('tb_interessetopico', 'tb_interessetopico.id_topico = tb_topico.id_topico')
+			->join('tb_interesseTopico', 'tb_interesseTopico.id_topico = tb_topico.id_topico')
 			->join('tb_residuosTopico', 'tb_residuosTopico.id_topico = tb_topico.id_topico')
 			->join('tb_tpResiduos', 'tb_tpResiduos.id_tpResiduo = tb_residuosTopico.id_tpResiduo')
 			->where('dataLimite_topico >= CURRENT_DATE() AND id_coop =' . $Cooperativa->id_coop)
@@ -33,6 +35,27 @@ class CoopController extends BaseController
 	{
 		helper('auth_helper');
 		$Cooperativa = getBasicUserInfo();
+		$options = [
+			''
+		];
+		$client = service('curlrequest');
+
+		$optionsRequest = [
+			'baseURI' => 'https://maps.googleapis.com/maps/api/distancematrix/',
+			'timeout'  => 3,
+			'query' => [
+				'origins' => '07193270',
+				'destinations' => '07113001',
+				'language' => 'pt-BR',
+				'key' => env('GOOGLE_API_KEY')
+			]
+		];
+		$response = $client->get('json', $optionsRequest);
+		$response = json_decode($response->getBody());
+		$responseRows = $response->rows[0]->elements[0];
+
+		echo '<pre>';
+		var_dump($responseRows);
 
 		$data['titulo'] = 'Pesquisar Tópicos';
 		$data['nome'] = $Cooperativa->razaoSoc_dados;
