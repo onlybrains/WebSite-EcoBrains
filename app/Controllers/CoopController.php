@@ -66,8 +66,8 @@ class CoopController extends BaseController
 			->orderBy('dataLimite_topico')
 			->findAll();
 
-		print_r($registros);
-		print_r($Cooperativa->id_coop);
+		// print_r($registros);
+		// print_r($Cooperativa->id_coop);
 		$coopController = new \App\Models\TipoResiduoModel();
 		$registrosTipos = $coopController->findAll();
 
