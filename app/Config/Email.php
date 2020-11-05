@@ -1,5 +1,7 @@
 <?php
+
 namespace Config;
+
 use CodeIgniter\Config\BaseConfig;
 
 class Email extends BaseConfig
@@ -46,7 +48,7 @@ class Email extends BaseConfig
 	 *
 	 * @var string
 	 */
-	public $SMTPHost = 'smtp.googlemail.com';
+	public $SMTPHost = '';
 
 	/**
 	 * SMTP Username
@@ -54,8 +56,8 @@ class Email extends BaseConfig
 	 * @var string
 	 */
 	// Enter your email id from where you send email
-	public $SMTPUser = 'grouponlybrains@gmail.com';
-	
+	public $SMTPUser = '';
+
 
 	/**
 	 * SMTP Password
@@ -63,7 +65,7 @@ class Email extends BaseConfig
 	 * @var string
 	 */
 	// Enter your email's password
-	public $SMTPPass = 'obclm2020';
+	public $SMTPPass = '';
 
 	/**
 	 * SMTP Port

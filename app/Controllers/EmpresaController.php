@@ -200,6 +200,12 @@ class EmpresaController extends BaseController
 
 		$email = \Config\Services::email();
 
+		$config['SMTPHost'] = env('SMTP_HOST');
+		$config['SMTPUser'] = env('SMTP_USER');
+		$config['SMTPPass'] = env('SMTP_PASS');
+
+		$email->initialize($config);
+
 		foreach ($registros as $registro) :
 
 			$email->setFrom('ecobrains@ecobrains.com', "EcoBrains — {$registro->nomeFantasia_dados}");

@@ -64,6 +64,10 @@
                   </p>
                 </div>
                 <div class="row ml-3">
+                  <strong class="topic-desc">Aproximadamente: </strong>
+                  <p class="topic-desc ml-2"> <?= $topico->distancematrix->distance->text ?> — <i><?= $topico->distancematrix->duration->text ?></i> </p>
+                </div>
+                <div class="row ml-3">
                   <strong class="topic-desc">Peso: </strong>
                   <p class="topic-desc ml-2"> <?= $topico->quant_residuo ?> Kg</p>
                 </div>

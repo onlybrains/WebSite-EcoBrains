@@ -35,27 +35,7 @@ class CoopController extends BaseController
 	{
 		helper('auth_helper');
 		$Cooperativa = getBasicUserInfo();
-		$options = [
-			''
-		];
-		$client = service('curlrequest');
 
-		$optionsRequest = [
-			'baseURI' => 'https://maps.googleapis.com/maps/api/distancematrix/',
-			'timeout'  => 3,
-			'query' => [
-				'origins' => '07193270',
-				'destinations' => '07113001',
-				'language' => 'pt-BR',
-				'key' => env('GOOGLE_API_KEY')
-			]
-		];
-		$response = $client->get('json', $optionsRequest);
-		$response = json_decode($response->getBody());
-		$responseRows = $response->rows[0]->elements[0];
-
-		echo '<pre>';
-		var_dump($responseRows);
 
 		$data['titulo'] = 'Pesquisar Tópicos';
 		$data['nome'] = $Cooperativa->razaoSoc_dados;
@@ -73,6 +53,25 @@ class CoopController extends BaseController
 		$coopController = new \App\Models\TipoResiduoModel();
 		$registrosTipos = $coopController->findAll();
 
+		$client = service('curlrequest');
+
+		foreach ($registros as $registro) {
+			$optionsRequest = [
+				'baseURI' => 'https://maps.googleapis.com/maps/api/distancematrix/json',
+				'timeout'  => 3,
+				'query' => [
+					'origins' => $Cooperativa->cep_dados,
+					'destinations' => $registro->cep_dados,
+					'language' => 'pt-BR',
+					'key' => env('GOOGLE_API_KEY')
+				]
+			];
+			$response = $client->get('json', $optionsRequest);
+			$response = json_decode($response->getBody());
+			$registro->distancematrix = $response->rows[0]->elements[0];
+		}
+
+
 		$data['topicos'] = $registros;
 		$data['tipos'] = $registrosTipos;
 
@@ -81,7 +80,7 @@ class CoopController extends BaseController
 	}
 
 	// ARRUMAR //
-	public function interesseTopico($id_topico, $id_coop = 1)
+	public function interesseTopico($id_topico)
 	{
 		helper('auth_helper');
 		$Cooperativa = getBasicUserInfo();
@@ -92,9 +91,10 @@ class CoopController extends BaseController
 			->where("id_topico = '{$id_topico}' AND id_coop = '{$Cooperativa->id_coop}'")
 			->first();
 
+
 		if (!$validacao) {
 			$coopController
-				->set('aprov_interesseTopico', '1')
+				->set('aprov_interesseTopico', '0')
 				->set('id_topico', $id_topico)
 				->set('id_coop', $Cooperativa->id_coop)
 				->insert();
@@ -110,7 +110,14 @@ class CoopController extends BaseController
 				->where('id_topico = ' . $id_topico)
 				->findAll();
 
+
 			$email = \Config\Services::email();
+
+			$config['SMTPHost'] = env('SMTP_HOST');
+			$config['SMTPUser'] = env('SMTP_USER');
+			$config['SMTPPass'] = env('SMTP_PASS');
+
+			$email->initialize($config);
 
 			foreach ($registros as $registro) :
 
