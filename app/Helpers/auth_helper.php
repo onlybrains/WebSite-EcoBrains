@@ -35,14 +35,14 @@ function getBasicUserInfo()
   if (isEmpresaOrCoop() == 'empresa') {
     $model = new EmpresaModel();
     return $model
-      ->select('id_empresa, nomeFantasia_dados, razaoSoc_dados, cep_dados')
       ->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
+      ->join('tb_desc', 'tb_desc.id_desc = tb_empresas.id_desc')
       ->where('id_login', session()->get('id_login'))->first();
   } elseif (isEmpresaOrCoop() == 'coop') {
     $model = new CoopModel();
     return $model
-      ->select('id_coop, nomeFantasia_dados, razaoSoc_dados, cep_dados')
       ->join('tb_dados', 'tb_dados.id_dados = tb_cooperativas.id_dados')
+      ->join('tb_desc', 'tb_desc.id_desc = tb_cooperativas.id_desc')
       ->where('id_login', session()->get('id_login'))->first();
   }
 }

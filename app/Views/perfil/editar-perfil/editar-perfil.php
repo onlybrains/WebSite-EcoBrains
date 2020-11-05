@@ -2,6 +2,15 @@
 $uri = new \CodeIgniter\HTTP\URI(current_url());
 ?>
 <div class="container">
+  <?php if (!empty($errors)) : ?>
+    <div class="row justify-content-center pt-5">
+      <div class="alert alert-danger" role="alert">
+        <?php foreach ($errors as $field => $error) : ?>
+          <p><?= $error ?></p>
+        <?php endforeach ?>
+      </div>
+    </div>
+  <?php endif; ?>
   <div class="card my-5 rounded shadow">
     <div class="card-body">
       <form method="POST">
@@ -131,7 +140,7 @@ $uri = new \CodeIgniter\HTTP\URI(current_url());
           </div>
         </div>
         <div class="d-flex">
-          <a href=<?= base_url($uri->getSegment(1) . '/perfil/editar') ?> class="btn btn-green flex-fill p-2">Editar Perfil</a>
+          <button type="submit" class="btn btn-green flex-fill p-2">Editar Perfil</button>
         </div>
       </form>
     </div>

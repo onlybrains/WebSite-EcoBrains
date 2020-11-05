@@ -49,7 +49,7 @@ $routes->group('empresas', ['filter' => 'empresa'], function ($routes) {
 	$routes->get('topicos/(:num)', 'EmpresaController::viewTopico/$1');
 	$routes->get('pesquisar', 'EmpresaController::pesquisaCooperativas');
 	$routes->get('perfil', 'PerfilController::viewPerfil');
-	$routes->get('perfil/editar', 'PerfilController::editarPerfil');
+	$routes->match(['get', 'post'], 'perfil/editar', 'PerfilController::editarPerfil');
 	$routes->get('premium', 'PremiumController::premium');
 });
 
@@ -60,7 +60,7 @@ $routes->group('cooperativas', ['filter' => 'coop'], function ($routes) {
 	$routes->POST('pesquisafiltro', 'CoopController::pesquisafiltro');
 	// $routes->get('pesquisarempresa', 'CoopController::pesquisarempresas');
 	$routes->get('perfil', 'PerfilController::viewPerfil');
-	$routes->get('perfil/editar', 'PerfilController::editarPerfil');
+	$routes->match(['get', 'post'], 'perfil/editar', 'PerfilController::editarPerfil');
 	$routes->get('premium', 'PremiumController::premium');
 });
 
