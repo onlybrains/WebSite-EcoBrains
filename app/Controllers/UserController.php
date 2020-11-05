@@ -77,7 +77,7 @@ class UserController extends BaseController
   public function dados()
   {
     $data = [];
-    helper(['form', 'validation_helper']);
+    helper(['form', 'validation']);
 
 
     if ($this->request->getMethod() == 'post') {

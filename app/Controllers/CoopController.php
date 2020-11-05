@@ -13,7 +13,7 @@ class CoopController extends BaseController
 	public function cooperativas()
 	{
 		//função para pegar info basica de login
-		helper('auth_helper');
+		helper('auth');
 		$Cooperativa = getBasicUserInfo();
 
 		$topicoModel = new \App\Models\TopicoModel();
@@ -34,7 +34,7 @@ class CoopController extends BaseController
 
 	public function pesquisartopicos()
 	{
-		helper(['auth_helper', 'maps_helper']);
+		helper(['auth', 'maps']);
 		$Cooperativa = getBasicUserInfo();
 
 
@@ -66,7 +66,8 @@ class CoopController extends BaseController
 			->orderBy('dataLimite_topico')
 			->findAll();
 
-
+		print_r($registros);
+		print_r($Cooperativa->id_coop);
 		$coopController = new \App\Models\TipoResiduoModel();
 		$registrosTipos = $coopController->findAll();
 
@@ -87,7 +88,7 @@ class CoopController extends BaseController
 	// ARRUMAR //
 	public function interesseTopico($id_topico)
 	{
-		helper('auth_helper');
+		helper('auth');
 		$Cooperativa = getBasicUserInfo();
 
 		/* INTERESSE MOSTRADO — Falta apenas colocar para a inserir o valor da cooperativa que está logada */

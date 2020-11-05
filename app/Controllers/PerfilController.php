@@ -2,33 +2,32 @@
 
 namespace App\Controllers;
 
-use App\Models\CoopModel;
-use App\Models\DadosModel;
-use App\Models\DescModel;
-use App\Models\UserModel;
-use App\Models\EmpresaModel;
+use App\Models\UpdateDescModel;
+use App\Models\UpdateDadosModel;
 
 class PerfilController extends BaseController
 {
 
   public function viewPerfil()
   {
+    helper(['auth', 'validation']);
+
     $user = getBasicUserInfo();
 
     $data['user'] = $user;
-    $data['titulo'] = 'Pesquisar Cooperativas';
-    $data['nome'] = 'Nome da Empresa';
+    $data['titulo'] = 'Pesquisar Tópicos';
+    $data['nome'] = $user->nomeFantasia_dados;
     return view('perfil/view-perfil/index', $data);
   }
 
   public function editarPerfil()
   {
-    helper(['auth_helper', 'validation_helper']);
+    helper(['form', 'auth', 'validation']);
     $user = getBasicUserInfo();
     $uri = new \CodeIgniter\HTTP\URI(current_url());
 
-    $dadosModel = new DadosModel();
-    $descModel = new DescModel();
+    $dadosModel = new UpdateDadosModel();
+    $descModel = new UpdateDescModel();
 
     if ($this->request->getMethod() == 'post') {
 
@@ -50,7 +49,7 @@ class PerfilController extends BaseController
 
 
       if ($dadosModel->update($user->id_dados))
-        if ($descModel->update($user->id_dados))
+        if ($descModel->update($user->id_desc))
           return redirect()->to('/' . $uri->getSegment(1) . '/perfil');
         else
           $data['errors'] = $descModel->errors();
@@ -58,8 +57,8 @@ class PerfilController extends BaseController
         $data['errors'] = $dadosModel->errors();
     }
 
-
-    $data['titulo'] = $uri->getSegment(1) == 'empresas' ? 'Pesquisar Cooperativas' : 'Pesquisar Empresas';
+    $data['user'] = $user;
+    $data['titulo'] = 'Pesquisar Tópicos';
     $data['nome'] = $user->nomeFantasia_dados;
 
     return view('perfil/editar-perfil/index', $data);

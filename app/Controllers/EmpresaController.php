@@ -13,7 +13,7 @@ class EmpresaController extends BaseController
 {
 	public function empresas()
 	{
-		helper('auth_helper');
+		helper('auth');
 		$topicoModel = new \App\Models\TopicoModel();
 
 		$Empresa = getBasicUserInfo();
@@ -34,7 +34,7 @@ class EmpresaController extends BaseController
 
 	public function abrirTopico()
 	{
-		helper('auth_helper');
+		helper('auth');
 		$tipoResiduosModel = new \App\Models\TipoResiduoModel();
 
 		$Empresa = getBasicUserInfo();
@@ -77,7 +77,7 @@ class EmpresaController extends BaseController
 
 	public function editarTopico($id_topico)
 	{
-		helper('auth_helper');
+		helper('auth');
 		$topicoModel = new \App\Models\TopicoModel();
 		$residuosTopicoModel = new \App\Models\ResiduosTopicoModel();
 		$tipoResiduosModel = new \App\Models\TipoResiduoModel();
@@ -141,7 +141,7 @@ class EmpresaController extends BaseController
 
 	public function viewTopico($id_topico)
 	{
-		helper('auth_helper');
+		helper('auth');
 		$topicoModel = new \App\Models\TopicoModel();
 
 		$Empresa = getBasicUserInfo();
@@ -1053,7 +1053,7 @@ class EmpresaController extends BaseController
 
 	public function pesquisaCooperativas()
 	{
-		helper('auth_helper');
+		helper('auth');
 		$modelCooperativas = new \App\Models\CoopModel();
 
 		$empresa = getBasicUserInfo();
@@ -1077,7 +1077,7 @@ class EmpresaController extends BaseController
 
 	public function solicitarContato($id_coop)
 	{
-		helper('auth_helper');
+		helper('auth');
 		$empresa = getBasicUserInfo();
 		$modelEmpresa = new \App\Models\EmpresaModel();
 
