@@ -13,7 +13,7 @@ class CoopController extends BaseController
 	public function cooperativas()
 	{
 		//função para pegar info basica de login
-		helper('auth_helper');
+		helper('auth');
 		$Cooperativa = getBasicUserInfo();
 
 		$topicoModel = new \App\Models\TopicoModel();
@@ -34,7 +34,7 @@ class CoopController extends BaseController
 
 	public function pesquisartopicos()
 	{
-		helper(['auth_helper', 'maps_helper']);
+		helper(['auth', 'maps']);
 		$Cooperativa = getBasicUserInfo();
 
 
@@ -47,11 +47,14 @@ class CoopController extends BaseController
 			->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
 			->join('tb_residuosTopico', 'tb_residuosTopico.id_topico = tb_topico.id_topico')
 			->join('tb_tpResiduos', 'tb_tpResiduos.id_tpResiduo = tb_residuosTopico.id_tpResiduo')
+			->join('tb_interessetopico', 'tb_interessetopico.id_topico = tb_topico.id_topico', 'left')
 			->where('dataLimite_topico >= CURRENT_DATE()')
+			// ->whereNotIn('id_coop', [1])
 			->orderBy('dataLimite_topico')
 			->findAll();
 
-
+		print_r($registros);
+		print_r($Cooperativa->id_coop);
 		$coopController = new \App\Models\TipoResiduoModel();
 		$registrosTipos = $coopController->findAll();
 
@@ -72,7 +75,7 @@ class CoopController extends BaseController
 	// ARRUMAR //
 	public function interesseTopico($id_topico)
 	{
-		helper('auth_helper');
+		helper('auth');
 		$Cooperativa = getBasicUserInfo();
 
 		/* INTERESSE MOSTRADO — Falta apenas colocar para a inserir o valor da cooperativa que está logada */
