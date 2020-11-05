@@ -1053,7 +1053,7 @@ class EmpresaController extends BaseController
 
 	public function pesquisaCooperativas()
 	{
-		helper('auth');
+		helper(['auth', 'maps']);
 		$modelCooperativas = new \App\Models\CoopModel();
 
 		$empresa = getBasicUserInfo();
@@ -1070,6 +1070,11 @@ class EmpresaController extends BaseController
 		$TipoResiduoModel = new \App\Models\TipoResiduoModel();
 		$registrosTipos = $TipoResiduoModel->findAll();
 
+		foreach ($registros as $registro) {
+			$registro->distancematrix = verifyDistance($empresa->cep_dados, $registro->cep_dados);
+		}
+
+		$data['cooperativas'] = $registros;
 		$data['tipos'] = $registrosTipos;
 
 		return view('empresas/pesquisarcoop/index', $data);
