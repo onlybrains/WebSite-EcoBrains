@@ -21,7 +21,7 @@ class CoopController extends BaseController
 			->join('tb_interesseTopico', 'tb_interesseTopico.id_topico = tb_topico.id_topico')
 			->join('tb_residuosTopico', 'tb_residuosTopico.id_topico = tb_topico.id_topico')
 			->join('tb_tpResiduos', 'tb_tpResiduos.id_tpResiduo = tb_residuosTopico.id_tpResiduo')
-			->where('dataLimite_topico >= CURRENT_DATE() AND id_coop =' . $Cooperativa->id_coop)
+			->where("dataLimite_topico >= CURRENT_DATE() AND id_coop = '{$Cooperativa->id_coop}' AND aprov_interesseTopico = 0")
 			->orderBy('dataLimite_topico')
 			->findAll();
 
@@ -41,13 +41,28 @@ class CoopController extends BaseController
 		$data['titulo'] = 'Pesquisar Tópicos';
 		$data['nome'] = $Cooperativa->razaoSoc_dados;
 
+		// $topicoModel = new \App\Models\TopicoModel();
+		// $registros = $topicoModel
+		// 	->join('tb_empresas', 'tb_empresas.id_empresa = tb_topico.id_empresa')
+		// 	->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
+		// 	->join('tb_residuosTopico', 'tb_residuosTopico.id_topico = tb_topico.id_topico')
+		// 	->join('tb_tpResiduos', 'tb_tpResiduos.id_tpResiduo = tb_residuosTopico.id_tpResiduo')
+		// 	->where('dataLimite_topico >= CURRENT_DATE()')
+		// 	->orderBy('dataLimite_topico')
+		// 	->findAll();
+
 		$topicoModel = new \App\Models\TopicoModel();
 		$registros = $topicoModel
+			->join('tb_interesseTopico', 'tb_interesseTopico.id_topico = tb_topico.id_topico', 'left')
 			->join('tb_empresas', 'tb_empresas.id_empresa = tb_topico.id_empresa')
 			->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
 			->join('tb_residuosTopico', 'tb_residuosTopico.id_topico = tb_topico.id_topico')
 			->join('tb_tpResiduos', 'tb_tpResiduos.id_tpResiduo = tb_residuosTopico.id_tpResiduo')
-			->where('dataLimite_topico >= CURRENT_DATE()')
+			->where("tb_topico.id_topico NOT IN (select tb_topico.id_topico from tb_topico
+			left join tb_interesseTopico on tb_interesseTopico.id_topico = tb_topico.id_topico
+			WHERE id_coop = '{$Cooperativa->id_coop}'
+			GROUP BY tb_topico.id_topico)")
+			->groupBy('tb_topico.id_topico')
 			->orderBy('dataLimite_topico')
 			->findAll();
 
@@ -948,6 +963,21 @@ class CoopController extends BaseController
 			->join('tb_tpResiduos', 'tb_tpResiduos.id_tpResiduo = tb_residuosTopico.id_tpResiduo')
 			->where("dataLimite_topico >= CURRENT_DATE() AND dataLimite_topico <='{$dataLimite}' AND nome_tpResiduo ='{$tipoResiduo}' AND quant_residuo <= '{$pesoResiduo}'")
 			//" AND nome_tpResiduo = 'Madeira' AND quant_residuo <= '450'")
+			->findAll();
+
+		$topicoModel = new \App\Models\TopicoModel();
+		$registros = $topicoModel
+			->join('tb_interesseTopico', 'tb_interesseTopico.id_topico = tb_topico.id_topico', 'left')
+			->join('tb_empresas', 'tb_empresas.id_empresa = tb_topico.id_empresa')
+			->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
+			->join('tb_residuosTopico', 'tb_residuosTopico.id_topico = tb_topico.id_topico')
+			->join('tb_tpResiduos', 'tb_tpResiduos.id_tpResiduo = tb_residuosTopico.id_tpResiduo')
+			->where("dataLimite_topico >= CURRENT_DATE() AND dataLimite_topico <='{$dataLimite}' AND nome_tpResiduo ='{$tipoResiduo}' AND quant_residuo <= '{$pesoResiduo}' AND tb_topico.id_topico NOT IN (select tb_topico.id_topico from tb_topico
+			left join tb_interesseTopico on tb_interesseTopico.id_topico = tb_topico.id_topico
+			WHERE id_coop = '{$Cooperativa->id_coop}'
+			GROUP BY tb_topico.id_topico)")
+			->groupBy('tb_topico.id_topico')
+			->orderBy('dataLimite_topico')
 			->findAll();
 
 		$coopController = new \App\Models\TipoResiduoModel();
