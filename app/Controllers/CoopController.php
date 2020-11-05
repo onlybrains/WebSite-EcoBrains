@@ -5,23 +5,24 @@ namespace App\Controllers;
 use App\Models\CoopModel;
 use CodeIgniter\Email\Email;
 use CodeIgniter\HTTP\RequestInterface;
+use CodeIgniter\HTTP\Response;
+
 
 class CoopController extends BaseController
 {
 	public function cooperativas()
 	{
-		$modelCooperativas = new \App\Models\CoopModel();
-		$Cooperativa = $modelCooperativas
-			->select('id_coop, nomeFantasia_dados, razaoSoc_dados')
-			->join('tb_dados', 'tb_dados.id_dados = tb_cooperativas.id_dados')
-			->where('id_login', session()->get('id_login'))->first();
+		//função para pegar info basica de login
+		helper('auth_helper');
+		$Cooperativa = getBasicUserInfo();
 
-		$topicoModel = new \App\Models\topicoModel();
+		$topicoModel = new \App\Models\TopicoModel();
 		$topicosParticipantes = $topicoModel
-			->join('tb_interessetopico', 'tb_interessetopico.id_topico = tb_topico.id_topico')
+			->join('tb_interesseTopico', 'tb_interesseTopico.id_topico = tb_topico.id_topico')
 			->join('tb_residuosTopico', 'tb_residuosTopico.id_topico = tb_topico.id_topico')
 			->join('tb_tpResiduos', 'tb_tpResiduos.id_tpResiduo = tb_residuosTopico.id_tpResiduo')
 			->where('dataLimite_topico >= CURRENT_DATE() AND id_coop =' . $Cooperativa->id_coop)
+			->orderBy('dataLimite_topico')
 			->findAll();
 
 		$data['titulo'] = 'Pesquisar Tópicos';
@@ -33,13 +34,11 @@ class CoopController extends BaseController
 
 	public function pesquisartopicos()
 	{
-		$modelCooperativas = new \App\Models\CoopModel();
-		$Cooperativa = $modelCooperativas
-			->select('id_coop, nomeFantasia_dados, razaoSoc_dados')
-			->join('tb_dados', 'tb_dados.id_dados = tb_cooperativas.id_dados')
-			->where('id_login', session()->get('id_login'))->first();
+		helper(['auth_helper', 'maps_helper']);
+		$Cooperativa = getBasicUserInfo();
 
-		$data['titulo'] = 'Pesquisar Empresas';
+
+		$data['titulo'] = 'Pesquisar Tópicos';
 		$data['nome'] = $Cooperativa->razaoSoc_dados;
 
 		$topicoModel = new \App\Models\TopicoModel();
@@ -49,12 +48,20 @@ class CoopController extends BaseController
 			->join('tb_residuosTopico', 'tb_residuosTopico.id_topico = tb_topico.id_topico')
 			->join('tb_tpResiduos', 'tb_tpResiduos.id_tpResiduo = tb_residuosTopico.id_tpResiduo')
 			->where('dataLimite_topico >= CURRENT_DATE()')
+			->orderBy('dataLimite_topico')
 			->findAll();
 
 
 		$coopController = new \App\Models\TipoResiduoModel();
 		$registrosTipos = $coopController->findAll();
 
+
+		foreach ($registros as $registro) {
+			$registro->distancematrix = verifyDistance($Cooperativa->cep_dados, $registro->cep_dados);
+		}
+		// echo '<pre>';
+
+		// var_dump(asort($registros->distancematrix->distance->text));
 		$data['topicos'] = $registros;
 		$data['tipos'] = $registrosTipos;
 
@@ -63,12 +70,10 @@ class CoopController extends BaseController
 	}
 
 	// ARRUMAR //
-	public function interesseTopico($id_topico, $id_coop = 1)
+	public function interesseTopico($id_topico)
 	{
-		$modelCooperativas = new \App\Models\CoopModel();
-		$Cooperativa = $modelCooperativas
-			->select('id_coop')
-			->where('id_login', session()->get('id_login'))->first();
+		helper('auth_helper');
+		$Cooperativa = getBasicUserInfo();
 
 		/* INTERESSE MOSTRADO — Falta apenas colocar para a inserir o valor da cooperativa que está logada */
 		$coopController = new \App\Models\InteresseTopicoModel();
@@ -76,9 +81,10 @@ class CoopController extends BaseController
 			->where("id_topico = '{$id_topico}' AND id_coop = '{$Cooperativa->id_coop}'")
 			->first();
 
+
 		if (!$validacao) {
 			$coopController
-				->set('aprov_interesseTopico', '1')
+				->set('aprov_interesseTopico', '0')
 				->set('id_topico', $id_topico)
 				->set('id_coop', $Cooperativa->id_coop)
 				->insert();
@@ -94,7 +100,14 @@ class CoopController extends BaseController
 				->where('id_topico = ' . $id_topico)
 				->findAll();
 
+
 			$email = \Config\Services::email();
+
+			$config['SMTPHost'] = env('SMTP_HOST');
+			$config['SMTPUser'] = env('SMTP_USER');
+			$config['SMTPPass'] = env('SMTP_PASS');
+
+			$email->initialize($config);
 
 			foreach ($registros as $registro) :
 
