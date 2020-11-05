@@ -79,22 +79,23 @@
                   <strong class="topic-desc">Empresa: </strong>
                   <p class="topic-desc ml-2"><?= $topico->nomeFantasia_dados ?></p>
                 </div>
-                <div class="row ml-3">
-                </div>
-                <a class="topic-maps mb-3" target="_blank" href="https://www.google.com/maps/dir//<?= $topico->cep_dados ?>">Clique aqui e veja a localização da empresa</a>
               </div>
               <div class="col-6 my-auto">
                 <div class="row">
-                  <img src="/imgs/image-random.png" class="w-100 rounded-lg">
+                  <div class="col">
+                    <img src="/imgs/image-random.png" class="w-100 rounded-lg">
+                  </div>
+                  <div class="col">
+                    <div class="container">
+                      <a href=<?= base_url('/CoopController/interesseTopico/' . $topico->id_topico); ?> class="btn btn-lg btn-eco efeito active">Mostrar interesse</a>
+
+                      <!--<a href="#" class="topic-button p-2 float-right" style="margin-top: 66px;"><img src="../imgs/topics-vector.png" width="37" height="25"></a>-->
+                      <!-- <a href="<?= base_url('/CoopController/interesseTopico/' . $topico->id_topico); ?>" class="btn-eco efeito p-3 float-hei">Mostrar interesse</a> -->
+                      <!--<a href="https://www.google.com/maps/dir//<?= $topico->cep_dados ?>" target="_blank" class="btn-eco efeito mr-4 p-4 float-right" style="margin-top: 66px;">Veja a localização da empresa</a>-->
+                    </div>
+                  </div>
                 </div>
                 <div class="row mt-3 text-center">
-                  <div class="container">
-                    <a href=<?= base_url('/CoopController/interesseTopico/' . $topico->id_topico); ?> class="btn btn-lg btn-eco efeito active">Mostrar interesse</a>
-
-                    <!--<a href="#" class="topic-button p-2 float-right" style="margin-top: 66px;"><img src="../imgs/topics-vector.png" width="37" height="25"></a>-->
-                    <!-- <a href="<?= base_url('/CoopController/interesseTopico/' . $topico->id_topico); ?>" class="btn-eco efeito p-3 float-hei">Mostrar interesse</a> -->
-                    <!--<a href="https://www.google.com/maps/dir//<?= $topico->cep_dados ?>" target="_blank" class="btn-eco efeito mr-4 p-4 float-right" style="margin-top: 66px;">Veja a localização da empresa</a>-->
-                  </div>
                 </div>
               </div>
             </div>

@@ -17,6 +17,7 @@ class EmpresaController extends BaseController
 			->join('tb_empresas', 'tb_empresas.id_empresa = tb_topico.id_empresa')
 			->join('tb_residuosTopico', 'tb_residuosTopico.id_topico = tb_topico.id_topico')
 			->join('tb_tpResiduos', 'tb_tpResiduos.id_tpResiduo = tb_residuosTopico.id_tpResiduo')
+			->orderBy('dataLimite_topico')
 			->findAll();
 
 		$data['titulo'] = 'Pesquisar Cooperativas';

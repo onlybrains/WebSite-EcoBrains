@@ -22,6 +22,7 @@ class CoopController extends BaseController
 			->join('tb_residuosTopico', 'tb_residuosTopico.id_topico = tb_topico.id_topico')
 			->join('tb_tpResiduos', 'tb_tpResiduos.id_tpResiduo = tb_residuosTopico.id_tpResiduo')
 			->where('dataLimite_topico >= CURRENT_DATE() AND id_coop =' . $Cooperativa->id_coop)
+			->orderBy('dataLimite_topico')
 			->findAll();
 
 		$data['titulo'] = 'Pesquisar Tópicos';
@@ -33,7 +34,7 @@ class CoopController extends BaseController
 
 	public function pesquisartopicos()
 	{
-		helper('auth_helper');
+		helper(['auth_helper', 'maps_helper']);
 		$Cooperativa = getBasicUserInfo();
 
 
@@ -47,31 +48,20 @@ class CoopController extends BaseController
 			->join('tb_residuosTopico', 'tb_residuosTopico.id_topico = tb_topico.id_topico')
 			->join('tb_tpResiduos', 'tb_tpResiduos.id_tpResiduo = tb_residuosTopico.id_tpResiduo')
 			->where('dataLimite_topico >= CURRENT_DATE()')
+			->orderBy('dataLimite_topico')
 			->findAll();
 
 
 		$coopController = new \App\Models\TipoResiduoModel();
 		$registrosTipos = $coopController->findAll();
 
-		$client = service('curlrequest');
 
 		foreach ($registros as $registro) {
-			$optionsRequest = [
-				'baseURI' => 'https://maps.googleapis.com/maps/api/distancematrix/json',
-				'timeout'  => 3,
-				'query' => [
-					'origins' => $Cooperativa->cep_dados,
-					'destinations' => $registro->cep_dados,
-					'language' => 'pt-BR',
-					'key' => env('GOOGLE_API_KEY')
-				]
-			];
-			$response = $client->get('json', $optionsRequest);
-			$response = json_decode($response->getBody());
-			$registro->distancematrix = $response->rows[0]->elements[0];
+			$registro->distancematrix = verifyDistance($Cooperativa->cep_dados, $registro->cep_dados);
 		}
+		// echo '<pre>';
 
-
+		// var_dump(asort($registros->distancematrix->distance->text));
 		$data['topicos'] = $registros;
 		$data['tipos'] = $registrosTipos;
 
