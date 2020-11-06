@@ -6,7 +6,7 @@ helper('validation')
 
   <div class="card mt-5 rounded shadow">
     <?= '$user->banner_desc' ?>
-    <!-- <img src="/imgs/banner.png" class="card-img-top" alt="Imagem da Empresa"> -->
+    <img src=<?= '$user->banner_desc' ?> class="card-img-top" alt="Imagem da Empresa">
     <div class="card-body">
 
       <div class="row mb-2">

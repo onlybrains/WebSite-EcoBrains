@@ -20,6 +20,24 @@ class DescModel extends Model
     'premium_desc',
   ];
 
+
+  protected $validationRules = [
+    'info_desc'        =>
+    'string',
+
+    'logo_desc'    =>
+    'is_image[inputLogo]',
+
+    'banner_desc'         =>
+    'is_image[inputBanner]',
+
+    'tempoMercado_desc'      =>
+    'min_length[8]|max_length[10]',
+
+    'site_desc'         =>
+    'valid_url',
+  ];
+
   protected $afterInsert = ['afterInsert'];
 
 

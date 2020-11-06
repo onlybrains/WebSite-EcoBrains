@@ -2,8 +2,8 @@
 
 namespace App\Controllers;
 
-use App\Models\UpdateDescModel;
-use App\Models\UpdateDadosModel;
+use App\Models\DescModel;
+use App\Models\DadosModel;
 
 class PerfilController extends BaseController
 {
@@ -26,12 +26,13 @@ class PerfilController extends BaseController
     $user = getBasicUserInfo();
     $uri = new \CodeIgniter\HTTP\URI(current_url());
 
-    $dadosModel = new UpdateDadosModel();
-    $descModel = new UpdateDescModel();
+    $dadosModel = new DadosModel();
+    $descModel = new DescModel();
+
 
     if ($this->request->getMethod() == 'post') {
 
-      $dadosModel->set('cnpj_dados', onlyNumbers($this->request->getPost('inputCNPJ')));
+      // $dadosModel->set('cnpj_dados', onlyNumbers($this->request->getPost('inputCNPJ')));
       $dadosModel->set('nomeFantasia_dados', $this->request->getPost('inputFantasia'));
       $dadosModel->set('razaoSoc_dados', $this->request->getPost('inputRazao'));
       $dadosModel->set('cep_dados', onlyNumbers($this->request->getPost('inputCEP')));
@@ -42,8 +43,8 @@ class PerfilController extends BaseController
       $dadosModel->set('whatsapp_dados', onlyNumbers($this->request->getPost('inputWhats')));
 
       $descModel->set('info_desc', $this->request->getPost('inputTxtArea'));
-      $descModel->set('logo_desc', $this->request->getPost('inputLogo'));
-      $descModel->set('banner_desc', $this->request->getPost('inputBanner'));
+      $descModel->set('logo_desc', $this->request->getFile('inputLogo'));
+      $descModel->set('banner_desc', $this->request->getFile('inputBanner'));
       $descModel->set('tempoMercado_desc', $this->request->getPost('inputTempMercado'));
       $descModel->set('site_desc', $this->request->getPost('inputSite'));
 
