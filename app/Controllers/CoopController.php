@@ -866,8 +866,7 @@ class CoopController extends BaseController
 																	</tr>
 																	<tr>
 																		<td class='es-p15t'>
-																			<p style='color: #07401b;text-align: justify'>O seu tópico de negociação '{$registro->titulo_topico}' foi marcado como um tópico de interesse por uma cooperativa.&nbsp;Seu
-																				e-mail, telefone e Whatsapp foram enviados para o e-mail dela.&nbsp;<br>Esperamos
+																			<p style='color: #07401b;text-align: justify'>O seu tópico de negociação '{$registro->titulo_topico}' foi marcado como um tópico de interesse por uma cooperativa.&nbsp;Acesse seu tópico e a aprove ou não para que possam dar prosseguimento na negociação.&nbsp;<br>Esperamos
 																				que tudo dê certo e que tenham um negócio próspero afinal mentes ecológicas mudam o
 																				mundo e é isso que precisamos.<br>Obrigado pelo seu tempo,&nbsp;EcoBrains — Um novo
 																				jeito de ser ecológico usando apenas a mente!<br></p>
