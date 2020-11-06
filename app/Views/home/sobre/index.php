@@ -12,6 +12,7 @@ echo link_tag('css/styleNavBar.css');
 echo link_tag('css/styleJumbotronSobreNos.css');
 echo link_tag('css/styleHeaderSobreNos.css');
 echo link_tag('css/styleFooter.css');
+echo link_tag('css/styleSobreNos.css');
 ?>
 
 <?= $this->endSection('styles') ?>
