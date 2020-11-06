@@ -39,6 +39,14 @@ class DescModel extends Model
   ];
 
   protected $afterInsert = ['afterInsert'];
+  // protected $beforeUpdate = ['beforeUpdate'];
+
+  protected function beforeUpdate(array $data)
+  {
+    $path = $this->request->getFile($data['data']['inputBanner'])->store();
+    $data['data']['inputBanner'] = $path;
+    return $data;
+  }
 
 
   protected function afterInsert(array $data)

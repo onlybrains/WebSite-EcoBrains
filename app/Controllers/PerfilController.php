@@ -48,6 +48,7 @@ class PerfilController extends BaseController
       $descModel->set('tempoMercado_desc', $this->request->getPost('inputTempMercado'));
       $descModel->set('site_desc', $this->request->getPost('inputSite'));
 
+      $descModel->set('banner_desc', $this->request->getFile('inputBanner'));
 
       if ($dadosModel->update($user->id_dados))
         if ($descModel->update($user->id_desc))
