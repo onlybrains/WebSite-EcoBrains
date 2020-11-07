@@ -11,6 +11,7 @@ class UserController extends BaseController
   {
     $data = [];
     helper(['form', 'auth']);
+    var_dump(function_exists('mysqli_connect'));
 
 
     if ($this->request->getMethod() == 'post') {
