@@ -11,8 +11,12 @@ class UserController extends BaseController
   {
     $data = [];
     helper(['form', 'auth']);
-    var_dump(function_exists('mysqli_connect'));
 
+    echo ("database.default.hostname = " . env('database.default.hostname') . "\n");
+    echo ("database.default.database = " . env('database.default.database') . "\n");
+    echo ("database.default.username = " . env('database.default.username') . "\n");
+    echo ("database.default.password = " . env('database.default.password') . "\n");
+    echo ("database.default.DBDriver = " . env('database.default.DBDriver') . "\n");
 
     if ($this->request->getMethod() == 'post') {
 
