@@ -34,7 +34,7 @@ echo $view->render('perfil/editar-perfil/editar-perfil');
       var reader = new FileReader();
       reader.onload = function(e) {
         $('#img-container-preview-logo > img').remove();
-        $('#img-container-preview-logo ').append('<img class="rounded-circle" style="object-fit: cover;" img-fluid src="' + e.target.result + '" width="100" height="100">');
+        $('#img-container-preview-logo ').append('<img class="rounded-circle" style="object-fit: cover;" src="' + e.target.result + '" width="100" height="100">');
       };
       reader.readAsDataURL(this.files[0]);
     }
@@ -45,7 +45,7 @@ echo $view->render('perfil/editar-perfil/editar-perfil');
       var reader = new FileReader();
       reader.onload = function(e) {
         $('#img-container-preview-banner > img').remove();
-        $('#img-container-preview-banner ').append('<img class="rounded-lg w-100" style="object-fit: cover; height: 100px;" img-fluid src="' + e.target.result + '">');
+        $('#img-container-preview-banner ').append('<img class="rounded-lg w-100" style="object-fit: cover; height: 100px;" src="' + e.target.result + '">');
       };
       reader.readAsDataURL(this.files[0]);
     }

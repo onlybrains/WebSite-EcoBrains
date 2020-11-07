@@ -39,12 +39,32 @@ class DescModel extends Model
   ];
 
   protected $afterInsert = ['afterInsert'];
-  // protected $beforeUpdate = ['beforeUpdate'];
+  protected $beforeUpdate = ['beforeUpdate'];
 
   protected function beforeUpdate(array $data)
   {
-    $path = $this->request->getFile($data['data']['inputBanner'])->store();
-    $data['data']['inputBanner'] = $path;
+    $banner = $data['data']['banner_desc'];
+    $logo = $data['data']['logo_desc'];
+
+    if ($banner->isValid() && !$banner->hasMoved()) {
+      $newName = $banner->getRandomName();
+      $banner->move('./uploads/images', $newName);
+
+      $path = '/uploads/images/' . $banner->getName();
+      $data['data']['banner_desc'] = $path;
+    } else
+      unset($data['data']['banner_desc']);
+
+
+    if ($logo->isValid() && !$logo->hasMoved()) {
+      $newName = $logo->getRandomName();
+      $logo->move('./uploads/images', $newName);
+
+      $path = '/uploads/images/' . $logo->getName();
+      $data['data']['logo_desc'] = $path;
+    } else
+      unset($data['data']['logo_desc']);
+
     return $data;
   }
 

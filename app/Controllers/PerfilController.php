@@ -42,16 +42,17 @@ class PerfilController extends BaseController
       $dadosModel->set('tel_dados', onlyNumbers($this->request->getPost('inputTel')));
       $dadosModel->set('whatsapp_dados', onlyNumbers($this->request->getPost('inputWhats')));
 
-      $descModel->set('info_desc', $this->request->getPost('inputTxtArea'));
-      $descModel->set('logo_desc', $this->request->getFile('inputLogo'));
-      $descModel->set('banner_desc', $this->request->getFile('inputBanner'));
-      $descModel->set('tempoMercado_desc', $this->request->getPost('inputTempMercado'));
-      $descModel->set('site_desc', $this->request->getPost('inputSite'));
+      $dataDesc = [
+        'info_desc' => $this->request->getPost('inputTxtArea'),
+        'logo_desc' => $this->request->getFile('inputLogo'),
+        'banner_desc' => $this->request->getFile('inputBanner'),
+        'tempoMercado_desc' => $this->request->getPost('inputTempMercado'),
+        'site_desc' => $this->request->getPost('inputSite'),
+      ];
 
-      $descModel->set('banner_desc', $this->request->getFile('inputBanner'));
 
       if ($dadosModel->update($user->id_dados))
-        if ($descModel->update($user->id_desc))
+        if ($descModel->update($user->id_desc, $dataDesc))
           return redirect()->to('/' . $uri->getSegment(1) . '/perfil');
         else
           $data['errors'] = $descModel->errors();

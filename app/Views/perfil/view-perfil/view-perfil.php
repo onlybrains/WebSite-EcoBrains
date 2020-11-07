@@ -1,17 +1,26 @@
 <?php
 $uri = new \CodeIgniter\HTTP\URI(current_url());
-helper('validation')
+helper('validation');
+
 ?>
 <div class="container">
 
   <div class="card mt-5 rounded shadow">
-    <?= '$user->banner_desc' ?>
-    <img src='<?= '$user->banner_desc' ?>' class="card-img-top" alt="Imagem da Empresa">
+    <?php if ($user->banner_desc) : ?>
+      <div class="container my-2">
+        <img src=<?= $user->banner_desc ?> class="rounded-lg card-img-top" alt="Imagem da Empresa">
+      </div>
+    <?php endif ?>
+
     <div class="card-body">
 
       <div class="row mb-2">
+        <?php if ($user->logo_desc) : ?>
+          <div class="container my-2">
+            <img src=<?= $user->logo_desc ?> class="card-img-logo" alt="Logo da Empresa">
+          </div>
+        <?php endif ?>
         <div class="col-md-6">
-          <?= '$user->logo_desc' ?>
           <p>
             <b>CNPJ:</b>
             <span><?= mask($user->cnpj_dados, '##.###.###/####-##') ?></span>
@@ -54,7 +63,11 @@ helper('validation')
         </div>
 
         <div class="col-md-6">
-          <h5 class="card-title ">Nome: <?= $user->nomeFantasia_dados ?> <?= '$user->premium_desc' ?></h5>
+          <h5 class="card-title">Nome: <?= $user->nomeFantasia_dados ?>
+            <?php if ($user->premium_desc == 1) : ?>
+              <img src=<?= base_url('imgs/selo-ecoB.png') ?> class="card-img-premium" alt="Imagem da Empresa">
+            <?php endif ?>
+          </h5>
           <h6 class="card-title ">Razão Social: <?= $user->razaoSoc_dados ?></h6>
           <h6 class="card-title ">Descrição:</h6>
           <p class="card-text">
