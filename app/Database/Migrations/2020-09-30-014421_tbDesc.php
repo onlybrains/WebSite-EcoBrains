@@ -19,11 +19,13 @@ class TbDesc extends Migration
 				'null' 					 	=> true,
 			],
 			'logo_desc'        	=> [
-				'type'           	=> 'BLOB',
+				'type'           	=> 'VARCHAR',
+				'constraint'     	=> '255',
 				'null' 					 	=> true,
 			],
 			'banner_desc'      	=> [
-				'type'           	=> 'BLOB',
+				'type'           	=> 'VARCHAR',
+				'constraint'     	=> '255',
 				'null' 					 	=> true,
 			],
 			'tempoMercado_desc' => [
