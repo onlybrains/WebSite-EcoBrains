@@ -21,7 +21,7 @@ class CoopController extends BaseController
 			->join('tb_interesseTopico', 'tb_interesseTopico.id_topico = tb_topico.id_topico')
 			->join('tb_residuosTopico', 'tb_residuosTopico.id_topico = tb_topico.id_topico')
 			->join('tb_tpResiduos', 'tb_tpResiduos.id_tpResiduo = tb_residuosTopico.id_tpResiduo')
-			->where('dataLimite_topico >= CURRENT_DATE() AND id_coop =' . $Cooperativa->id_coop)
+			->where("dataLimite_topico >= CURRENT_DATE() AND id_coop = '{$Cooperativa->id_coop}' AND aprov_interesseTopico = 0")
 			->orderBy('dataLimite_topico')
 			->findAll();
 
@@ -43,11 +43,16 @@ class CoopController extends BaseController
 
 		$topicoModel = new \App\Models\TopicoModel();
 		$registros = $topicoModel
+			->join('tb_interesseTopico', 'tb_interesseTopico.id_topico = tb_topico.id_topico', 'left')
 			->join('tb_empresas', 'tb_empresas.id_empresa = tb_topico.id_empresa')
 			->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
 			->join('tb_residuosTopico', 'tb_residuosTopico.id_topico = tb_topico.id_topico')
 			->join('tb_tpResiduos', 'tb_tpResiduos.id_tpResiduo = tb_residuosTopico.id_tpResiduo')
-			->where('dataLimite_topico >= CURRENT_DATE()')
+			->where("tb_topico.id_topico NOT IN (select tb_topico.id_topico from tb_topico
+			left join tb_interesseTopico on tb_interesseTopico.id_topico = tb_topico.id_topico
+			WHERE id_coop = '{$Cooperativa->id_coop}'
+			GROUP BY tb_topico.id_topico)")
+			->groupBy('tb_topico.id_topico')
 			->orderBy('dataLimite_topico')
 			->findAll();
 
@@ -846,8 +851,7 @@ class CoopController extends BaseController
 																	</tr>
 																	<tr>
 																		<td class='es-p15t'>
-																			<p style='color: #07401b;text-align: justify'>O seu tópico de negociação '{$registro->titulo_topico}' foi marcado como um tópico de interesse por uma cooperativa.&nbsp;Seu
-																				e-mail, telefone e Whatsapp foram enviados para o e-mail dela.&nbsp;<br>Esperamos
+																			<p style='color: #07401b;text-align: justify'>O seu tópico de negociação '{$registro->titulo_topico}' foi marcado como um tópico de interesse por uma cooperativa.&nbsp;Acesse seu tópico e a aprove ou não para que possam dar prosseguimento na negociação.&nbsp;<br>Esperamos
 																				que tudo dê certo e que tenham um negócio próspero afinal mentes ecológicas mudam o
 																				mundo e é isso que precisamos.<br>Obrigado pelo seu tempo,&nbsp;EcoBrains — Um novo
 																				jeito de ser ecológico usando apenas a mente!<br></p>
@@ -944,6 +948,21 @@ class CoopController extends BaseController
 			->join('tb_tpResiduos', 'tb_tpResiduos.id_tpResiduo = tb_residuosTopico.id_tpResiduo')
 			->where("dataLimite_topico >= CURRENT_DATE() AND dataLimite_topico <='{$dataLimite}' AND nome_tpResiduo ='{$tipoResiduo}' AND quant_residuo <= '{$pesoResiduo}'")
 			//" AND nome_tpResiduo = 'Madeira' AND quant_residuo <= '450'")
+			->findAll();
+
+		$topicoModel = new \App\Models\TopicoModel();
+		$registros = $topicoModel
+			->join('tb_interesseTopico', 'tb_interesseTopico.id_topico = tb_topico.id_topico', 'left')
+			->join('tb_empresas', 'tb_empresas.id_empresa = tb_topico.id_empresa')
+			->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
+			->join('tb_residuosTopico', 'tb_residuosTopico.id_topico = tb_topico.id_topico')
+			->join('tb_tpResiduos', 'tb_tpResiduos.id_tpResiduo = tb_residuosTopico.id_tpResiduo')
+			->where("dataLimite_topico >= CURRENT_DATE() AND dataLimite_topico <='{$dataLimite}' AND nome_tpResiduo ='{$tipoResiduo}' AND quant_residuo <= '{$pesoResiduo}' AND tb_topico.id_topico NOT IN (select tb_topico.id_topico from tb_topico
+			left join tb_interesseTopico on tb_interesseTopico.id_topico = tb_topico.id_topico
+			WHERE id_coop = '{$Cooperativa->id_coop}'
+			GROUP BY tb_topico.id_topico)")
+			->groupBy('tb_topico.id_topico')
+			->orderBy('dataLimite_topico')
 			->findAll();
 
 		$coopController = new \App\Models\TipoResiduoModel();
