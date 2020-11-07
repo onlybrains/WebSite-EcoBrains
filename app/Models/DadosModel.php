@@ -63,7 +63,7 @@ class DadosModel extends Model
   protected function afterInsert($data)
   {
     $model = new DescModel();
-    $id_desc = $model->insert(['info_desc' => null]);
+    $id_desc = $model->skipValidation()->insert(['info_desc' => null]);
 
     if (session()->getFlashdata('inputTipo') == 'empresa') {
       $model = new EmpresaModel();
