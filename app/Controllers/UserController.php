@@ -12,11 +12,11 @@ class UserController extends BaseController
     $data = [];
     helper(['form', 'auth']);
 
-    echo ("database.default.hostname = " . env('database.default.hostname') . "\n");
-    echo ("database.default.database = " . env('database.default.database') . "\n");
-    echo ("database.default.username = " . env('database.default.username') . "\n");
-    echo ("database.default.password = " . env('database.default.password') . "\n");
-    echo ("database.default.DBDriver = " . env('database.default.DBDriver') . "\n");
+    echo ("database.default.hostname = " . $_ENV['database.default.hostname'] . "\n");
+    echo ("database.default.database = " . $_ENV['database.default.database'] . "\n");
+    echo ("database.default.username = " . $_ENV['database.default.username'] . "\n");
+    echo ("database.default.password = " . $_ENV['database.default.password'] . "\n");
+    echo ("database.default.DBDriver = " . $_ENV['database.default.DBDriver'] . "\n");
 
     if ($this->request->getMethod() == 'post') {
 
