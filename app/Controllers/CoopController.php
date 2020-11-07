@@ -46,6 +46,7 @@ class CoopController extends BaseController
 			->join('tb_interesseTopico', 'tb_interesseTopico.id_topico = tb_topico.id_topico', 'left')
 			->join('tb_empresas', 'tb_empresas.id_empresa = tb_topico.id_empresa')
 			->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
+			->join('tb_desc', 'tb_desc.id_desc = tb_empresas.id_desc')
 			->join('tb_residuosTopico', 'tb_residuosTopico.id_topico = tb_topico.id_topico')
 			->join('tb_tpResiduos', 'tb_tpResiduos.id_tpResiduo = tb_residuosTopico.id_tpResiduo')
 			->where("tb_topico.id_topico NOT IN (select tb_topico.id_topico from tb_topico

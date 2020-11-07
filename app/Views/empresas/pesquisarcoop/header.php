@@ -26,40 +26,39 @@
   <?php
   foreach ($cooperativas as $cooperativa) :
   ?>
-  <div class="row my-2">
-    <div class="col-lg-12 col-md-12 pb-3">
-      <div class="card card-coop">
-        <div class="card-body">
-          <div class="container">
-            <div class="row">
-              <img src="/imgs/image-random.png" class="w-100 rounded-lg py-2">
-            </div>
-            <div class="col">
-              <div class="container">
-                <a href="<?= base_url('/EmpresaController/solicitarcontato/' . $cooperativa->id_coop); ?>"
-                  class="btn-eco efeito p-3 float-right" style="margin-top: 30px;">Receber informações para contato</a>
-              </div>
+    <div class="row my-2">
+      <div class="col-lg-12 col-md-12 pb-3">
+        <div class="card card-coop">
+          <div class="card-body">
+            <div class="container">
               <div class="row">
-                <h5 class="card-title topic-title ml-3"><?= $cooperativa->nomeFantasia_dados ?></h5>
+                <img src=<?= $cooperativa->banner_desc ? $cooperativa->banner_desc : "/imgs/image-random.png" ?> class="w-100 rounded-lg card-img-top py-2">
               </div>
-              <div class="row ml-3">
-                <strong class="topic-desc">CNPJ: </strong>
-                <p class="topic-desc ml-2">
-                  <?= substr($cooperativa->cnpj_dados, 0, 2) . "." . substr($cooperativa->cnpj_dados, 2, 3) . "." . substr($cooperativa->cnpj_dados, 5, 3) . "/" . substr($cooperativa->cnpj_dados, 8, 4) . "-" . substr($cooperativa->cnpj_dados, -2); ?>
-                </p>
-              </div>
-              <div class="row ml-3">
-                <strong class="topic-desc">Aproximadamente: </strong>
-                <p class="topic-desc ml-2"> <?= $cooperativa->distancematrix->distance->text ?> —
-                  <i><?= $cooperativa->distancematrix->duration->text ?></i>
-                </p>
+              <div class="col">
+                <div class="container">
+                  <a href="<?= base_url('/EmpresaController/solicitarcontato/' . $cooperativa->id_coop); ?>" class="btn-eco efeito p-3 float-right" style="margin-top: 30px;">Receber informações para contato</a>
+                </div>
+                <div class="row">
+                  <h5 class="card-title topic-title ml-3"><?= $cooperativa->nomeFantasia_dados ?></h5>
+                </div>
+                <div class="row ml-3">
+                  <strong class="topic-desc">CNPJ: </strong>
+                  <p class="topic-desc ml-2">
+                    <?= substr($cooperativa->cnpj_dados, 0, 2) . "." . substr($cooperativa->cnpj_dados, 2, 3) . "." . substr($cooperativa->cnpj_dados, 5, 3) . "/" . substr($cooperativa->cnpj_dados, 8, 4) . "-" . substr($cooperativa->cnpj_dados, -2); ?>
+                  </p>
+                </div>
+                <div class="row ml-3">
+                  <strong class="topic-desc">Aproximadamente: </strong>
+                  <p class="topic-desc ml-2"> <?= $cooperativa->distancematrix->distance->text ?> —
+                    <i><?= $cooperativa->distancematrix->duration->text ?></i>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
       <?php
     endforeach
       ?>
       <!-- Topics that the Coop. are offering their services (END) -->
-    </div>
+      </div>

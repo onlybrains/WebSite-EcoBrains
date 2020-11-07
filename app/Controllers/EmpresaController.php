@@ -1064,6 +1064,7 @@ class EmpresaController extends BaseController
 
 		$registros = $modelCooperativas
 			->join('tb_dados', 'tb_dados.id_dados = tb_cooperativas.id_dados')
+			->join('tb_desc', 'tb_desc.id_desc = tb_cooperativas.id_desc')
 			->find();
 
 		$data['cooperativas'] = $registros;

@@ -13,6 +13,7 @@ echo link_tag('css/styleCoopTexts.css');
 echo link_tag('css/styleButtons.css');
 echo link_tag('css/styleLists.css');
 echo link_tag('css/styleSignUp.css');
+echo link_tag('css/stylePerfil.css');
 ?>
 
 <?= $this->endSection('styles') ?>
@@ -22,7 +23,7 @@ echo link_tag('css/styleSignUp.css');
 
 <?php
 echo $view->render('layout/navbarLogado');
-echo $view->render('empresas/pesquisarcoop/header'); 
+echo $view->render('empresas/pesquisarcoop/header');
 ?>
 
 <?= $this->endSection('content') ?>
