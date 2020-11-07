@@ -1,0 +1,12 @@
+.topic-maps{
+  color: #17bf52;
+  font-size: 18px;
+  line-height: 27px;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s;
+}
+
+.topic-maps:hover{
+  color: #07401b;
+}

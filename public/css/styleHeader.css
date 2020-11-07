@@ -1,20 +1,20 @@
 /*Title*/
 .text {
   color: #07401b;
-  font-family: "Poppins", sans-serif;
+
   font-size: 30pt;
 }
 
 /*Parágrafo*/
 .text2 {
   color: #07401b;
-  font-family: "Poppins", sans-serif;
+
   justify-content: center;
 }
 
 .text3 {
   color: #07401b;
-  font-family: "Poppins", sans-serif;
+
   justify-content: center;
   font-weight: bold;
 }

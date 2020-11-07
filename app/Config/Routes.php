@@ -34,6 +34,39 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('/sobre', 'Home::sobre');
 $routes->get('/pevs', 'Home::pevs');
+$routes->get('/planos', 'Home::planos');
+
+$routes->get('/logout', 'UserController::logout');
+$routes->match(['get', 'post'], '/login', 'UserController::index');
+$routes->match(['get', 'post'], '/sign-up', 'UserController::signUp');
+$routes->match(['get', 'post'], '/sign-up/dados', 'UserController::dados');
+
+$routes->group('empresas', ['filter' => 'empresa'], function ($routes) {
+	$routes->get('/', 'EmpresaController::empresas');
+	$routes->match(['get', 'post'], 'abrirtopico', 'EmpresaController::abrirTopico');
+	$routes->match(['get', 'post'], 'editartopico/(:num)', 'EmpresaController::editarTopico/$1');
+	$routes->get('deletartopico/(:num)', 'EmpresaController::deletarTopico/$1');
+	$routes->match(['get', 'post'], 'topicos/(:num)', 'EmpresaController::viewTopico/$1');
+	$routes->get('aprovar/(:num)/(:num)', 'EmpresaController::aprovarCooperativa/$1/$2');
+	$routes->get('negar/(:num)/(:num)', 'EmpresaController::negarCooperativa/$1/$2');
+	$routes->get('pesquisar', 'EmpresaController::pesquisaCooperativas');
+	$routes->get('perfil', 'PerfilController::viewPerfil');
+	$routes->match(['get', 'post'], 'perfil/editar', 'PerfilController::editarPerfil');
+	$routes->get('premium', 'PremiumController::premium');
+});
+
+$routes->group('cooperativas', ['filter' => 'coop'], function ($routes) {
+	$routes->get('/', 'CoopController::cooperativas');
+	$routes->get('pesquisar', 'CoopController::pesquisartopicos');
+	$routes->get('mostrarinteresse', 'CoopController::interesseTopico');
+	$routes->POST('pesquisafiltro', 'CoopController::pesquisafiltro');
+	// $routes->get('pesquisarempresa', 'CoopController::pesquisarempresas');
+	$routes->get('perfil', 'PerfilController::viewPerfil');
+	$routes->match(['get', 'post'], 'perfil/editar', 'PerfilController::editarPerfil');
+	$routes->get('premium', 'PremiumController::premium');
+});
+
+
 
 /**
  * --------------------------------------------------------------------
@@ -48,6 +81,7 @@ $routes->get('/pevs', 'Home::pevs');
  * You will have access to the $routes object within that file without
  * needing to reload it.
  */
+
 if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
 	require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }
