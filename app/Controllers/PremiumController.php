@@ -6,14 +6,18 @@ use App\Models\CoopModel;
 use App\Models\UserModel;
 use App\Models\EmpresaModel;
 
-Class PremiumController extends BaseController
+class PremiumController extends BaseController
 {
 
   public function premium()
-	{
+  {
+    helper(['auth', 'validation']);
+
+    $user = getBasicUserInfo();
+
+    $data['user'] = $user;
     $data['titulo'] = 'Pesquisar Cooperativas';
-    $data['nome'] = '$empresa';
-		return view ('premium/index.php', $data);
+    $data['nome'] = $user->nomeFantasia_dados;
+    return view('premium/index.php', $data);
   }
-  
 }

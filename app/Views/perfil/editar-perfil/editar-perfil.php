@@ -1,7 +1,17 @@
 <?php
 $uri = new \CodeIgniter\HTTP\URI(current_url());
+helper('validation');
 ?>
 <div class="container">
+  <?php if (!empty($errors)) : ?>
+    <div class="row justify-content-center pt-5">
+      <div class="alert alert-danger" role="alert">
+        <?php foreach ($errors as $field => $error) : ?>
+          <p><?= $error ?></p>
+        <?php endforeach ?>
+      </div>
+    </div>
+  <?php endif; ?>
   <div class="card my-5 rounded shadow">
     <div class="card-body">
       <form method="POST">
@@ -29,68 +39,68 @@ $uri = new \CodeIgniter\HTTP\URI(current_url());
             <div class="form-group p-2 border-bottom">
               <div class="d-flex align-items-end justify-content-between">
                 <label for="inputCNPJ"><b>CNPJ:</b></label>
-                <input type="text" class="form-control border-0 ml-2" name="inputCNPJ" id="inputCNPJ">
+                <input type="text" class="form-control border-0 ml-2" name="inputCNPJ" id="inputCNPJ" value=<?= mask($user->cnpj_dados, '##.###.###/####-##') ?>>
               </div>
               <small class="form-text text-muted">
-                0000000000000000000000
+                <?= mask($user->cnpj_dados, '##.###.###/####-##') ?>
               </small>
             </div>
             <div class="form-group p-2 border-bottom">
               <div class="d-flex align-items-end justify-content-between">
                 <label for="inputTempMercado"><b>Tempo de Mercado (Fundação):</b></label>
-                <input type="date" class="form-control border-0 ml-2 col" name="inputTempMercado" id="inputTempMercado">
+                <input type="date" class="form-control border-0 ml-2 col" name="inputTempMercado" id="inputTempMercado" value=<?= $user->tempoMercado_desc ?>>
               </div>
               <small class="form-text text-muted">
-                00/00/0000
+                <?= $user->tempoMercado_desc ?>
               </small>
             </div>
             <div class="form-group p-2 border-bottom">
               <div class="d-flex align-items-end justify-content-between">
                 <label for="inputCEP"><b>CEP:</b></label>
-                <input type="text" class="form-control border-0 ml-2 mr-4" name="inputCEP" id="inputCEP">
+                <input type="text" class="form-control border-0 ml-2 mr-4" name="inputCEP" id="inputCEP" value=<?= $user->cep_dados ?>>
                 <label for="inputNumEnd"><b>Número:</b></label>
-                <input type="number" class="form-control border-0 col-3" name="inputNumEnd" id="inputNumEnd" min="0" max="99999">
+                <input type="number" class="form-control border-0 col-3" name="inputNumEnd" id="inputNumEnd" min="0" max="99999" value=<?= $user->numEnd_dados ?>>
               </div>
               <div class="d-flex justify-content-between">
                 <small class="form-text text-muted">
-                  07193-270
+                  <span id="htmlCEP"><?= mask($user->cep_dados, '#####-###') ?></span>
                 </small>
                 <small class="form-text text-muted">
-                  0000
+                  <?= $user->numEnd_dados ?>
                 </small>
               </div>
             </div>
             <div class="form-group p-2 border-bottom">
               <div class="d-flex align-items-end justify-content-between">
-                <label for="inputTempMercado"><b>Endereço:</b></label>
-                <input type="text" class="form-control border-0 ml-2" name="inputTempMercado" id="inputTempMercado">
+                <label for="inputEnd"><b>Endereço:</b></label>
+                <input type="text" class="form-control border-0 ml-2" name="inputEnd" id="inputEnd" readonly>
               </div>
               <small class="form-text text-muted">
-                TRua Castelo Branco, 215 - Casa Dois
+                <span id="htmlEnd"></span>
               </small>
             </div>
             <div class="form-group p-2 border-bottom">
               <div class="d-flex align-items-end justify-content-between">
                 <label for="inputComplemento"><b>Complemento:</b></label>
-                <input type="text" class="form-control border-0 ml-2" name="inputComplemento" id="inputComplemento">
+                <input type="text" class="form-control border-0 ml-2" name="inputComplemento" id="inputComplemento" value=<?= $user->complemento_dados ?>>
               </div>
               <small class="form-text text-muted">
-                Casa 02
+                <?= $user->complemento_dados ?>
               </small>
             </div>
             <div class="form-group p-2 border-bottom">
               <div class="d-flex align-items-end justify-content-between">
                 <label for="inputTel"><b>Telefone:</b></label>
-                <input type="text" class="form-control border-0 ml-2 mr-4" name="inputTel" id="inputTel">
+                <input type="text" class="form-control border-0 ml-2 mr-4" name="inputTel" id="inputTel" value=<?= mask($user->tel_dados, '(##)####-####') ?>>
                 <label for="inputWhats"><b>WhatsApp:</b></label>
-                <input type="number" class="form-control border-0 col-3" name="inputWhats" id="inputWhats" min="0" max="99999">
+                <input type="text" class="form-control border-0 col-3" name="inputWhats" id="inputWhats" value=<?= mask($user->whatsapp_dados, '(##)#####-####') ?>>
               </div>
               <div class="d-flex justify-content-between">
                 <small class="form-text text-muted">
-                  11 005555505050
+                  <?= mask($user->tel_dados, '(##) ####-####') ?>
                 </small>
                 <small class="form-text text-muted">
-                  11 005555505050
+                  <?= mask($user->whatsapp_dados, '(##) # ####-####') ?>
                 </small>
               </div>
             </div>
@@ -100,38 +110,38 @@ $uri = new \CodeIgniter\HTTP\URI(current_url());
             <div class="form-group p-2 border-bottom">
               <div class="d-flex align-items-end justify-content-between">
                 <label for="inputFantasia"><b>Nome Fantasia:</b></label>
-                <input type="text" class="form-control border-0 ml-2 col" name="inputFantasia" id="inputFantasia">
+                <input type="text" class="form-control border-0 ml-2 col" name="inputFantasia" id="inputFantasia" value=<?= $user->nomeFantasia_dados ?>>
               </div>
               <small class="form-text text-muted">
-                Nome Fantasia
+                <?= $user->nomeFantasia_dados ?>
               </small>
             </div>
             <div class="form-group p-2 border-bottom">
               <div class="d-flex align-items-end justify-content-between">
                 <label for="inputRazao"><b>Razão Social:</b></label>
-                <input type="text" class="form-control border-0 ml-2 col" name="inputRazao" id="inputRazao">
+                <input type="text" class="form-control border-0 ml-2 col" name="inputRazao" id="inputRazao" value=<?= $user->razaoSoc_dados ?>>
               </div>
               <small class="form-text text-muted">
-                Razão Social
+                <?= $user->razaoSoc_dados ?>
               </small>
             </div>
             <div class="form-group">
               <label for="inputTxtArea"><b>Descrição:</b></label>
-              <textarea class="form-control" id="inputTxtArea" rows="10"></textarea>
+              <textarea class="form-control" id="inputTxtArea" name="inputTxtArea" rows="10"><?= $user->info_desc ?></textarea>
             </div>
             <div class="form-group p-2 border-bottom">
               <div class="d-flex align-items-end justify-content-between">
                 <label for="inputSite"><b>Site:</b></label>
-                <input type="text" class="form-control border-0 ml-2" name="inputSite" id="inputSite">
+                <input type="text" class="form-control border-0 ml-2" name="inputSite" id="inputSite" value <?= $user->site_desc ?>>
               </div>
               <small class="form-text text-muted">
-                www.site.com
+                <?= $user->site_desc ?>
               </small>
             </div>
           </div>
         </div>
         <div class="d-flex">
-          <a href=<?= base_url($uri->getSegment(1) . '/perfil/editar') ?> class="btn btn-green flex-fill p-2">Editar Perfil</a>
+          <button type="submit" class="btn btn-green flex-fill p-2">Editar Perfil</button>
         </div>
       </form>
     </div>

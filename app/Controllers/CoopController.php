@@ -5,23 +5,24 @@ namespace App\Controllers;
 use App\Models\CoopModel;
 use CodeIgniter\Email\Email;
 use CodeIgniter\HTTP\RequestInterface;
+use CodeIgniter\HTTP\Response;
+
 
 class CoopController extends BaseController
 {
 	public function cooperativas()
 	{
-		$modelCooperativas = new \App\Models\CoopModel();
-		$Cooperativa = $modelCooperativas
-			->select('id_coop, nomeFantasia_dados, razaoSoc_dados')
-			->join('tb_dados', 'tb_dados.id_dados = tb_cooperativas.id_dados')
-			->where('id_login', session()->get('id_login'))->first();
+		//função para pegar info basica de login
+		helper('auth');
+		$Cooperativa = getBasicUserInfo();
 
-		$topicoModel = new \App\Models\topicoModel();
+		$topicoModel = new \App\Models\TopicoModel();
 		$topicosParticipantes = $topicoModel
-			->join('tb_interessetopico', 'tb_interessetopico.id_topico = tb_topico.id_topico')
+			->join('tb_interesseTopico', 'tb_interesseTopico.id_topico = tb_topico.id_topico')
 			->join('tb_residuosTopico', 'tb_residuosTopico.id_topico = tb_topico.id_topico')
 			->join('tb_tpResiduos', 'tb_tpResiduos.id_tpResiduo = tb_residuosTopico.id_tpResiduo')
-			->where('dataLimite_topico >= CURRENT_DATE() AND id_coop =' . $Cooperativa->id_coop)
+			->where("dataLimite_topico >= CURRENT_DATE() AND id_coop = '{$Cooperativa->id_coop}' AND aprov_interesseTopico = 0")
+			->orderBy('dataLimite_topico')
 			->findAll();
 
 		$data['titulo'] = 'Pesquisar Tópicos';
@@ -33,28 +34,50 @@ class CoopController extends BaseController
 
 	public function pesquisartopicos()
 	{
-		$modelCooperativas = new \App\Models\CoopModel();
-		$Cooperativa = $modelCooperativas
-			->select('id_coop, nomeFantasia_dados, razaoSoc_dados')
-			->join('tb_dados', 'tb_dados.id_dados = tb_cooperativas.id_dados')
-			->where('id_login', session()->get('id_login'))->first();
+		helper(['auth', 'maps']);
+		$Cooperativa = getBasicUserInfo();
 
-		$data['titulo'] = 'Pesquisar Empresas';
+
+		$data['titulo'] = 'Pesquisar Tópicos';
 		$data['nome'] = $Cooperativa->razaoSoc_dados;
+
+		// $topicoModel = new \App\Models\TopicoModel();
+		// $registros = $topicoModel
+		// 	->join('tb_empresas', 'tb_empresas.id_empresa = tb_topico.id_empresa')
+		// 	->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
+		// 	->join('tb_residuosTopico', 'tb_residuosTopico.id_topico = tb_topico.id_topico')
+		// 	->join('tb_tpResiduos', 'tb_tpResiduos.id_tpResiduo = tb_residuosTopico.id_tpResiduo')
+		// 	->where('dataLimite_topico >= CURRENT_DATE()')
+		// 	->orderBy('dataLimite_topico')
+		// 	->findAll();
 
 		$topicoModel = new \App\Models\TopicoModel();
 		$registros = $topicoModel
+			->join('tb_interesseTopico', 'tb_interesseTopico.id_topico = tb_topico.id_topico', 'left')
 			->join('tb_empresas', 'tb_empresas.id_empresa = tb_topico.id_empresa')
 			->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
 			->join('tb_residuosTopico', 'tb_residuosTopico.id_topico = tb_topico.id_topico')
 			->join('tb_tpResiduos', 'tb_tpResiduos.id_tpResiduo = tb_residuosTopico.id_tpResiduo')
-			->where('dataLimite_topico >= CURRENT_DATE()')
+			->where("tb_topico.id_topico NOT IN (select tb_topico.id_topico from tb_topico
+			left join tb_interesseTopico on tb_interesseTopico.id_topico = tb_topico.id_topico
+			WHERE id_coop = '{$Cooperativa->id_coop}'
+			GROUP BY tb_topico.id_topico)")
+			->groupBy('tb_topico.id_topico')
+			->orderBy('dataLimite_topico')
 			->findAll();
 
-
+		// print_r($registros);
+		// print_r($Cooperativa->id_coop);
 		$coopController = new \App\Models\TipoResiduoModel();
 		$registrosTipos = $coopController->findAll();
 
+
+		foreach ($registros as $registro) {
+			$registro->distancematrix = verifyDistance($Cooperativa->cep_dados, $registro->cep_dados);
+		}
+		// echo '<pre>';
+
+		// var_dump(asort($registros->distancematrix->distance->text));
 		$data['topicos'] = $registros;
 		$data['tipos'] = $registrosTipos;
 
@@ -63,12 +86,10 @@ class CoopController extends BaseController
 	}
 
 	// ARRUMAR //
-	public function interesseTopico($id_topico, $id_coop = 1)
+	public function interesseTopico($id_topico)
 	{
-		$modelCooperativas = new \App\Models\CoopModel();
-		$Cooperativa = $modelCooperativas
-			->select('id_coop')
-			->where('id_login', session()->get('id_login'))->first();
+		helper('auth');
+		$Cooperativa = getBasicUserInfo();
 
 		/* INTERESSE MOSTRADO — Falta apenas colocar para a inserir o valor da cooperativa que está logada */
 		$coopController = new \App\Models\InteresseTopicoModel();
@@ -76,9 +97,10 @@ class CoopController extends BaseController
 			->where("id_topico = '{$id_topico}' AND id_coop = '{$Cooperativa->id_coop}'")
 			->first();
 
+
 		if (!$validacao) {
 			$coopController
-				->set('aprov_interesseTopico', '1')
+				->set('aprov_interesseTopico', '0')
 				->set('id_topico', $id_topico)
 				->set('id_coop', $Cooperativa->id_coop)
 				->insert();
@@ -94,7 +116,14 @@ class CoopController extends BaseController
 				->where('id_topico = ' . $id_topico)
 				->findAll();
 
+
 			$email = \Config\Services::email();
+
+			$config['SMTPHost'] = env('SMTP_HOST');
+			$config['SMTPUser'] = env('SMTP_USER');
+			$config['SMTPPass'] = env('SMTP_PASS');
+
+			$email->initialize($config);
 
 			foreach ($registros as $registro) :
 
@@ -837,8 +866,7 @@ class CoopController extends BaseController
 																	</tr>
 																	<tr>
 																		<td class='es-p15t'>
-																			<p style='color: #07401b;text-align: justify'>O seu tópico de negociação '{$registro->titulo_topico}' foi marcado como um tópico de interesse por uma cooperativa.&nbsp;Seu
-																				e-mail, telefone e Whatsapp foram enviados para o e-mail dela.&nbsp;<br>Esperamos
+																			<p style='color: #07401b;text-align: justify'>O seu tópico de negociação '{$registro->titulo_topico}' foi marcado como um tópico de interesse por uma cooperativa.&nbsp;Acesse seu tópico e a aprove ou não para que possam dar prosseguimento na negociação.&nbsp;<br>Esperamos
 																				que tudo dê certo e que tenham um negócio próspero afinal mentes ecológicas mudam o
 																				mundo e é isso que precisamos.<br>Obrigado pelo seu tempo,&nbsp;EcoBrains — Um novo
 																				jeito de ser ecológico usando apenas a mente!<br></p>
@@ -935,6 +963,21 @@ class CoopController extends BaseController
 			->join('tb_tpResiduos', 'tb_tpResiduos.id_tpResiduo = tb_residuosTopico.id_tpResiduo')
 			->where("dataLimite_topico >= CURRENT_DATE() AND dataLimite_topico <='{$dataLimite}' AND nome_tpResiduo ='{$tipoResiduo}' AND quant_residuo <= '{$pesoResiduo}'")
 			//" AND nome_tpResiduo = 'Madeira' AND quant_residuo <= '450'")
+			->findAll();
+
+		$topicoModel = new \App\Models\TopicoModel();
+		$registros = $topicoModel
+			->join('tb_interesseTopico', 'tb_interesseTopico.id_topico = tb_topico.id_topico', 'left')
+			->join('tb_empresas', 'tb_empresas.id_empresa = tb_topico.id_empresa')
+			->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
+			->join('tb_residuosTopico', 'tb_residuosTopico.id_topico = tb_topico.id_topico')
+			->join('tb_tpResiduos', 'tb_tpResiduos.id_tpResiduo = tb_residuosTopico.id_tpResiduo')
+			->where("dataLimite_topico >= CURRENT_DATE() AND dataLimite_topico <='{$dataLimite}' AND nome_tpResiduo ='{$tipoResiduo}' AND quant_residuo <= '{$pesoResiduo}' AND tb_topico.id_topico NOT IN (select tb_topico.id_topico from tb_topico
+			left join tb_interesseTopico on tb_interesseTopico.id_topico = tb_topico.id_topico
+			WHERE id_coop = '{$Cooperativa->id_coop}'
+			GROUP BY tb_topico.id_topico)")
+			->groupBy('tb_topico.id_topico')
+			->orderBy('dataLimite_topico')
 			->findAll();
 
 		$coopController = new \App\Models\TipoResiduoModel();

@@ -77,7 +77,7 @@ class UserController extends BaseController
   public function dados()
   {
     $data = [];
-    helper(['form']);
+    helper(['form', 'validation']);
 
 
     if ($this->request->getMethod() == 'post') {
@@ -106,9 +106,4 @@ class UserController extends BaseController
 
     return view('sign-up/step', $data);
   }
-}
-
-function onlyNumbers(string $value)
-{
-  return $value = preg_replace("/[^0-9]/", "", $value);
 }
