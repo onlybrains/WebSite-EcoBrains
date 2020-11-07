@@ -41,16 +41,6 @@ class CoopController extends BaseController
 		$data['titulo'] = 'Pesquisar Tópicos';
 		$data['nome'] = $Cooperativa->razaoSoc_dados;
 
-		// $topicoModel = new \App\Models\TopicoModel();
-		// $registros = $topicoModel
-		// 	->join('tb_empresas', 'tb_empresas.id_empresa = tb_topico.id_empresa')
-		// 	->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
-		// 	->join('tb_residuosTopico', 'tb_residuosTopico.id_topico = tb_topico.id_topico')
-		// 	->join('tb_tpResiduos', 'tb_tpResiduos.id_tpResiduo = tb_residuosTopico.id_tpResiduo')
-		// 	->where('dataLimite_topico >= CURRENT_DATE()')
-		// 	->orderBy('dataLimite_topico')
-		// 	->findAll();
-
 		$topicoModel = new \App\Models\TopicoModel();
 		$registros = $topicoModel
 			->join('tb_interesseTopico', 'tb_interesseTopico.id_topico = tb_topico.id_topico', 'left')
@@ -66,8 +56,6 @@ class CoopController extends BaseController
 			->orderBy('dataLimite_topico')
 			->findAll();
 
-		// print_r($registros);
-		// print_r($Cooperativa->id_coop);
 		$coopController = new \App\Models\TipoResiduoModel();
 		$registrosTipos = $coopController->findAll();
 
@@ -75,13 +63,10 @@ class CoopController extends BaseController
 		foreach ($registros as $registro) {
 			$registro->distancematrix = verifyDistance($Cooperativa->cep_dados, $registro->cep_dados);
 		}
-		// echo '<pre>';
 
-		// var_dump(asort($registros->distancematrix->distance->text));
 		$data['topicos'] = $registros;
 		$data['tipos'] = $registrosTipos;
 
-		//var_dump($registrosTipos);
 		return view('cooperativas/pesquisartopicos/index', $data);
 	}
 

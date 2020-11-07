@@ -1,0 +1,9 @@
+img.card-img-top {
+  object-fit: cover;
+  height: 25vh;
+}
+
+img.card-img-logo {
+  object-fit: cover;
+  height: 5vh;
+}

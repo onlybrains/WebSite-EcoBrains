@@ -36,10 +36,10 @@ class DadosModel extends Model
     'required|min_length[14]|is_unique[tb_dados.cnpj_dados]',
 
     'nomeFantasia_dados'    =>
-    'required|alpha_numeric_space|min_length[5]|max_length[100]',
+    'required|string|min_length[5]|max_length[100]',
 
     'razaoSoc_dados'       =>
-    'required|alpha_numeric_space|min_length[5]|max_length[100]',
+    'required|string|min_length[5]|max_length[100]',
 
     'cep_dados'         =>
     'required|min_length[8]',
@@ -48,7 +48,7 @@ class DadosModel extends Model
     'required|alpha_numeric|greater_than[0]|max_length[5]',
 
     'complemento_dados' =>
-    'alpha_numeric_space|max_length[10]',
+    'string|max_length[10]',
 
     'inputEnd'         =>
     'min_length[13]',
