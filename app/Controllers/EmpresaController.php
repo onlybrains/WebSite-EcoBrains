@@ -254,7 +254,7 @@ class EmpresaController extends BaseController
 
 		foreach ($registrosCooperativas as $registroCooperativas) :
 
-			$email->setFrom('ecobrains@ecobrains.com', "EcoBrains | {$registroCooperativas->titulo_topico}");
+			$email->setFrom('grouponlybrains@gmail.com', "EcoBrains | $registroCooperativas->titulo_topico");
 		endforeach;
 
 		foreach ($registrosEmailCoop as $registroEmailCooperativa) :
@@ -264,7 +264,7 @@ class EmpresaController extends BaseController
 		endforeach;
 
 		foreach ($registrosCooperativas as $registroCooperativas) :
-			$email->setSubject("♻️ Informações da empresa responsável pelo: {$registroCooperativas->titulo_topico}  ♻️");
+			$email->setSubject("♻️ Informações da empresa responsável pelo: $registroCooperativas->titulo_topico  ♻️");
 			$email->setMessage("
 		<!doctype html>
 		<html ⚡4email>

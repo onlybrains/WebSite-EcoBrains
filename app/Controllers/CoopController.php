@@ -135,12 +135,12 @@ class CoopController extends BaseController
 
 			foreach ($registros as $registro) :
 
-				$email->setFrom('ecobrains@ecobrains.com', "EcoBrains | {$registro->titulo_topico}");
+				$email->setFrom('grouponlybrains@gmail.com', "EcoBrains | $registro->titulo_topico");
 
 				$email->setTo($registro->email_login);
 			endforeach;
 
-			$email->setSubject("♻️ Uma cooperativa está interessada no seu tópico: {$registro->titulo_topico}  ♻️");
+			$email->setSubject("♻️ Uma cooperativa está interessada no seu tópico: $registro->titulo_topico  ♻️");
 			$email->setMessage("
 		<!doctype html>
 		<html ⚡4email>
@@ -942,7 +942,6 @@ class CoopController extends BaseController
 			$email->send();
 		}
 
-		//var_dump($registros);
 
 		return redirect()->to(base_url('cooperativas'));
 	}
@@ -1067,9 +1066,17 @@ class CoopController extends BaseController
 
 		$email = \Config\Services::email();
 
+		$config['SMTPHost'] = env('SMTP_HOST');
+		$config['SMTPPort'] = env('SMTP_PORT');
+		$config['SMTPCrypto'] = env('SMTP_CRYPTO');
+		$config['SMTPUser'] = env('SMTP_USER');
+		$config['SMTPPass'] = env('SMTP_PASS');
+
+		$email->initialize($config);
+
 		foreach ($registros as $registro) :
 
-			$email->setFrom('ecobrains@ecobrains.com', "EcoBrains — {$registro->nomeFantasia_dados}");
+			$email->setFrom('grouponlybrains@gmail.com', "EcoBrains | $registro->nomeFantasia_dados");
 
 		endforeach;
 
@@ -1081,7 +1088,7 @@ class CoopController extends BaseController
 
 		foreach ($registros as $registro) :
 
-			$email->setSubject("♻️ Aqui estão as informações de contato da empresa: {$registro->nomeFantasia_dados}  ♻️");
+			$email->setSubject("♻️ Aqui estão as informações de contato da empresa: $registro->nomeFantasia_dados  ♻️");
 			$email->setMessage("
 		<!doctype html>
 		<html ⚡4email>
