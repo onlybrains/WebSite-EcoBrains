@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\CoopModel;
+use App\Models\EmpresaModel;
 use CodeIgniter\Email\Email;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\Response;
@@ -13,7 +14,7 @@ class CoopController extends BaseController
 	public function cooperativas()
 	{
 		//função para pegar info basica de login
-		helper('auth');
+		helper(['auth', 'maps']);
 		$Cooperativa = getBasicUserInfo();
 
 		$topicoModel = new \App\Models\TopicoModel();
@@ -24,6 +25,25 @@ class CoopController extends BaseController
 			->where("dataLimite_topico >= CURRENT_DATE() AND id_coop = '{$Cooperativa->id_coop}' AND aprov_interesseTopico = 0")
 			->orderBy('dataLimite_topico')
 			->findAll();
+
+
+		$modelEmpresas = new EmpresaModel();
+		$empresas = $modelEmpresas
+			->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
+			->join('tb_desc', 'tb_desc.id_desc = tb_empresas.id_desc')
+			->join('tb_topico', 'tb_topico.id_empresa = tb_empresas.id_empresa')
+			->join('tb_interesseTopico', 'tb_interesseTopico.id_topico = tb_topico.id_topico')
+			->where('aprov_interesseTopico', 1)
+			->where('id_coop', $Cooperativa->id_coop)
+			->groupBy('tb_empresas.id_empresa')
+			->find();
+
+		foreach ($empresas as $empresa) {
+			$empresa->distancematrix = verifyDistance($Cooperativa->cep_dados, $empresa->cep_dados);
+		}
+		$data['empresas'] = $empresas;
+
+
 
 		$data['titulo'] = 'Pesquisar Tópicos';
 		$data['nome'] = $Cooperativa->razaoSoc_dados;
@@ -972,9 +992,27 @@ class CoopController extends BaseController
 		$data['topicos'] = $registros;
 		$data['tipos'] = $registrosTipos;
 
-		//echo "<pre>";
-		//var_dump($dataLimite, $pesoResiduo, $tipoResiduo);
 		return view('cooperativas/pesquisartopicos/index', $data);
+	}
+
+	public function viewEmpresa($id_empresa)
+	{
+		//função para pegar info basica de login
+		helper('auth');
+		$Cooperativa = getBasicUserInfo();
+
+		$model = new EmpresaModel();
+		$empresa =  $model
+			->join('tb_dados', 'tb_dados.id_dados = tb_empresas.id_dados')
+			->join('tb_desc', 'tb_desc.id_desc = tb_empresas.id_desc')
+			->where('id_empresa', $id_empresa)->first();
+
+		$data['titulo'] = 'Pesquisar Cooperativas';
+		$data['nome'] = $Cooperativa->razaoSoc_dados;
+		$data['user'] = $empresa;
+
+
+		return view('perfil/view-perfil/index', $data);
 	}
 
 	public function pesquisarempresas()

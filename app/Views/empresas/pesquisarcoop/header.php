@@ -36,7 +36,7 @@
               </div>
               <div class="col">
                 <div class="container">
-                  <a href="<?= base_url('/EmpresaController/solicitarcontato/' . $cooperativa->id_coop); ?>" class="btn-eco efeito p-3 float-right" style="margin-top: 30px;">Receber informações para contato</a>
+                  <a href="<?= base_url('/empresas/coop/' . $cooperativa->id_coop); ?>" class="btn-eco efeito p-3 float-right" style="margin-top: 30px;">Ver informações para contato</a>
                 </div>
                 <div class="row">
                   <h5 class="card-title topic-title ml-3"><?= $cooperativa->nomeFantasia_dados ?></h5>

@@ -9,6 +9,8 @@ helper('html');
 <?php
 echo link_tag('css/styles.css');
 echo link_tag('css/styleNavBar.css');
+echo link_tag('css/stylePerfil.css');
+echo link_tag('css/styleButtons.css');
 echo link_tag('css/styleCoopTexts.css');
 ?>
 
@@ -20,6 +22,7 @@ echo link_tag('css/styleCoopTexts.css');
 <?php
 echo $view->render('layout/navbarLogado');
 echo $view->render('cooperativas/header');
+echo $view->render('cooperativas/empresas');
 ?>
 
 <?= $this->endSection('content') ?>

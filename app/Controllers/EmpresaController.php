@@ -33,6 +33,26 @@ class EmpresaController extends BaseController
 		return view('empresas/index', $data);
 	}
 
+	public function viewCoop($id_coop)
+	{
+		//função para pegar info basica de login
+		helper('auth');
+		$empresa = getBasicUserInfo();
+
+		$model = new CoopModel();
+		$coop =  $model
+			->join('tb_dados', 'tb_dados.id_dados = tb_cooperativas.id_dados')
+			->join('tb_desc', 'tb_desc.id_desc = tb_cooperativas.id_desc')
+			->where('id_coop', $id_coop)->first();
+
+		$data['titulo'] = 'Pesquisar Cooperativas';
+		$data['nome'] = $empresa->razaoSoc_dados;
+		$data['user'] = $coop;
+
+
+		return view('perfil/view-perfil/index', $data);
+	}
+
 	public function abrirTopico()
 	{
 		helper('auth');
