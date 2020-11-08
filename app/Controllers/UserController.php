@@ -12,7 +12,6 @@ class UserController extends BaseController
     $data = [];
     helper(['form', 'auth']);
 
-
     if ($this->request->getMethod() == 'post') {
 
       $validationRules = [
