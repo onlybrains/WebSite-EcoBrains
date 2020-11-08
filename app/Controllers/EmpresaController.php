@@ -48,8 +48,8 @@ class EmpresaController extends BaseController
 		$data['titulo'] = 'Pesquisar Cooperativas';
 		$data['nome'] = $empresa->razaoSoc_dados;
 		$data['user'] = $coop;
-		
-		
+
+
 		$email = \Config\Services::email();
 
 		$config['SMTPHost'] = env('SMTP_HOST');
@@ -63,8 +63,8 @@ class EmpresaController extends BaseController
 
 
 		$email->setFrom('grouponlybrains@gmail.com', "EcoBrains | $coop->nomeFantasia_dados");
-		
-		
+
+
 		var_dump($coop->email_login);
 
 		$email->setTo("cleysonsilva.me@gmail.com");
@@ -873,11 +873,6 @@ class EmpresaController extends BaseController
 		
 		</html>
 		");
-
-		var_dump($email->send());
-		var_dump($email->printDebugger(['headers']));
-		exit();
-
 
 		return view('perfil/view-perfil/index', $data);
 	}
