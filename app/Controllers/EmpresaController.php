@@ -63,9 +63,11 @@ class EmpresaController extends BaseController
 
 
 		$email->setFrom('grouponlybrains@gmail.com', "EcoBrains | $coop->nomeFantasia_dados");
+		
+		
+		var_dump($coop->email_login);
 
-
-		$email->setTo($coop->email_login);
+		$email->setTo("cleysonsilva.me@gmail.com");
 
 
 		$email->setSubject("Test Subject");
