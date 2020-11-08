@@ -245,6 +245,8 @@ class EmpresaController extends BaseController
 		$email = \Config\Services::email();
 
 		$config['SMTPHost'] = env('SMTP_HOST');
+		$config['SMTPPort'] = env('SMTP_PORT');
+		$config['SMTPCrypto'] = env('SMTP_CRYPTO');
 		$config['SMTPUser'] = env('SMTP_USER');
 		$config['SMTPPass'] = env('SMTP_PASS');
 
@@ -252,7 +254,7 @@ class EmpresaController extends BaseController
 
 		foreach ($registrosCooperativas as $registroCooperativas) :
 
-			$email->setFrom('ecobrains@ecobrains.com', "EcoBrains — {$registroCooperativas->titulo_topico}");
+			$email->setFrom('ecobrains@ecobrains.com', "EcoBrains | {$registroCooperativas->titulo_topico}");
 		endforeach;
 
 		foreach ($registrosEmailCoop as $registroEmailCooperativa) :

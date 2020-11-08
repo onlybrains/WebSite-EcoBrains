@@ -126,6 +126,8 @@ class CoopController extends BaseController
 			$email = \Config\Services::email();
 
 			$config['SMTPHost'] = env('SMTP_HOST');
+			$config['SMTPPort'] = env('SMTP_PORT');
+			$config['SMTPCrypto'] = env('SMTP_CRYPTO');
 			$config['SMTPUser'] = env('SMTP_USER');
 			$config['SMTPPass'] = env('SMTP_PASS');
 
@@ -133,7 +135,7 @@ class CoopController extends BaseController
 
 			foreach ($registros as $registro) :
 
-				$email->setFrom('ecobrains@ecobrains.com', "EcoBrains — {$registro->titulo_topico}");
+				$email->setFrom('ecobrains@ecobrains.com', "EcoBrains | {$registro->titulo_topico}");
 
 				$email->setTo($registro->email_login);
 			endforeach;
