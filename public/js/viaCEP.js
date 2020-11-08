@@ -2,7 +2,7 @@ const consultaCEP = async (cep) => {
   cep = cep.replace('-', '');
 
   if (cep && cep.length === 8) {
-    const URL = `https://viacep.com.br/ws/${cep}/json`;
+    const URL = `http://viacep.com.br/ws/${cep}/json`;
     const response = await axios.request(URL);
     let { logradouro, bairro, localidade, uf } = response.data;
 
