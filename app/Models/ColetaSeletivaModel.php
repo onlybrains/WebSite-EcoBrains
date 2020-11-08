@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 
 class ColetaSeletivaModel extends Model
 {
-  protected $table      = 'tb_coletaseletiva';
+  protected $table      = 'tb_coletaSeletiva';
   protected $primaryKey = 'id_coletaSeletiva';
 
   protected $returnType     = 'object';

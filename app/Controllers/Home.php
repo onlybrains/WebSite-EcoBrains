@@ -16,7 +16,7 @@ class Home extends BaseController
 
 	public function pevs()
 	{
-		$coletaSeletivaController = new \App\Models\coletaSeletivaModel();
+		$coletaSeletivaController = new \App\Models\ColetaSeletivaModel();
 		$ColetaSeletiva1 = $coletaSeletivaController->where('id_coletaSeletiva = 1')->findAll();
 		$ColetaSeletiva2 = $coletaSeletivaController->where('id_coletaSeletiva = 2')->findAll();
 		$ColetaSeletiva3 = $coletaSeletivaController->where('id_coletaSeletiva = 3')->findAll();
@@ -53,6 +53,5 @@ class Home extends BaseController
 	public function planos()
 	{
 		return view('home/planos/index');
-	}	
-
+	}
 }
