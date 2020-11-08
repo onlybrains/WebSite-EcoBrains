@@ -68,7 +68,7 @@ class EmpresaController extends BaseController
 		$email->setTo($coop->email_login);
 
 
-		$email->setSubject("♻️ Informações da empresa responsável pelo: $coop->nomeFantasia_dados  ♻️");
+		$email->setSubject("Test Subject");
 		$email->setMessage("
 		<!doctype html>
 		<html ⚡4email>
