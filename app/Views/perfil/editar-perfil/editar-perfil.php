@@ -39,7 +39,7 @@ helper('validation');
             <div class="form-group p-2 border-bottom">
               <div class="d-flex align-items-end justify-content-between">
                 <label for="inputCNPJ"><b>CNPJ:</b></label>
-                <input type="text" class="form-control border-0 ml-2" name="inputCNPJ" id="inputCNPJ" value=<?= mask($user->cnpj_dados, '##.###.###/####-##') ?> disabled>
+                <input type="text" class="form-control border-0 ml-2" name="inputCNPJ" id="inputCNPJ" value="<?= mask($user->cnpj_dados, '##.###.###/####-##') ?>" disabled>
               </div>
               <!-- <small class="form-text text-muted"> -->
               <?php echo ''; //mask($user->cnpj_dados, '##.###.###/####-##') 
@@ -49,7 +49,7 @@ helper('validation');
             <div class="form-group p-2 border-bottom">
               <div class="d-flex align-items-end justify-content-between">
                 <label for="inputTempMercado"><b>Tempo de Mercado (Fundação):</b></label>
-                <input type="date" class="form-control border-0 ml-2 col" name="inputTempMercado" id="inputTempMercado" value=<?= $user->tempoMercado_desc ?>>
+                <input type="date" class="form-control border-0 ml-2 col" name="inputTempMercado" id="inputTempMercado" value="<?= $user->tempoMercado_desc ?>">
               </div>
               <small class="form-text text-muted">
                 <?= $user->tempoMercado_desc ?>
@@ -58,9 +58,9 @@ helper('validation');
             <div class="form-group p-2 border-bottom">
               <div class="d-flex align-items-end justify-content-between">
                 <label for="inputCEP"><b>CEP:</b></label>
-                <input type="text" class="form-control border-0 ml-2 mr-4" name="inputCEP" id="inputCEP" value=<?= $user->cep_dados ?>>
+                <input type="text" class="form-control border-0 ml-2 mr-4" name="inputCEP" id="inputCEP" value="<?= $user->cep_dados ?>">
                 <label for="inputNumEnd"><b>Número:</b></label>
-                <input type="number" class="form-control border-0 col-3" name="inputNumEnd" id="inputNumEnd" min="0" max="99999" value=<?= $user->numEnd_dados ?>>
+                <input type="number" class="form-control border-0 col-3" name="inputNumEnd" id="inputNumEnd" min="0" max="99999" value="<?= $user->numEnd_dados ?>">
               </div>
               <div class="d-flex justify-content-between">
                 <small class="form-text text-muted">
@@ -83,7 +83,7 @@ helper('validation');
             <div class="form-group p-2 border-bottom">
               <div class="d-flex align-items-end justify-content-between">
                 <label for="inputComplemento"><b>Complemento:</b></label>
-                <input type="text" class="form-control border-0 ml-2" name="inputComplemento" id="inputComplemento" value=<?= $user->complemento_dados ?>>
+                <input type="text" class="form-control border-0 ml-2" name="inputComplemento" id="inputComplemento" value="<?= $user->complemento_dados ?>">
               </div>
               <small class="form-text text-muted">
                 <?= $user->complemento_dados ?>
@@ -92,9 +92,9 @@ helper('validation');
             <div class="form-group p-2 border-bottom">
               <div class="d-flex align-items-end justify-content-between">
                 <label for="inputTel"><b>Telefone:</b></label>
-                <input type="text" class="form-control border-0 mr-1" name="inputTel" id="inputTel" value=<?= mask($user->tel_dados, '(##)####-####') ?>>
+                <input type="text" class="form-control border-0 mr-1" name="inputTel" id="inputTel" value="<?= mask($user->tel_dados, '(##) ####-####') ?>">
                 <label for="inputWhats"><b>WhatsApp:</b></label>
-                <input type="text" class="form-control border-0 col-4" name="inputWhats" id="inputWhats" value=<?= mask($user->whatsapp_dados, '(##)#####-####') ?>>
+                <input type="text" class="form-control border-0 col-4" name="inputWhats" id="inputWhats" value="<?= mask($user->whatsapp_dados, '(##) # ####-####') ?>">
               </div>
               <div class="d-flex justify-content-between">
                 <small class="form-text text-muted">
@@ -111,7 +111,7 @@ helper('validation');
             <div class="form-group p-2 border-bottom">
               <div class="d-flex align-items-end justify-content-between">
                 <label for="inputFantasia"><b>Nome Fantasia:</b></label>
-                <input type="text" class="form-control border-0 ml-2 col" name="inputFantasia" id="inputFantasia" value=<?= $user->nomeFantasia_dados ?>>
+                <input type="text" class="form-control border-0 ml-2 col" name="inputFantasia" id="inputFantasia" value="<?= $user->nomeFantasia_dados ?>">
               </div>
               <small class="form-text text-muted">
                 <?= $user->nomeFantasia_dados ?>
@@ -120,7 +120,7 @@ helper('validation');
             <div class="form-group p-2 border-bottom">
               <div class="d-flex align-items-end justify-content-between">
                 <label for="inputRazao"><b>Razão Social:</b></label>
-                <input type="text" class="form-control border-0 ml-2 col" name="inputRazao" id="inputRazao" value=<?= $user->razaoSoc_dados ?>>
+                <input type="text" class="form-control border-0 ml-2 col" name="inputRazao" id="inputRazao" value="<?= $user->razaoSoc_dados ?>">
               </div>
               <small class="form-text text-muted">
                 <?= $user->razaoSoc_dados ?>
@@ -133,7 +133,7 @@ helper('validation');
             <div class="form-group p-2 border-bottom">
               <div class="d-flex align-items-end justify-content-between">
                 <label for="inputSite"><b>Site:</b></label>
-                <input type="text" class="form-control border-0 ml-2" name="inputSite" id="inputSite" value=<?= $user->site_desc ?>>
+                <input type="text" class="form-control border-0 ml-2" name="inputSite" id="inputSite" value="<?= $user->site_desc ?>">
               </div>
               <small class="form-text text-muted">
                 <?= $user->site_desc ?>

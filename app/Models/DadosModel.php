@@ -65,7 +65,6 @@ class DadosModel extends Model
     $model = new DescModel();
     $id_desc = $model->skipValidation()->insert(['info_desc' => null]);
 
-
     if (session()->getFlashdata('inputTipo') == 'empresa') {
       $model = new EmpresaModel();
     } else {

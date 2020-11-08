@@ -11,6 +11,7 @@ echo link_tag('css/styles.css');
 echo link_tag('css/styleNavBar.css');
 echo link_tag('css/styleHeaderSobreNos.css');
 echo link_tag('css/styleFilter.css');
+echo link_tag('css/stylePlanos.css');
 echo link_tag('css/styleFooter.css');
 ?>
 

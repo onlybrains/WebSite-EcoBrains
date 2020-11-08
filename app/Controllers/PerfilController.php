@@ -50,6 +50,10 @@ class PerfilController extends BaseController
         'site_desc' => $this->request->getPost('inputSite'),
       ];
 
+      if ($this->request->getPost('inputTempMercado') === '')
+        unset($dataDesc['tempoMercado_desc']);
+      if ($this->request->getPost('inputSite') === '')
+        unset($dataDesc['site_desc']);
 
       if ($dadosModel->update($user->id_dados))
         if ($descModel->update($user->id_desc, $dataDesc))

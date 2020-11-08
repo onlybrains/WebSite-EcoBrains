@@ -57,9 +57,11 @@ helper('validation');
             <b>Site:</b>
             <span><?= $user->site_desc ?></span>
           </p>
-          <div class="d-flex">
-            <a href=<?= base_url($uri->getSegment(1) . '/perfil/editar') ?> class="btn btn-green flex-fill p-2">Editar Perfil</a>
-          </div>
+          <?php if ($uri->getSegment(2) !== 'coop' && $uri->getSegment(2) !== 'empresa') : ?>
+            <div class="d-flex">
+              <a href=<?= base_url($uri->getSegment(1) . '/perfil/editar') ?> class="btn btn-green flex-fill p-2">Editar Perfil</a>
+            </div>
+          <?php endif ?>
         </div>
 
         <div class="col-md-6">
@@ -71,7 +73,9 @@ helper('validation');
           <h6 class="card-title ">Razão Social: <?= $user->razaoSoc_dados ?></h6>
           <h6 class="card-title ">Descrição:</h6>
           <p class="card-text">
-            <?= $user->info_desc ?>
+
+            <?= nl2br($user->info_desc) ?>
+
           </p>
         </div>
       </div>
