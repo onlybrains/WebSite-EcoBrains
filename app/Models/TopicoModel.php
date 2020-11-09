@@ -24,9 +24,6 @@ class TopicoModel extends Model
 
     'dataLimite_topico'         =>
     'required|min_length[8]|max_length[10]',
-
-    'id_empresa'         =>
-    'min_length[1]|max_length[1]',
   ];
 
 }

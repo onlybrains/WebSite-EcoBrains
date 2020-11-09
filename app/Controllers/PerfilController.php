@@ -11,11 +11,11 @@ class PerfilController extends BaseController
   public function viewPerfil()
   {
     helper(['auth', 'validation']);
-
+    $uri = new \CodeIgniter\HTTP\URI(current_url());
     $user = getBasicUserInfo();
 
     $data['user'] = $user;
-    $data['titulo'] = 'Pesquisar Tópicos';
+    $data['titulo'] = $uri->getSegment(1) === 'cooperativas' ? 'Pesquisar Tópicos' : 'Pesquisar Cooperativas';
     $data['nome'] = $user->nomeFantasia_dados;
     return view('perfil/view-perfil/index', $data);
   }
@@ -65,7 +65,7 @@ class PerfilController extends BaseController
     }
 
     $data['user'] = $user;
-    $data['titulo'] = 'Pesquisar Tópicos';
+    $data['titulo'] = $uri->getSegment(1) === 'cooperativas' ? 'Pesquisar Tópicos' : 'Pesquisar Cooperativas';
     $data['nome'] = $user->nomeFantasia_dados;
 
     return view('perfil/editar-perfil/index', $data);
