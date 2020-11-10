@@ -92,9 +92,8 @@
         </div>
       </div>
     </div>
-</div>
-<?php
+  <?php
   endforeach
-?>
-<!-- Topics that the Coop. are offering their services (END) -->
+  ?>
+  <!-- Topics that the Coop. are offering their services (END) -->
 </div>
