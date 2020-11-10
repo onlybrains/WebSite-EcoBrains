@@ -9,6 +9,8 @@ use CodeIgniter\Email\Email;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\Response;
 
+use function PHPSTORM_META\map;
+
 class EmpresaController extends BaseController
 {
 	public function empresas()
@@ -1095,6 +1097,16 @@ class EmpresaController extends BaseController
 
 		foreach ($registros as $registro) {
 			$registro->distancematrix = verifyDistance($empresa->cep_dados, $registro->cep_dados);
+		}
+
+		if ($this->request->getMethod() === 'post') {
+
+			if ($this->request->getPost('kmFiltro')) {
+				$registros = array_filter($registros, function ($registro) {
+					$calculoKm = intval($this->request->getPost('kmFiltro') * 1000);
+					return $registro->distancematrix->distance->value <= $calculoKm;
+				});
+			}
 		}
 
 		$data['cooperativas'] = $registros;

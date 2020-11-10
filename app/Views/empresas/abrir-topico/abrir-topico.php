@@ -36,7 +36,7 @@
           </select>
         </div>
         <div class="form-group border-bottom p-2 pl-4 pr-4 m-0">
-          <label for="quant_residuo">Peso</label>
+          <label for="quant_residuo">Peso (Kg)</label>
           <input type="text" class="form-control border-0" name="quant_residuo" id="quant_residuo" placeholder="25Kg">
         </div>
         <div class="form-group p-2 pl-4 pr-4 m-0">

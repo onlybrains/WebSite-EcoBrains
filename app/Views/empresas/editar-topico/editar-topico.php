@@ -46,7 +46,7 @@
           </small>
         </div>
         <div class="form-group border-bottom p-2 pl-4 pr-4 m-0">
-          <label for="quant_residuo">Peso</label>
+          <label for="quant_residuo">Peso (Kg)</label>
           <input type="text" class="form-control" name="quant_residuo" id="quant_residuo" value="<?php echo ($topicos->quant_residuo); ?>">
           <small class="form-text text-muted">
           <?= $topicos->quant_residuo ?> Kg

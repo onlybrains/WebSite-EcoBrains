@@ -6,11 +6,11 @@
   </div>
   <div class="row ml-5 mr-5">
     <div class="sign-up col-12">
-      <form method="POST" action="pesquisafiltro">
+      <form method="post" >
         <div class="form-row">
           <div class="form-group rounded-left col-md-9 bg-light border-right border-bottom m-0 p-2">
-            <label for="inputUser">Estado</label>
-            <input type="text" class="form-control" name="pesoFiltro" id="pesoFiltro" placeholder="Até..." />
+            <label for="kmFiltro">Distância Máxima</label>
+            <input type="number" step="any" min="0" class="form-control" name="kmFiltro" id="kmFiltro" placeholder="Km"/>
           </div>
           <button type="submit" class="btn btn-green form-group col-md-3 m-0 p-2">Pesquisar</button>
         </div>
