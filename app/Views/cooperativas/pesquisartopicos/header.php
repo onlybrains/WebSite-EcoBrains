@@ -48,7 +48,7 @@
         <div class="card card-coop">
           <div class="card-body p-2">
             <div class="row m-1">
-              <img src=<?= $topico->banner_desc ? $topico->banner_desc : "/imgs/image-random.png" ?> class="w-100 rounded-lg card-img-top py-2">
+              <img src=<?= file_exists($topico->banner_desc) ? base_url($topico->banner_desc) : "/imgs/image-random.png" ?> class="w-100 rounded-lg card-img-top py-2">
             </div>
             <div class="row ml-4">
               <div class="col-6">
