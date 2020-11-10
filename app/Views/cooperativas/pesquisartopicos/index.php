@@ -14,6 +14,7 @@ echo link_tag('css/styleSignUp.css');
 echo link_tag('css/styleLists.css');
 echo link_tag('css/styleButtons.css');
 echo link_tag('css/stylePerfil.css');
+echo link_tag('css/styleDropdown.css');
 ?>
 
 <?= $this->endSection('styles') ?>
