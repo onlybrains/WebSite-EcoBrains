@@ -35,10 +35,8 @@
                 </div>
                 <div class="row ml-3">
                   <p class="topic-desc ml-3">Data Limite: <?php
-                                                          setlocale(LC_ALL, NULL);
-                                                          setlocale(LC_ALL, 'pt_BR');
-                                                          print ucfirst(gmstrftime('%A, %d/%m/%Y' ,
-                                                          /*echo ucwords(strftime('%A, %d/%m/%Y',*/ strtotime($topico->dataLimite_topico)));
+                                                          setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+                                                          echo ucfirst(utf8_encode(strftime("%B de %Y", strtotime($topico->dataLimite_topico))));
                                                           ?>
                   </p>
                   <p class="topic-desc ml-3">Material: <?= $topico->nome_tpResiduo ?> </p>
