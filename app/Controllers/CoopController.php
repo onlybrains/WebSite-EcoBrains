@@ -1008,7 +1008,7 @@ class CoopController extends BaseController
 			->join('tb_desc', 'tb_desc.id_desc = tb_empresas.id_desc')
 			->where('id_empresa', $id_empresa)->first();
 
-		$data['titulo'] = 'Pesquisar Cooperativas';
+		$data['titulo'] = 'Pesquisar Tópicos';
 		$data['nome'] = $Cooperativa->razaoSoc_dados;
 		$data['user'] = $empresa;
 

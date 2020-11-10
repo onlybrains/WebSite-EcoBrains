@@ -9,11 +9,11 @@ helper('form');
   </div>
   <div class="row ml-5 mr-5">
     <div class="sign-up col-12">
-      <form method="post" >
+      <form method="post">
         <div class="form-row">
           <div class="form-group rounded-left col-md-9 bg-light border-right border-bottom m-0 p-2">
             <label for="kmFiltro">Distância Máxima (Km)</label>
-            <input type="number" step="any" min="0" class="form-control" name="kmFiltro" id="kmFiltro" placeholder="Km" value="<?= set_value('kmFiltro') ?>"/>
+            <input type="number" step="any" min="0" class="form-control" name="kmFiltro" id="kmFiltro" placeholder="Km" value="<?= set_value('kmFiltro') ?>" />
           </div>
           <button type="submit" class="btn btn-green form-group col-md-3 m-0 p-2">Pesquisar</button>
         </div>
@@ -35,7 +35,7 @@ helper('form');
           <div class="card-body">
             <div class="container">
               <div class="row">
-                <img src=<?= $cooperativa->banner_desc ? $cooperativa->banner_desc : "/imgs/image-random.png" ?> class="w-100 rounded-lg card-img-top py-2">
+                <img src=<?= file_exists($cooperativa->banner_desc) ? base_url($cooperativa->banner_desc) : "/imgs/image-random.png" ?> class="w-100 rounded-lg card-img-top py-2">
               </div>
               <div class="col">
                 <div class="container">
