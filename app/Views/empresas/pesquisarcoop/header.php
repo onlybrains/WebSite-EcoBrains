@@ -1,3 +1,6 @@
+<?php
+helper('form');
+?>
 <div class="container-fluid pt-3">
   <div class="row my-2">
     <div class="col-lg-12 col-md-12">
@@ -9,8 +12,8 @@
       <form method="post" >
         <div class="form-row">
           <div class="form-group rounded-left col-md-9 bg-light border-right border-bottom m-0 p-2">
-            <label for="kmFiltro">Distância Máxima</label>
-            <input type="number" step="any" min="0" class="form-control" name="kmFiltro" id="kmFiltro" placeholder="Km"/>
+            <label for="kmFiltro">Distância Máxima (Km)</label>
+            <input type="number" step="any" min="0" class="form-control" name="kmFiltro" id="kmFiltro" placeholder="Km" value="<?= set_value('kmFiltro') ?>"/>
           </div>
           <button type="submit" class="btn btn-green form-group col-md-3 m-0 p-2">Pesquisar</button>
         </div>
