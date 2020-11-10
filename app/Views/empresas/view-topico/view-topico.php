@@ -7,10 +7,10 @@
 
     <div class="col-md-3">
       <div class="row">
-        <a href="<?= base_url('/empresas/editartopico/' . $registroEmpresa->id_topico) ?>" class="topic-button p-2 mt-2 mr-2 text-white">
+        <a href="<?= base_url('/empresas/editartopico/' . $registroEmpresa->id_topico) ?>" class="topic-button btn p-2 mt-2 mr-2 text-white">
           Editar Tópico
         </a>
-        <a href="<?= base_url('/empresas/deletartopico/' . $registroEmpresa->id_topico) ?>" class="topic-button p-2 mt-2 mr-4 text-white">
+        <a href="<?= base_url('/empresas/deletartopico/' . $registroEmpresa->id_topico) ?>" class="topic-button btn p-2 mt-2 mr-4 text-white">
           Excluir Tópico</a>
       </div>
     </div>
@@ -60,7 +60,7 @@
               </div>
               <div class="col-md-5">
                 <div class="row">
-                  <a href=<?= base_url('empresas/coop/' . $registro->id_coop) ?> class="topic-button p-2 mt-4 mr-4 text-white">
+                  <a href=<?= base_url('empresas/coop/' . $registro->id_coop) ?> class="topic-button btn p-2 mt-4 mr-4 text-white">
                     Conheça a Cooperativa
                   </a>
                   <a href="<?= base_url('empresas/aprovar/' . $registro->id_topico . '/' . $registro->id_coop); ?>" class="topic-button p-2 mt-4 mr-4 text-white"><svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-check2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

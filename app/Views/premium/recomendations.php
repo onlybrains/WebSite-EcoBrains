@@ -16,7 +16,7 @@
 
 <div class="row mb-5">
   <div class="col-md-12 text-center">
-    <a href="https://api.whatsapp.com/send?phone=5511999502016&text=Ol%C3%A1!%20Estou%20interessado%20em%20adquirir%20o%20servi%C3%A7o%20premium%20da%20plataforma%20EcoBrains.%20Como%20proceder%3F" target="_blank" class="topic-button p-3 mt-4 mr-4 text-white "> Quero Aderir a Revolução e me tornar Premium!
+    <a href="#" target="_blank" class="topic-button btn p-3 mt-4 mr-4 text-white "> Quero Aderir a Revolução e me tornar Premium!
     </a>
   </div>
 </div>

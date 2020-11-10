@@ -30,7 +30,7 @@ $uri = new \CodeIgniter\HTTP\URI(current_url());
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href=<?= base_url($uri->getSegment(1) . '/perfil') ?>>Perfil</a>
-            <a class="dropdown-item" href=<?= base_url($uri->getSegment(1) . '/premium') ?>>Se torne um Premium!</a>
+            <a class="dropdown-item disabled" href=<?= base_url($uri->getSegment(1) . '/premium') ?>>Se torne um Premium!</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="/logout">Sair</a>
           </div>
