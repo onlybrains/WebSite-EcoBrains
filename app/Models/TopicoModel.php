@@ -20,13 +20,10 @@ class TopicoModel extends Model
 
   protected $validationRules = [
     'titulo_topico'    =>
-    'required|alpha_numeric_space|min_length[5]|max_length[100]',
+    'required|string|min_length[5]|max_length[100]',
 
     'dataLimite_topico'         =>
     'required|min_length[8]|max_length[10]',
-
-    'id_empresa'         =>
-    'min_length[1]|max_length[1]',
   ];
 
 }

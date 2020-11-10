@@ -49,7 +49,7 @@ $routes->group('empresas', ['filter' => 'empresa'], function ($routes) {
 	$routes->match(['get', 'post'], 'topicos/(:num)', 'EmpresaController::viewTopico/$1');
 	$routes->get('aprovar/(:num)/(:num)', 'EmpresaController::aprovarCooperativa/$1/$2');
 	$routes->get('negar/(:num)/(:num)', 'EmpresaController::negarCooperativa/$1/$2');
-	$routes->get('pesquisar', 'EmpresaController::pesquisaCooperativas');
+	$routes->match(['get', 'post'],'pesquisar', 'EmpresaController::pesquisaCooperativas');
 	$routes->get('perfil', 'PerfilController::viewPerfil');
 	$routes->match(['get', 'post'], 'perfil/editar', 'PerfilController::editarPerfil');
 	$routes->get('premium', 'PremiumController::premium');

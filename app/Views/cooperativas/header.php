@@ -22,8 +22,6 @@
             <div class="row">
               <p class="topic-desc ml-3">Data Limite:
                 <?php
-                setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
-                date_default_timezone_set('America/Sao_Paulo');
                 echo ucwords(strftime('%A, %d/%m/%Y', strtotime($topico->dataLimite_topico)));
                 ?>
               </p>

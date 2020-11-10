@@ -14,7 +14,7 @@
           <div class="card-body">
             <div class="container">
               <div class="row">
-                <img src=<?= $empresa->banner_desc ? $empresa->banner_desc : "/imgs/image-random.png" ?> class="w-100 rounded-lg card-img-top py-2">
+                <img src=<?= file_exists($empresa->banner_desc) ? base_url($empresa->banner_desc) : "/imgs/image-random.png" ?> class="w-100 rounded-lg card-img-top py-2">
               </div>
               <div class="col">
                 <div class="container">

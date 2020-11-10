@@ -6,18 +6,18 @@ helper('validation');
 <div class="container">
 
   <div class="card mt-5 rounded shadow">
-    <?php if ($user->banner_desc) : ?>
+    <?php if (file_exists($user->banner_desc)) : ?>
       <div class="container my-2">
-        <img src=<?= $user->banner_desc ?> class="rounded-lg card-img-top" alt="Imagem da Empresa">
+        <img src=<?= base_url($user->banner_desc) ?> class="rounded-lg card-img-top" alt="Imagem da Empresa">
       </div>
     <?php endif ?>
 
     <div class="card-body">
 
       <div class="row mb-2">
-        <?php if ($user->logo_desc) : ?>
+        <?php if (file_exists($user->logo_desc)) : ?>
           <div class="container my-2">
-            <img src=<?= $user->logo_desc ?> class="card-img-logo" alt="Logo da Empresa">
+            <img src=<?= base_url($user->logo_desc) ?> class="card-img-logo" alt="Logo da Empresa">
           </div>
         <?php endif ?>
         <div class="col-md-6">

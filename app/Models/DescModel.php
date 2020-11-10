@@ -50,7 +50,7 @@ class DescModel extends Model
       $newName = $banner->getRandomName();
       $banner->move('./uploads/images', $newName);
 
-      $path = '/uploads/images/' . $banner->getName();
+      $path = 'uploads/images/' . $banner->getName();
       $data['data']['banner_desc'] = $path;
     } else
       unset($data['data']['banner_desc']);
@@ -60,7 +60,7 @@ class DescModel extends Model
       $newName = $logo->getRandomName();
       $logo->move('./uploads/images', $newName);
 
-      $path = '/uploads/images/' . $logo->getName();
+      $path = 'uploads/images/' . $logo->getName();
       $data['data']['logo_desc'] = $path;
     } else
       unset($data['data']['logo_desc']);
