@@ -21,7 +21,7 @@
       </div>
       <div class="row mt-5">
         <div class="col-12 text-center mb-5">
-          <a href=<?= base_url('/') ?> class="btn btn-lg btn-eco efeito active">Faça parte dessa <br> revolução
+          <a href=<?= base_url('/sign-up') ?> class="btn btn-lg btn-eco efeito active">Faça parte dessa <br> revolução
             ecológica!</a>
         </div>
       </div>

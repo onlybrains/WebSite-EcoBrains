@@ -76,7 +76,7 @@
             <a href="https://www.linkedin.com/in/matheus-franciscone/" class="social-link cardsRedesSociais" target="_blank"><i class="fa fa-linkedin"></i></a>
           </li>
           <li class="list-inline-item">
-            <a href="https://github.com/MatheusFranciscone" class="social-link cardsRedesSociais" target="_blank"><i class="fa fa-github"></i></a>
+            <a href="https://github.com/franciscone" class="social-link cardsRedesSociais" target="_blank"><i class="fa fa-github"></i></a>
           </li>
         </ul>
       </div>
@@ -85,7 +85,7 @@
   </div>
   <div class="row mt-3">
     <div class="col-12 xs-6 text-center">
-      <a href=<?= base_url('/') ?> class="btn btn-lg historia">Conheça nossa história!</a>
+      <a href=<?= base_url('/sobre') ?> class="btn btn-lg historia">Conheça nossa história!</a>
     </div>
   </div>
 </div>
