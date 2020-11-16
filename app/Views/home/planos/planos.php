@@ -12,7 +12,6 @@
         <div class="card mb-5 mb-lg-">
           <div class="card-body">
             <h5 class="card-title text-uppercase text-center text4">Grátis</h5>
-            <h6 class="card-price text-center">$0<span class="period"> por mês</span></h6>
             <hr>
             <ul class="fa-ul">
               <li><span class="fa-li"><i class="fas fa-check"></i></span>Visualização de todas as
