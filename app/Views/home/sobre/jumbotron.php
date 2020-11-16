@@ -13,14 +13,16 @@
             <div class="row mt-4">
               <div class="col-lg-6">
                 <div class="col-lg-6 d-none d-lg-block">
-                  <img class="my-1 ml-5 OnlyBrainsImage" src="imgs/OnlyBrains.png">
+                  <img class="my-1 ml-5 OnlyBrainsImage mt-5" src="imgs/OnlyBrains.png">
                 </div>
               </div>
               <div class="col-md-12 col-lg-6">
                 <p class="ecobrainsParagraph">
-                  <span class="ecobrainsParagraphBold">Sobre o OnlyBrains</span><br><br>
-                  O <span class="ecobrainsParagraphBold">OnlyBrains</span> surgiu como um grupo de colegas que sentavam juntos em aulas técnicas na ETEC de Guarulhos. No entanto não demorou muito para que isso passasse de um simples coleguismo e os interesses se misturassem. Os agora amigos desenvolveram em meados de Novembro de 2019 o primeiro projeto juntos: <span class="ecobrainsParagraphBold">PlayBoutique</span>.<br />
-                  Junto de um grupo também era necessário um nome e então tal surgira, o <span class="ecobrainsParagraphBold">OnlyBrains</span>. Os meses se passaram e o desenvolvimento de novos projetos e plataformas eram propostos pelos professores da instituição. A cada projeto os membros do <span class="ecobrainsParagraphBold">OnlyBrains</span> passavam a se entender e organizar até que no começo de Maio de 2020 foi iniciado o desenvolvimento do projeto <span class="ecobrainsParagraphBold">EcoBrains</span>.
+                  <span class="ecobrainsParagraphBold">Sobre o OnlyBrains...</span><br>
+            
+                  O <span class="ecobrainsParagraphBold"> OnlyBrains </span> surgiu na ETEC de Guarulhos, onde 3 colegas de turma começaram a conviver e a compartilhar interesses em comum, como desenvolvimento de sistemas e a vontade de mudar o mundo. Os desafios enfrentados na escola fortaleceram o vínculo entre eles, motivando-os a sempre superarem as expectativas de colegas e professores. Ao fim de 2019, apresentam seu 1º projeto: o <span class="ecobrainsParagraphBold">PlayBoutique</span>, que tinha como objetivo desenvolver um banco de dados para um Boutique para facilitar o dia-a-dia de suas vendas.
+                  <br />
+                  A partir daí, o grupo passa a entregar projetos e atividades com a assinatura <span class="ecobrainsParagraphBold"> OnlyBrains </span>, que simboliza a máxima atenção aos detalhes e grande rigor no desenvolvimento de software, nas plataformas web, mobile e desktop. Em maio de 2020, o grupo começa a desenvolver o maior projeto de sua vida, até aquele momento: o <span class="ecobrainsParagraphBold">EcoBrains</span>.
                 </p>
               </div>
             </div>

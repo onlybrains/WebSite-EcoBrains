@@ -14,6 +14,9 @@
         dirigir a um dos PEV's instalados e depositar o resíduo gratuitamente.<br>
         É importante ressaltar que cada cidade tem seu regimento sobre quanto cada morador pode levar por
         dia. Para saber mais acesse o site da sua prefeitura.</p>
+        <a class="ecobrainshref" href="https://www.guarulhos.sp.gov.br/pontos-de-entrega-voluntaria-pev" target="_blank"><i class="fa fa-recycle"></i> PEV's em Guarulhos</a>
     </div>
+
+
   </div>
 </div>
