@@ -19,7 +19,7 @@
         <div class="form-row">
           <div class="form-group col-md-5 border-right border-bottom p-2 pl-4 pr-4 m-0">
             <label for="inputTipo">Tipo</label>
-            <select class="form-control border-0 bg-transparent" name="inputTipo" id="inputTipo">
+            <select class="form-control bg-transparent" name="inputTipo" id="inputTipo">
               <option disabled selected <?= set_select('inputTipo') ?>></option>
               <option value="empresa" <?= set_select('inputTipo', 'empresa') ?>>Empresa</option>
               <option value="coop" <?= set_select('inputTipo', 'coop') ?>>Cooperativa</option>
@@ -27,43 +27,43 @@
           </div>
           <div class="form-group col-md-7 border-bottom p-2 pl-4 pr-4 m-0">
             <label for="inputCNPJ">CNPJ</label>
-            <input type="text" class="form-control border-0" name="inputCNPJ" id="inputCNPJ" value="<?= set_value('inputCNPJ') ?>">
+            <input type="text" class="form-control" name="inputCNPJ" id="inputCNPJ" value="<?= set_value('inputCNPJ') ?>">
           </div>
         </div>
         <div class="form-group border-bottom p-2 pl-4 pr-4 m-0">
           <label for="inputFantasia">Nome Fantasia</label>
-          <input type="text" class="form-control border-0" name="inputFantasia" id="inputFantasia" value="<?= set_value('inputFantasia') ?>">
+          <input type="text" class="form-control" name="inputFantasia" id="inputFantasia" value="<?= set_value('inputFantasia') ?>">
         </div>
         <div class="form-group border-bottom p-2 pl-4 pr-4 m-0">
           <label for="inputRazao">Razão social</label>
-          <input type="text" class="form-control border-0" name="inputRazao" id="inputRazao" value="<?= set_value('inputRazao') ?>">
+          <input type="text" class="form-control" name="inputRazao" id="inputRazao" value="<?= set_value('inputRazao') ?>">
         </div>
         <div class="form-row">
           <div class="form-group col-md-4 border-right border-bottom p-2 pl-4 pr-4 m-0">
             <label for="inputCEP">CEP</label>
-            <input type="text" class="form-control border-0" name="inputCEP" id="inputCEP" value="<?= set_value('inputCEP') ?>">
+            <input type="text" class="form-control" name="inputCEP" id="inputCEP" value="<?= set_value('inputCEP') ?>">
           </div>
           <div class="form-group col-md-4 border-right border-bottom p-2 pl-4 pr-4 m-0">
             <label for="inputNumEnd">Número</label>
-            <input type="number" class="form-control border-0" name="inputNumEnd" id="inputNumEnd" min="0" max="99999" value="<?= set_value('inputNumEnd') ?>">
+            <input type="number" class="form-control" name="inputNumEnd" id="inputNumEnd" min="0" max="99999" value="<?= set_value('inputNumEnd') ?>">
           </div>
           <div class="form-group col-md-4 border-bottom p-2 pl-4 pr-4 m-0">
             <label for="inputComplemento">Complemento</label>
-            <input type="text" class="form-control border-0" name="inputComplemento" id="inputComplemento" value="<?= set_value('inputComplemento') ?>">
+            <input type="text" class="form-control" name="inputComplemento" id="inputComplemento" value="<?= set_value('inputComplemento') ?>">
           </div>
         </div>
         <div class="form-group border-right border-bottom p-2 pl-4 pr-4 m-0">
           <label for="inputEnd">Endereço</label>
-          <input type="text" class="form-control border-0" name="inputEnd" id="inputEnd" readonly value="<?= set_value('inputEnd') ?>">
+          <input type="text" class="form-control" name="inputEnd" id="inputEnd" readonly value="<?= set_value('inputEnd') ?>">
         </div>
         <div class="form-row">
           <div class="form-group col-md-6 border-right border-bottom p-2 pl-4 pr-4 m-0">
             <label for="inputTel">Telefone</label>
-            <input type="text" class="form-control border-0" name="inputTel" id="inputTel" value="<?= set_value('inputTel') ?>">
+            <input type="text" class="form-control" name="inputTel" id="inputTel" value="<?= set_value('inputTel') ?>">
           </div>
           <div class="form-group col-md-6 border-bottom p-2 pl-4 pr-4 m-0">
             <label for="inputWhats">WhatsApp</label>
-            <input type="text" class="form-control border-0" name="inputWhats" id="inputWhats" value="<?= set_value('inputWhats') ?>">
+            <input type="text" class="form-control" name="inputWhats" id="inputWhats" value="<?= set_value('inputWhats') ?>">
           </div>
         </div>
         <div class="d-flex">

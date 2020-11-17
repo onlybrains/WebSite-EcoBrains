@@ -19,20 +19,20 @@
         <div class="form-row">
           <div class="form-group col-md-6 border-right border-bottom p-2 pl-4 pr-4 m-0">
             <label for="inputEmail">E-mail</label>
-            <input type="email" class="form-control border-0" name="inputEmail" id="inputEmail" value=<?= set_value('inputEmail') ?>>
+            <input type="email" class="form-control" name="inputEmail" id="inputEmail" value=<?= set_value('inputEmail') ?>>
           </div>
           <div class="form-group col-md-6 border-bottom p-2 pl-4 pr-4 m-0">
             <label for="inputUser">Usuário</label>
-            <input type="text" class="form-control border-0" name="inputUser" id="inputUser" value=<?= set_value('inputUser') ?>>
+            <input type="text" class="form-control" name="inputUser" id="inputUser" value=<?= set_value('inputUser') ?>>
           </div>
         </div>
         <div class="form-group border-bottom p-2 pl-4 pr-4 m-0">
           <label for="inputPassword">Senha</label>
-          <input type="password" class="form-control border-0" name="inputPassword" id="inputPassword" value=<?= set_value('inputPassword') ?>>
+          <input type="password" class="form-control" name="inputPassword" id="inputPassword" value=<?= set_value('inputPassword') ?>>
         </div>
         <div class="form-group p-2 pl-4 pr-4 m-0">
           <label for="inputPassword2">Confirmar Senha</label>
-          <input type="password" class="form-control border-0" name="inputPassword2" id="inputPassword2" value=<?= set_value('inputPassword2') ?>>
+          <input type="password" class="form-control" name="inputPassword2" id="inputPassword2" value=<?= set_value('inputPassword2') ?>>
         </div>
         <div class="d-flex">
           <button type="submit" class="btn btn-green flex-fill p-3">Confirmar</button>
