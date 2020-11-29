@@ -9,6 +9,7 @@ helper('html');
 <?php
 echo link_tag('css/styles.css');
 echo link_tag('css/styleNavBar.css');
+echo link_tag('css/styleDropdown.css');
 echo link_tag('css/styleSignUp.css');
 ?>
 

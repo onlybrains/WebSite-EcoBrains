@@ -1,7 +1,7 @@
 <!-- Navbar -->
 <nav class="sticky-top navbar navbar-expand-lg navbar-fundo">
 
-  <div class="container-fluid mx-5">
+  <div class="container-fluid mx-md-5">
 
     <a class="navbar-brand h1 mt-2" href=<?= base_url('/') ?>>
       <img src="/imgs/eco-logo-branco.png" id="logo-nav" alt="Logo da EcoBrains">

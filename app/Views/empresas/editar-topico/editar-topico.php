@@ -3,24 +3,24 @@
   <div class="text-center mt-5">
     <h2>Editar Tópico de Negociação</h2>
   </div>
-  <?php if (!empty($errors)) : ?>
-    <div class="row justify-content-center">
-      <div class="alert alert-danger" role="alert">
-        <?php foreach ($errors as $field => $error) : ?>
-          <p><?= $error ?></p>
-        <?php endforeach ?>
-      </div>
-    </div>
-  <?php endif; ?>
   <div class="row justify-content-center align-items-center my-5">
-    <div class="col-8 bg-light p-0 rounded-lg sign-up">
+    <?php if (!empty($errors)) : ?>
+      <div class="row justify-content-center mx-1">
+        <div class="alert alert-danger" role="alert">
+          <?php foreach ($errors as $field => $error) : ?>
+            <p><?= $error ?></p>
+          <?php endforeach ?>
+        </div>
+      </div>
+    <?php endif; ?>
+    <div class="col-md-8 col-11 bg-light p-0 rounded-lg sign-up">
       <form method='post'>
         <div class="form-group border-bottom p-2 pl-4 pr-4 m-0">
 
           <label for="titulo_topico">Título do Tópico</label>
           <input type="text" class="form-control" name="titulo_topico" id="titulo_topico" value="<?php echo ($topicos->titulo_topico); ?>">
           <small class="form-text text-muted">
-          <?php echo ($topicos->titulo_topico); ?>
+            <?php echo ($topicos->titulo_topico); ?>
           </small>
 
         </div>
@@ -42,14 +42,14 @@
             ?>
           </select>
           <small class="form-text text-muted">
-          <?= $topicos->nome_tpResiduo ?>
+            <?= $topicos->nome_tpResiduo ?>
           </small>
         </div>
         <div class="form-group border-bottom p-2 pl-4 pr-4 m-0">
           <label for="quant_residuo">Peso (Kg)</label>
           <input type="text" class="form-control" name="quant_residuo" id="quant_residuo" value="<?php echo ($topicos->quant_residuo); ?>">
           <small class="form-text text-muted">
-          <?= $topicos->quant_residuo ?> Kg
+            <?= $topicos->quant_residuo ?> Kg
           </small>
         </div>
 
@@ -57,7 +57,7 @@
           <label for="dataLimite_topico">Data Limite</label>
           <input type="date" class="form-control" name="dataLimite_topico" id="dataLimite_topico" value="<?php echo date('Y-m-d', strtotime(($topicos->dataLimite_topico))); ?>">
           <small class="form-text text-muted">
-          <?= date('d/m/Y', strtotime(($topicos->dataLimite_topico))); ?>
+            <?= date('d/m/Y', strtotime(($topicos->dataLimite_topico))); ?>
           </small>
         </div>
         <div class="d-flex">

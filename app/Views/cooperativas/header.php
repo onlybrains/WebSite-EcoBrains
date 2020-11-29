@@ -1,18 +1,20 @@
 <div class="container-fluid">
-  <div class="row my-2">
-    <div class="col-lg-12 col-md-12">
-      <h1 class="welcome ml-5 mr-3 mt-3 pt-5">Bem-vindo, <?= $nome ?></h1>
+  <div class="row my-2 justify-content-center">
+    <div class="col-11">
+      <h1 class="welcome mt-3 pt-5">Bem-vindo, <?= $nome ?></h1>
+      <hr />
     </div>
-    <div class="col-lg-12 col-md-12">
-      <p class="subtitles-coop ml-5 mr-3 mt-3 pt-2">Tópicos de Negociação que você participa:</p>
+
+    <div class="col-11">
+      <p class="subtitles-coop mt-3 pt-2">Tópicos de Negociação que você participa:</p>
     </div>
   </div>
   <!-- Topics that the Coop. are offering their services (START) -->
   <?php
   foreach ($topicos as $topico) :
   ?>
-    <div class="row my-2">
-      <div class="col-lg-12 col-md-12 pb-3">
+    <div class="row my-2 justify-content-center">
+      <div class="col-11 pb-3">
         <div class="card-coop">
           <div class="card-body m-2">
             <!-- <a href="#" class="topic-button p-2 mt-4 float-right"><img src="imgs/topics-vector.png" width="37" height="25"> </a> -->

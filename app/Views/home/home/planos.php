@@ -15,7 +15,7 @@
           <p class="card-text">Se torne uma das empresas destaque no campo de pesquisas da nossa plataforma, receba as melhores propostas das nossas melhores cooperativas filiadas, faça parte do nosso programa de certificação de descarte regular e adequado de resíduos.</p>
         </div>
         <div class="card-footer">
-          <a href=<?= base_url('/') ?> class="btn cardsPremiumBotão">Seja premium</a>
+          <a href=<?= base_url('/login') ?> class="btn cardsPremiumBotão">Seja premium</a>
         </div>
       </div>
     </div>
@@ -31,7 +31,7 @@
           <p class="card-text">Seja uma das cooperativas destaque na nossa lista de procura, medie negociações com diversas empresas ao mesmo tempo, tenha prioridade na negociação com as empresas cadastradas mais bem avaliadas, faça parte do nosso programa de certificação para cooperativas com descarte eficiente.</p>
         </div>
         <div class="card-footer">
-          <a href=<?= base_url('/') ?> class="btn cardsPremiumBotão">Seja premium</a>
+          <a href=<?= base_url('/login') ?> class="btn cardsPremiumBotão">Seja premium</a>
         </div>
       </div>
     </div>

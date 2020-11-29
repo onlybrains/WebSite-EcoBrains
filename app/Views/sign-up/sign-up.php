@@ -5,7 +5,7 @@
     </div>
   </div>
   <?php if (!empty($errors)) : ?>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mx-1">
       <div class="alert alert-danger" role="alert">
         <?php foreach ($errors as $field => $error) : ?>
           <p><?= $error ?></p>
@@ -14,28 +14,28 @@
     </div>
   <?php endif; ?>
   <div class="row justify-content-center align-items-center my-3">
-    <div class="col-5 bg-light p-0 rounded-lg sign-up">
+    <div class="col-lg-6 col-md-8 col-11 bg-light p-0 rounded-lg sign-up">
       <form method="POST">
         <div class="form-row">
-          <div class="form-group col-md-6 border-right border-bottom p-2 pl-5 m-0">
-            <label for="inputEmail"><b>E-mail</b></label>
-            <input type="email" class="form-control border-0 bg-transparent" name="inputEmail" id="inputEmail" value=<?= set_value('inputEmail') ?>>
+          <div class="form-group col-md-6 border-right border-bottom p-2 pl-4 pr-4 m-0">
+            <label for="inputEmail">E-mail</label>
+            <input type="email" class="form-control" name="inputEmail" id="inputEmail" value=<?= set_value('inputEmail') ?>>
           </div>
-          <div class="form-group col-md-6 border-bottom p-2 pl-5 m-0">
-            <label for="inputUser"><b>Usuário</b></label>
-            <input type="text" class="form-control border-0 bg-transparent" name="inputUser" id="inputUser" value=<?= set_value('inputUser') ?>>
+          <div class="form-group col-md-6 border-bottom p-2 pl-4 pr-4 m-0">
+            <label for="inputUser">Usuário</label>
+            <input type="text" class="form-control" name="inputUser" id="inputUser" value=<?= set_value('inputUser') ?>>
           </div>
         </div>
-        <div class="form-group border-bottom p-2 pl-5 m-0">
-          <label for="inputPassword"><b>Senha</b></label>
-          <input type="password" class="form-control border-0 bg-transparent" name="inputPassword" id="inputPassword" value=<?= set_value('inputPassword') ?>>
+        <div class="form-group border-bottom p-2 pl-4 pr-4 m-0">
+          <label for="inputPassword">Senha</label>
+          <input type="password" class="form-control" name="inputPassword" id="inputPassword" value=<?= set_value('inputPassword') ?>>
         </div>
-        <div class="form-group p-2 pl-5 m-0">
-          <label for="inputPassword2"><b>Confirmar Senha</b></label>
-          <input type="password" class="form-control border-0 bg-transparent" name="inputPassword2" id="inputPassword2" value=<?= set_value('inputPassword2') ?>>
+        <div class="form-group p-2 pl-4 pr-4 m-0">
+          <label for="inputPassword2">Confirmar Senha</label>
+          <input type="password" class="form-control" name="inputPassword2" id="inputPassword2" value=<?= set_value('inputPassword2') ?>>
         </div>
         <div class="d-flex">
-          <button type="submit" class="btn btn-green flex-fill p-3"><b>Confirmar</b></button>
+          <button type="submit" class="btn btn-green flex-fill p-3">Confirmar</button>
         </div>
       </form>
     </div>

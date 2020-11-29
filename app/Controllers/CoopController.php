@@ -46,7 +46,7 @@ class CoopController extends BaseController
 
 
 		$data['titulo'] = 'Pesquisar Tópicos';
-		$data['nome'] = $Cooperativa->razaoSoc_dados;
+		$data['nome'] = $Cooperativa->nomeFantasia_dados;
 		$data['topicos'] = $topicosParticipantes;
 
 		return view('cooperativas/index', $data);
@@ -59,7 +59,7 @@ class CoopController extends BaseController
 
 
 		$data['titulo'] = 'Pesquisar Tópicos';
-		$data['nome'] = $Cooperativa->razaoSoc_dados;
+		$data['nome'] = $Cooperativa->nomeFantasia_dados;
 
 		$topicoModel = new \App\Models\TopicoModel();
 		$registros = $topicoModel
@@ -959,8 +959,8 @@ class CoopController extends BaseController
 			->join('tb_dados', 'tb_dados.id_dados = tb_cooperativas.id_dados')
 			->where('id_login', session()->get('id_login'))->first();
 
-		$data['titulo'] = 'Pesquisar Empresas';
-		$data['nome'] = $Cooperativa->razaoSoc_dados;
+		$data['titulo'] = 'Pesquisar Tópicos';
+		$data['nome'] = $Cooperativa->nomeFantasia_dados;
 
 		$coopController = new \App\Models\TopicoModel();
 		$registros = $coopController
@@ -1009,7 +1009,7 @@ class CoopController extends BaseController
 			->where('id_empresa', $id_empresa)->first();
 
 		$data['titulo'] = 'Pesquisar Tópicos';
-		$data['nome'] = $Cooperativa->razaoSoc_dados;
+		$data['nome'] = $Cooperativa->nomeFantasia_dados;
 		$data['user'] = $empresa;
 
 
@@ -1025,7 +1025,7 @@ class CoopController extends BaseController
 			->where('id_login', session()->get('id_login'))->first();
 
 		$data['titulo'] = 'Pesquisar Tópicos';
-		$data['nome'] = $Cooperativa->razaoSoc_dados;
+		$data['nome'] = $Cooperativa->nomeFantasia_dados;
 
 		$coopController = new \App\Models\EmpresaModel();
 		$registros = $coopController

@@ -29,7 +29,7 @@ class EmpresaController extends BaseController
 			->findAll();
 
 		$data['titulo'] = 'Pesquisar Cooperativas';
-		$data['nome'] = $Empresa->razaoSoc_dados;
+		$data['nome'] = $Empresa->nomeFantasia_dados;
 		$data['topicos'] = $registros;
 
 		return view('empresas/index', $data);
@@ -48,7 +48,7 @@ class EmpresaController extends BaseController
 			->where('id_coop', $id_coop)->first();
 
 		$data['titulo'] = 'Pesquisar Cooperativas';
-		$data['nome'] = $empresa->razaoSoc_dados;
+		$data['nome'] = $empresa->nomeFantasia_dados;
 		$data['user'] = $coop;
 
 		return view('perfil/view-perfil/index', $data);
@@ -62,7 +62,7 @@ class EmpresaController extends BaseController
 		$Empresa = getBasicUserInfo();
 
 		$data['titulo'] = 'Pesquisar Cooperativas';
-		$data['nome'] = $Empresa->razaoSoc_dados;
+		$data['nome'] = $Empresa->nomeFantasia_dados;
 
 		$residuos = $tipoResiduosModel->find();
 		$data['tpResiduos'] = $residuos;
@@ -114,7 +114,7 @@ class EmpresaController extends BaseController
 		$residuos = $tipoResiduosModel->find();
 
 		$data['titulo'] = 'Pesquisar Cooperativas';
-		$data['nome'] = $Empresa->razaoSoc_dados;
+		$data['nome'] = $Empresa->nomeFantasia_dados;
 		$data['tpResiduos'] = $residuos;
 		$data['topicos'] = $topicos;
 
@@ -187,7 +187,7 @@ class EmpresaController extends BaseController
 
 
 		$data['titulo'] = 'Pesquisar Cooperativas';
-		$data['nome'] = $Empresa->razaoSoc_dados;
+		$data['nome'] = $Empresa->nomeFantasia_dados;
 		$data['registroEmpresa'] = $topicosDadosEmpresa;
 		$data['registrosInteresseCooperativa'] = $registrosInteresseCooperativa;
 
@@ -1083,7 +1083,7 @@ class EmpresaController extends BaseController
 		$empresa = getBasicUserInfo();
 
 		$data['titulo'] = 'Pesquisar Cooperativas';
-		$data['nome'] = $empresa->razaoSoc_dados;
+		$data['nome'] = $empresa->nomeFantasia_dados;
 
 		$registros = $modelCooperativas
 			->join('tb_dados', 'tb_dados.id_dados = tb_cooperativas.id_dados')
