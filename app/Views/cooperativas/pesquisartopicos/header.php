@@ -43,7 +43,7 @@
   <?php
   foreach ($topicos as $topico) :
   ?>
-    <div class="row my-2 justify-content-center">
+    <div class="row my-3 justify-content-center">
       <div class="col-11">
         <div class="card card-coop">
           <div class="card-body p-2">
@@ -85,9 +85,8 @@
         </div>
       </div>
     </div>
-</div>
-<?php
+  <?php
   endforeach
-?>
-<!-- Topics that the Coop. are offering their services (END) -->
+  ?>
+  <!-- Topics that the Coop. are offering their services (END) -->
 </div>

@@ -29,7 +29,7 @@ helper('form');
   <?php
   foreach ($cooperativas as $cooperativa) :
   ?>
-    <div class="row justify-content-center">
+    <div class="row my-3 justify-content-center">
       <div class="col-11">
         <div class="card card-coop">
           <div class="row card-body mb-2">
