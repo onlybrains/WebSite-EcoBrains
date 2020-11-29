@@ -42,10 +42,6 @@ helper('validation');
                 <label for="inputCNPJ"><b>CNPJ:</b></label>
                 <input type="text" class="form-control  ml-2" name="inputCNPJ" id="inputCNPJ" value="<?= mask($user->cnpj_dados, '##.###.###/####-##') ?>" disabled>
               </div>
-              <!-- <small class="form-text text-muted"> -->
-              <?php echo ''; //mask($user->cnpj_dados, '##.###.###/####-##') 
-              ?>
-              <!-- </small> -->
             </div>
             <div class="form-group p-2 border-bottom">
               <div class="form-row">
