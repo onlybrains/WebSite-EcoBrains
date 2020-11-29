@@ -13,7 +13,7 @@
 
         <li class="list-inline-item"><a href="#" class="footerRedesSociais" target="_blank"><i class="fa fa-linkedin"></i></a></li>
 
-        <li class="list-inline-item"><a href="#" class="footerRedesSociais" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li class="list-inline-item"><a href="https://github.com/OB-Group" class="footerRedesSociais" target="_blank"><i class="fa fa-github"></i></a></li>
 
         <li class="list-inline-item"><a href="#" class="footerRedesSociais mr-3" target="_blank"><i class="fa fa-facebook"></i></a></li>
       </ul>
@@ -25,21 +25,21 @@
   <div class="row links footer text-center">
     <div class="col-md-12 col-lg-4">
       <p class="p-footer">Planos</p>
-      <a class="a-footer" href="#">Premium Empresas</a></br>
-      <a class="a-footer" href="#">Premium Cooperativas</a><br><br>
+      <a class="a-footer" href=<?= base_url('/planos') ?>>Premium Empresas</a></br>
+      <a class="a-footer" href=<?= base_url('/planos') ?>>Premium Cooperativas</a><br><br>
     </div>
     <div class="col-md-12 col-lg-4">
       <p class="p-footer">Contato</p>
-      <a class="a-footer" href="#">e-mail@onlybrains.com.br</a></br>
+      <a class="a-footer" href="#">grouponlybrains@gmail.com</a></br>
       <a class="a-footer" href="#">Perguntas Frequentes</a></br>
       <a class="a-footer" href="#">0000 000 0000</a><br><br>
       <p class="p-footer">Atendimento 24h</p>
     </div>
     <div class="col-md-12 col-lg-4">
-      <a class="a-footer" href="#">Cadastre-se</a></br>
-      <a class="a-footer" href=<?= base_url('/') ?>>Login</a></br>
-      <a class="a-footer" href=<?= base_url('/') ?>>PEV's</a></br>
-      <a class="a-footer" href=<?= base_url('/') ?>>Sobre nós</a>
+      <a class="a-footer" href=<?= base_url('/sign-up') ?>>Cadastre-se</a></br>
+      <a class="a-footer" href=<?= base_url('/login') ?>>Login</a></br>
+      <a class="a-footer" href=<?= base_url('/pevs') ?>>PEV's</a></br>
+      <a class="a-footer" href=<?= base_url('/sobre') ?>>Sobre nós</a>
     </div>
   </div>
   <!-- Copyright Text -->

@@ -1,0 +1,25 @@
+div.sign-up {
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+div > button.btn-green {
+  background: linear-gradient(180deg, #0b702f 54.87%, #07401b 100%);
+  color: white;
+}
+div > button.btn-green:hover {
+  background: #096329;
+  color: white;
+}
+
+div > a.btn-green {
+  background: linear-gradient(180deg, #0b702f 54.87%, #07401b 100%);
+  color: white;
+}
+div > a.btn-green:hover {
+  background: #096329;
+  color: white;
+}
+
+div.col > hr {
+  border: 0.1px solid rgb(16 88 42 / 80%);
+}

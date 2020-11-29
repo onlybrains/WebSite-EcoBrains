@@ -1,11 +1,11 @@
 <!-- Navbar -->
-<nav class="fixed-top navbar navbar-expand-lg navbar-fundo">
+<nav class="sticky-top navbar navbar-expand-lg navbar-fundo">
 
-  <div class="container-fluid mx-5">
+  <div class="container-fluid mx-md-5">
 
     <a class="navbar-brand h1 mt-2" href=<?= base_url('/') ?>>
-      <img src="imgs/eco-logo-branco.png" id="logo-nav" alt="Logo da EcoBrains">
-      <img src="imgs/eco-branco.png" id="name-nav" alt="Logo da EcoBrains">
+      <img src="/imgs/eco-logo-branco.png" id="logo-nav" alt="Logo da EcoBrains">
+      <img src="/imgs/eco-branco.png" id="name-nav" alt="Logo da EcoBrains">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
       <span class="navbar-toggler-icon icon-hambuger"></span>
@@ -28,10 +28,10 @@
           <a class="nav-link nav-tamanho" href=<?= base_url('/planos') ?>>Planos</a>
         </li>
         <li class="nav-item marginItens">
-          <a class="nav-link nav-tamanho" href=<?= base_url('/') ?>>Login</a>
+          <a class="nav-link nav-tamanho" href=<?= base_url('/login') ?>>Login</a>
         </li>
         <li class="nav-item marginItens">
-          <a class="nav-link nav-tamanho" href=<?= base_url('/') ?>>Cadastre-se</a>
+          <a class="nav-link nav-tamanho" href=<?= base_url('/sign-up') ?>>Cadastre-se</a>
         </li>
       </ul>
 

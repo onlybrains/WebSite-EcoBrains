@@ -81,11 +81,10 @@
 }
 
 .nav-tamanho {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .navbar-fundo {
-  background: #07401b;
   background: -webkit-linear-gradient(left, #07401b, rgb(11, 112, 47));
   background: -o-linear-gradient(left, #07401b, rgb(11, 112, 47));
   background: -moz-linear-gradient(left, #07401b, rgb(11, 112, 47));
