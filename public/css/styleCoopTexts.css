@@ -1,42 +1,40 @@
-.welcome{
+.welcome {
   color: black;
   font-size: 36px;
   font-weight: 500;
 }
 
-.subtitles-coop{
+.subtitles-coop {
   color: black;
   font-size: 24px;
   font-weight: 400;
 }
 
-.topic-title{
+.topic-title {
   color: black;
   font-size: 30px;
   line-height: 45px;
 }
 
-.topic-desc{
+.topic-desc {
   color: black;
   font-size: 18px;
   line-height: 27px;
 }
 
-.card-coop{
-  margin-left: 45px;
-  margin-right: 45px;
+.card-coop {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 12px;
   background-color: white;
 }
 
-.card-body{
-  padding: 8px;
+.card-body {
+  padding: 10px;
   padding-right: 15px;
   padding-bottom: 1px;
 }
 
-.topic-button{
-  background: linear-gradient(180deg, #0B702F 54.87%, #07401B 100%);
+.topic-button {
+  background: linear-gradient(180deg, #0b702f 54.87%, #07401b 100%);
   border-radius: 5px;
 }

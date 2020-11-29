@@ -5,12 +5,12 @@
     </div>
   </div>
   <?php if (!empty($errors)) : ?>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mx-1">
       <?= $errors->listErrors('my-list') ?>
     </div>
   <?php endif; ?>
   <div class="row justify-content-center align-items-center my-3">
-    <div class="col-5 bg-light p-0 rounded-lg sign-up">
+    <div class="col-md-6 col-11 bg-light p-0 rounded-lg sign-up">
       <form method="POST">
         <div class="form-group border-bottom p-2 pl-4 pr-4 m-0">
           <label for="inputUser">Usuário</label>

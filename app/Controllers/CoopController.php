@@ -959,7 +959,7 @@ class CoopController extends BaseController
 			->join('tb_dados', 'tb_dados.id_dados = tb_cooperativas.id_dados')
 			->where('id_login', session()->get('id_login'))->first();
 
-		$data['titulo'] = 'Pesquisar Empresas';
+		$data['titulo'] = 'Pesquisar Tópicos';
 		$data['nome'] = $Cooperativa->nomeFantasia_dados;
 
 		$coopController = new \App\Models\TopicoModel();

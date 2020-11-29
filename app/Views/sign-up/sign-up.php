@@ -5,7 +5,7 @@
     </div>
   </div>
   <?php if (!empty($errors)) : ?>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mx-1">
       <div class="alert alert-danger" role="alert">
         <?php foreach ($errors as $field => $error) : ?>
           <p><?= $error ?></p>
@@ -14,7 +14,7 @@
     </div>
   <?php endif; ?>
   <div class="row justify-content-center align-items-center my-3">
-    <div class="col-5 bg-light p-0 rounded-lg sign-up">
+    <div class="col-lg-6 col-md-8 col-11 bg-light p-0 rounded-lg sign-up">
       <form method="POST">
         <div class="form-row">
           <div class="form-group col-md-6 border-right border-bottom p-2 pl-4 pr-4 m-0">

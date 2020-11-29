@@ -3,7 +3,7 @@ $uri = new \CodeIgniter\HTTP\URI(current_url());
 helper('validation');
 
 ?>
-<div class="container">
+<div class="container my-5">
 
   <div class="card mt-5 rounded shadow">
     <?php if (file_exists($user->banner_desc)) : ?>
@@ -20,6 +20,23 @@ helper('validation');
             <img src=<?= base_url($user->logo_desc) ?> class="card-img-logo" alt="Logo da Empresa">
           </div>
         <?php endif ?>
+        <div class="col-md-6 d-block d-md-none">
+          <p>
+            <b>Nome:</b>
+            <?= $user->nomeFantasia_dados ?>
+            <?php if ($user->premium_desc == 1) : ?>
+              <img src=<?= base_url('imgs/selo-ecoB.png') ?> class="card-img-premium" alt="Imagem da Empresa">
+            <?php endif ?>
+          </p>
+          <p>
+            <b>Razão Social:</b>
+            <span><?= $user->razaoSoc_dados ?></span>
+          </p>
+          <p>
+            <b>Descrição:</b>
+            <span><?= nl2br($user->info_desc) ?></span>
+          </p>
+        </div>
         <div class="col-md-6">
           <p>
             <b>CNPJ:</b>
@@ -57,14 +74,9 @@ helper('validation');
             <b>Site:</b>
             <span><?= $user->site_desc ?></span>
           </p>
-          <?php if ($uri->getSegment(2) !== 'coop' && $uri->getSegment(2) !== 'empresa') : ?>
-            <div class="d-flex">
-              <a href=<?= base_url($uri->getSegment(1) . '/perfil/editar') ?> class="btn btn-green flex-fill p-2">Editar Perfil</a>
-            </div>
-          <?php endif ?>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-6 d-none d-md-block">
           <h5 class="card-title">Nome: <?= $user->nomeFantasia_dados ?>
             <?php if ($user->premium_desc == 1) : ?>
               <img src=<?= base_url('imgs/selo-ecoB.png') ?> class="card-img-premium" alt="Imagem da Empresa">
@@ -78,6 +90,11 @@ helper('validation');
 
           </p>
         </div>
+        <?php if ($uri->getSegment(2) !== 'coop' && $uri->getSegment(2) !== 'empresa') : ?>
+          <div class="d-flex col">
+            <a href=<?= base_url($uri->getSegment(1) . '/perfil/editar') ?> class="btn btn-green flex-fill p-2">Editar Perfil</a>
+          </div>
+        <?php endif ?>
       </div>
 
     </div>
