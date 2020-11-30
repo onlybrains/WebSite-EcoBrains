@@ -8,7 +8,7 @@
         <div class="card-custom-img">
         </div>
         <div class="card-custom-avatar">
-          <img class="img-fluid" src="imgs/ecobrains-logo-completo" alt="Avatar" />
+          <img class="img-fluid" src="imgs/ecobrains-logo-completo.jpg" alt="Avatar" />
         </div>
         <div class="card-body" style="overflow-y: auto">
           <h4 class="card-title">Empresas</h4>
@@ -24,7 +24,7 @@
         <div class="card-custom-img">
         </div>
         <div class="card-custom-avatar">
-          <img class="img-fluid" src="imgs/ecobrains-logo-completo" alt="Avatar" />
+          <img class="img-fluid" src="imgs/ecobrains-logo-completo.jpg" alt="Avatar" />
         </div>
         <div class="card-body" style="overflow-y: auto">
           <h4 class="card-title">Cooperativas</h4>
