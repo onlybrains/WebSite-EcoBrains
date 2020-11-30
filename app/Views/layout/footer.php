@@ -13,7 +13,7 @@
 
         <li class="list-inline-item"><a href="#" class="footerRedesSociais" target="_blank"><i class="fa fa-linkedin"></i></a></li>
 
-        <li class="list-inline-item"><a href="https://github.com/OB-Group" class="footerRedesSociais" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li class="list-inline-item"><a href="https://github.com/onlybrains" class="footerRedesSociais" target="_blank"><i class="fa fa-github"></i></a></li>
 
         <li class="list-inline-item"><a href="#" class="footerRedesSociais mr-3" target="_blank"><i class="fa fa-facebook"></i></a></li>
       </ul>
