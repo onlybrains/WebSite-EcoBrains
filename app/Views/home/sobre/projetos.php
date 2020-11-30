@@ -21,7 +21,26 @@
               </div>
               <div class="col-lg-6 col-md-12">
                 <p class="ecobrainsParagrafhGreen">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis error modi vero aliquam et ab earum sint eligendi velit perferendis. Vitae possimus esse ipsa illum et iste velit non quisquam. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo voluptatem pariatur doloremque corrupti perferendis iste sint tempore reprehenderit, fugiat obcaecati! Vero molestiae inventore aliquid? Tenetur eveniet error fuga optio sapiente! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur alias quaerat vel accusantium reiciendis modi, nobis laboriosam facere, sit magnam ipsam quis eum! Unde animi delectus dolorem vitae harum explicabo.
+                  Por meio de nossas pesquisas e entrevistas com funcionários ativos nas áreas que serão atingidas por
+                  essa aplicação, concluímos que podemos facilitar o contato entre empresas e cooperativas que
+                  atualmente ainda é muito burocrático e difícil.
+
+                  Conseguimos entender que a maioria das empresas tanto quanto das cooperativas tem acesso a internet o
+                  que automaticamente facilita o acesso para aplicações web. Pensando nessa facilidade tivemos a ideia
+                  de desenvolver uma aplicação web utilizando as tecnologias mais recentes e as normas e instruções
+                  relacionadas a experiência e interface para o usuário.
+
+                  Pretendemos com essa aplicação interligar a comunicação e as necessidades propostas por esses dois
+                  grupos, além de facilitar e agilizar o contato e a negociação entre estes.
+
+                  Como principal recurso utilizaremos tópicos de negociação onde a empresa abrirá um desses tópicos de
+                  negociação o qual informarão data, horário, a categoria do descarte, entre outros atributos. A partir
+                  daí as cooperativas entrarão nessa negociação ou a própria empresa enviará um convite para
+                  determinadas cooperativas.
+
+                  As cooperativas poderão acessar um feed com diversas negociações em aberto ou então poderão acessar
+                  cada empresa individualmente e iniciar uma negociação particular (o mesmo pode acontecer com as
+                  empresas em relação as cooperativas).
                 </p>
               </div>
             </div>
