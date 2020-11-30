@@ -104,12 +104,12 @@
   background-size: cover;
   background-position: center;
   border-color: inherit;
-  background-image: url(../imgs/imgo.jpg);
+  background-image: url(../imgs/ecobrains-logo-completo);
 }
 
 .card-custom-img::after {
   position: absolute;
-  content: "";
+  content: '';
   top: 161px;
   left: 0;
   width: 0;
