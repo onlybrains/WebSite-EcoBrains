@@ -13,7 +13,7 @@
         <p class="cor_Verde">
           Paulista, 23 anos, estudante, aficcionado por tecnologia desde os 7
           anos de idade. Idealizador da
-          <a href="" class="cor_Verde_Bold">identidade visual</a> desta
+          <span class="cor_Verde_Bold">identidade visual</span> desta
           plataforma.
         </p>
         <ul class="social mb-0 list-inline mt-3">
@@ -40,7 +40,7 @@
         <p class="cor_Verde">
           Paulista, estudante de tecnologia desde 2019, desenvolvedor desde os
           13 anos e idealizador dos serviços
-          <a href="" class="cor_Verde_Bold">premium</a> da plataforma.
+          <span class="cor_Verde_Bold">premium</span> da plataforma.
         </p>
         <ul class="social mb-0 list-inline mt-3">
           <li class="list-inline-item">
@@ -66,14 +66,14 @@
         <p class="cor_Verde">
           Paulistano, entusiasta e estudante de tecnologia desde as primeiras
           linhas de código aos 13 anos, desenvolvedor e idealizador do projeto
-          <a href="" class="cor_Verde_Bold">EcoBrains</a>.
+          <span class="cor_Verde_Bold">EcoBrains</span>.
         </p>
         <ul class="social mb-0 list-inline mt-3">
           <li class="list-inline-item">
             <a href="https://www.instagram.com/_franciscone/" class="social-link cardsRedesSociais" target=" _blank"><i class="fa fa-instagram"></i></a>
           </li>
           <li class="list-inline-item">
-            <a href="https://www.linkedin.com/in/matheus-franciscone/" class="social-link cardsRedesSociais" target="_blank"><i class="fa fa-linkedin"></i></a>
+            <a href="https://www.linkedin.com/in/matheusfranciscone/" class="social-link cardsRedesSociais" target="_blank"><i class="fa fa-linkedin"></i></a>
           </li>
           <li class="list-inline-item">
             <a href="https://github.com/franciscone" class="social-link cardsRedesSociais" target="_blank"><i class="fa fa-github"></i></a>
