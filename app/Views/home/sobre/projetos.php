@@ -11,7 +11,7 @@
         <div class="tab-content" id="nav-pills-content">
           <div class="tab-pane fade show active" id="nav-item-01" role="tabpanel">
             <div class="row">
-              <div class="col-6">
+              <div class="col-6 d-none d-md-block">
                 <div class="w-100">
                   <img class="my-1 img-fluid rounded-lg" src="imgs/ecobrains-logo-completo.jpg">
                 </div>

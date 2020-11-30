@@ -12,7 +12,7 @@
           <div class="tab-pane fade show active" id="nav-item-01" role="tabpanel">
             <div class="row mt-4">
               <div class="col-lg-6">
-                <div class="col-lg-6 d-none d-lg-block">
+                <div class="col-lg-6 d-none d-md-block">
                   <img class="my-1 ml-5 OnlyBrainsImage mt-5" src="imgs/OnlyBrains.png">
                 </div>
               </div>
