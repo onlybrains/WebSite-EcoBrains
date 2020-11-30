@@ -31,6 +31,36 @@ class UserModel extends Model
     'matches[senha_login]',
   ];
 
+  protected $validationMessages = [
+    'email_login'      =>
+    [
+      'required' => 'O campo email deve ser preenchido.',
+      'valid_email' => 'O campo email deve ser um email válido.',
+      'is_unique' => 'O valor do campo email já existe.',
+      'min_length' => 'O campo email deve ter no mínimo 5 caracteres.',
+      'max_length' => 'O campo email deve ter no máximo 45 caracteres.'
+    ],
+    
+    'usuario_login'       =>   [
+      'required' => 'O campo usuário deve ser preenchido.',
+      'alpha_dash' => 'O campo usuário pode conter apenas caracteres alfanuméricos, sublinhados e traços.',
+      'is_unique' => 'O valor do campo usuário já existe.',
+      'min_length' => 'O campo usuário deve ter no mínimo 5 caracteres.',
+      'max_length' => 'O campo usuário deve ter no máximo 45 caracteres.'
+    ],
+
+    'senha_login'   =>
+    [
+      'required' => 'O campo senha deve ser preenchido.',
+      'min_length' => 'O campo senha deve ter no mínimo 5 caracteres.',
+      'max_length' => 'O campo senha deve ter no máximo 45 caracteres.'
+    ],
+
+    'inputPassword2'  =>  [
+    'matches' => 'As senhas não são iguais.',
+    ]
+  ];
+
   protected function hashPassword(array $data)
   {
     if (isset($data['data']['senha_login']))

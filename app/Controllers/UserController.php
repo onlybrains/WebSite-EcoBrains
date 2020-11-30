@@ -15,12 +15,22 @@ class UserController extends BaseController
     if ($this->request->getMethod() == 'post') {
 
       $validationRules = [
-        'inputUser' =>
-        'required|alpha_dash|min_length[5]|max_length[45]',
+        'inputUser' => [
+          'rules' =>      'required|alpha_dash|min_length[5]|max_length[45]',
+          'errors' => [
+            'required' => 'O campo usuário deve ser preenchido.',
+            'alpha_dash' => 'O campo usuário pode conter apenas caracteres alfanuméricos, sublinhados e traços.',
+            'min_length' => 'O campo usuário deve ter no mínimo 5 caracteres.',
+            'max_length' => 'O campo usuário deve ter no máximo 45 caracteres.'
+          ]
+        ],
 
         'inputPassword'   => [
           'rules' => 'required|min_length[5]|max_length[45]|validateUser[inputUser,inputPassword]',
           'errors' => [
+            'required' => 'O campo senha deve ser preenchido.',
+            'min_length' => 'O campo senha deve ter no mínimo 5 caracteres.',
+            'max_length' => 'O campo senha deve ter no máximo 45 caracteres.',
             'validateUser' => 'Usuário e senha não batem!',
           ],
         ],
