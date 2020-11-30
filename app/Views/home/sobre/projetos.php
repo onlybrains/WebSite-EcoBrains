@@ -16,7 +16,7 @@
                   <img class="my-1 img-fluid rounded-lg" src="imgs/ecobrains-logo-completo.jpg">
                 </div>
               </div>
-              <div class="col-sm-12 col-6">
+              <div class="col-md-6">
                 <p class="ecobrainsParagrafhGreen text-justify">
                   Por meio de nossas pesquisas e entrevistas com funcionários ativos nas áreas que serão atingidas por
                   essa aplicação, concluímos que podemos facilitar o contato entre empresas e cooperativas que
