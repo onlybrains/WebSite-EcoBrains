@@ -31,7 +31,7 @@
             </div>
             <div class="col-md-6 d-flex align-items-center">
               <div class="col-11 container">
-                <a href="<?= base_url('/empresas/coop/' . $empresa->id_coop); ?>" class="btn-eco efeito p-3 float-left">Ver informações para contato</a>
+                <a href="<?= base_url('/cooperativas/empresa/' . $empresa->id_empresa); ?>" class="btn-eco efeito p-3 float-left">Ver informações para contato</a>
               </div>
             </div>
           </div>
