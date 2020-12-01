@@ -6,7 +6,7 @@
           <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="district">
               <h4 class="panel-title text-center">
-                <a class="first" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<?= $registro->id_coletaSeletiva ?>" aria-expanded="true" aria-controls="collapse<?= $registro->id_coletaSeletiva ?>">
+                <a class="first collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<?= $registro->id_coletaSeletiva ?>" aria-expanded="false" aria-controls="collapse<?= $registro->id_coletaSeletiva ?>">
                   <?= $registro->bairro_coletaSeletiva ?>
                   <span> </span>
                 </a>

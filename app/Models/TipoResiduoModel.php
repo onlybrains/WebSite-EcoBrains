@@ -1,37 +1,30 @@
-<?php namespace App\Models;
+<?php
+
+namespace App\Models;
 
 use CodeIgniter\Model;
 
-class TipoResiduoModel extends Model{
-    
-    protected $table = 'tb_tpResiduos';
-    protected $primaryKey = 'id_tpResiduo';
-    protected $allowedFields = ['nome_tpResiduo'];
-    protected $returnType = 'object';
+class TipoResiduoModel extends Model
+{
 
-    //protected $beforeInsert = ['beforeInsert'];
+  protected $table = 'tb_tpResiduos';
+  protected $primaryKey = 'id_tpResiduo';
+  protected $allowedFields = ['nome_tpResiduo'];
+  protected $returnType = 'object';
 
-    protected $validationRules = [
-        'nome_tpResiduo'   =>
-        'required|min_length[1]|max_lenght[30]|integer|',
-    ];
+  protected $validationRules = [
+    'nome_tpResiduo'   =>
+    'required|min_length[1]|max_lenght[30]|integer|',
+  ];
 
-    /*protected function beforeInsert(array $data)
-    {
-      $modelTopico = new TopicoModel();
+  protected $validationMessages = [
+    'nome_tpResiduo'      =>
+    [
+      'required' => 'O campo tipo do resíduo deve ser preenchido.',
+      'min_length' => 'O campo tipo do resíduo deve ter no mínimo 1 caracteres.',
+      'max_length' => 'O campo tipo do resíduo deve ter no máximo 30 caracteres.',
+      'integer' => 'O campo tipo do resíduo deve ser inteiro.',
+    ],
 
-      $id_topico = "";
-  
-      $data['data']['id_topico'] = $id_topico;
-      $modelTopico->find('id_topico');
-
-      $id_coop = "";
-
-      $modelCooperativa = new CoopModel();
-
-      $data['data']['id_coop'] = $id_coop;
-      $modelCooperativa->find('id_topico');
-  
-      return $data;
-    }*/
+  ];
 }

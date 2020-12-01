@@ -36,7 +36,7 @@
                   <span class="text3">Como?</span> Quando nos fizemos essa pergunta, começamos a refletir sobre tudo
                   tínhamos a nossa volta, tudo que realmente acontecia no descarte de resíduos. Foi aí que começamos a
                   entender que tudo que conhecíamos sobre resíduos, sua produção e seu processo de descarte era muito vago.
-                  A partir daí que nossa pesquisa começou e foi <a href="nav-item-02" class="text4">quando</a> a de fato aprendemos mais um pouco sobre ecologia e resíduos.
+                  A partir daí que nossa pesquisa começou e foi <span class="text4">quando</span> a de fato aprendemos mais um pouco sobre ecologia e resíduos.
                 </p>
               </div>
             </div>
@@ -53,7 +53,7 @@
                   <span class="text3">Quando?</span> Quando de fato começamos a aprender sobre como ajudar na melhoria do descarte de resíduos? Tanto para empresas, quanto para cooperativas e pessoas físicas.
                   <br>Começamos a entender mais sobre como funcionava o ramo do descarte, seu processo, e também da necessidade das empresas que precisam desses serviços, quando realizamos nossa pesquisa pública destinada a cada um desses públicos. Percebemos ainda que ainda há muita vacância tecnológica no setor, seja no processo em si, quanto na divulgação e administração dessas cooperativas.
                   As empresas, por outro lado, tem dificuldade em entrar em contato com cooperativas que atinjam todas as suas especificações na hora de prestar serviços. No entanto, não somente através dessa pesquisa pública conseguimos adquirir todos os conhecimentos. Tivemos ajuda de uma dupla de responsáveis por uma cooperativa, o qual no ajudou a entender tudo o que precisávamos para iniciar o desenvolvimento de uma plataforma com três pilares: <span class="text4">responsabilidade, confiança e eficiência</span>.
-                  A partir daí que começamos a entender de fato o <a href="nav-item-03" class="text4">por que</a> automatizar e conectar empresas e cooperativas é importante.
+                  A partir daí que começamos a entender de fato o <span class="text4">por que</span> automatizar e conectar empresas e cooperativas é importante.
                 </p>
               </div>
             </div>
