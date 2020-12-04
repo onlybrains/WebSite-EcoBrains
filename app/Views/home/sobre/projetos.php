@@ -11,23 +11,38 @@
         <div class="tab-content" id="nav-pills-content">
           <div class="tab-pane fade show active" id="nav-item-01" role="tabpanel">
             <div class="row">
-              <div class="col-sm-6">
-                <div class="col-lg-6 d-none d-lg-block">
-                  <img class="my-1 ml-5 WeAreEcoBrains" src="imgs/WeAreEcoBrains.jpeg">
+              <div class="col-6 d-none d-md-block">
+                <div class="w-100">
+                  <img class="my-1 img-fluid rounded-lg" src="imgs/ecobrains-logo-completo.jpg">
                 </div>
               </div>
-              <div class="col-lg-6 col-md-12">
-                <p class="ecobrainsParagrafhGreen">
-                  <span class="ecobrainsParagraphBoldGreen">Como?</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis error modi vero aliquam et ab earum sint eligendi velit perferendis. Vitae possimus esse ipsa illum et iste velit non quisquam. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo voluptatem pariatur doloremque corrupti perferendis iste sint tempore reprehenderit, fugiat obcaecati! Vero molestiae inventore aliquid? Tenetur eveniet error fuga optio sapiente! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur alias quaerat vel accusantium reiciendis modi, nobis laboriosam facere, sit magnam ipsam quis eum! Unde animi delectus dolorem vitae harum explicabo.
-                  <!--<span class="ecobrainsParagraphBoldGreen">Como?</span> Quando nos fizemos essa pergunta, começamos a
-                                        refletir sobre tudo
-                                        tínhamos a nossa volta, tudo que realmente acontecia no descarte de resíduos.
-                                        Foi aí que começamos a
-                                        entender que tudo que conhecíamos sobre resíduos, sua produção e seu processo de
-                                        descarte era muito vago.
-                                        A partir daí que nossa pesquisa começou e foi <a href="nav-item-02"
-                                            class="ecobrainsParagraphBoldGreen">quando</a> a de fato aprendemos mais um pouco sobre ecologia e
-                                        resíduos. -->
+              <div class="col-md-6">
+                <p class="ecobrainsParagrafhGreen text-justify">
+                  Por meio de nossas pesquisas e entrevistas com funcionários ativos nas áreas que serão atingidas por
+                  essa aplicação, concluímos que podemos facilitar o contato entre empresas e cooperativas que
+                  atualmente ainda é muito burocrático e difícil.
+                </p>
+                <p class="ecobrainsParagrafhGreen text-justify">
+                  Conseguimos entender que a maioria das empresas tanto quanto das cooperativas tem acesso a internet o
+                  que automaticamente facilita o acesso para aplicações web. Pensando nessa facilidade tivemos a ideia
+                  de desenvolver uma aplicação web utilizando as tecnologias mais recentes e as normas e instruções
+                  relacionadas a experiência e interface para o usuário.
+                </p>
+                <p class="ecobrainsParagrafhGreen text-justify">
+
+                  Pretendemos com essa aplicação interligar a comunicação e as necessidades propostas por esses dois
+                  grupos, além de facilitar e agilizar o contato e a negociação entre estes.
+                </p>
+                <p class="ecobrainsParagrafhGreen text-justify">
+                  Como principal recurso utilizaremos tópicos de negociação onde a empresa abrirá um desses tópicos de
+                  negociação o qual informarão data, horário, a categoria do descarte, entre outros atributos. A partir
+                  daí as cooperativas entrarão nessa negociação ou a própria empresa enviará um convite para
+                  determinadas cooperativas.
+                </p>
+                <p class="ecobrainsParagrafhGreen text-justify">
+                  As cooperativas poderão acessar um feed com diversas negociações em aberto ou então poderão acessar
+                  cada empresa individualmente e iniciar uma negociação particular (o mesmo pode acontecer com as
+                  empresas em relação as cooperativas).
                 </p>
               </div>
             </div>

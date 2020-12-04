@@ -28,7 +28,7 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title text-uppercase text-center text4">Premium</h5>
-            <h6 class="card-price text-center">$00<span class="period">/month</span></h6>
+            <h6 class="card-price text-center">(a definir)</h6>
             <hr>
             <ul class="fa-ul">
               <li><span class="fa-li"><i class="fas fa-check"></i></span>Visualização de todas as

@@ -16,8 +16,8 @@ helper('validation');
     <div class="card-body">
       <form method="POST" enctype="multipart/form-data">
         <div class="row mb-2">
-          <div class="col-12">
-            <div class="form-row">
+          <div class="col-12 d-none d-sm-block">
+            <div class="form-row ">
               <div class="col-md-6">
                 <div id="img-container-preview-logo" class="my-4 text-center">
                 </div>
@@ -42,10 +42,6 @@ helper('validation');
                 <label for="inputCNPJ"><b>CNPJ:</b></label>
                 <input type="text" class="form-control  ml-2" name="inputCNPJ" id="inputCNPJ" value="<?= mask($user->cnpj_dados, '##.###.###/####-##') ?>" disabled>
               </div>
-              <!-- <small class="form-text text-muted"> -->
-              <?php echo ''; //mask($user->cnpj_dados, '##.###.###/####-##') 
-              ?>
-              <!-- </small> -->
             </div>
             <div class="form-group p-2 border-bottom">
               <div class="form-row">

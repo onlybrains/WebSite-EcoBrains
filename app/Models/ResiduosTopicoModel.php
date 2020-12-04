@@ -19,4 +19,22 @@ class ResiduosTopicoModel extends Model{
     'id_topico'         =>
     'required',
   ];
+
+  protected $validationMessages = [
+    'quant_residuo'      =>
+    [
+      'required' => 'O campo quantidade de resíduo deve ser preenchido.',
+      'decimal' => 'O campo quantidade de resíduo deve ser decimal.',
+      'greater_than' => 'O campo quantidade de resíduo deve ser maior que 0.',
+    ],
+    
+    'id_tpResiduo'       =>   [
+      'required' => 'O campo id_tipoResiduo deve ser preenchido.',
+    ],
+
+    'id_topico'   =>
+    [
+      'required' => 'O campo id_topíco deve ser preenchido.',
+    ],
+  ];
 }

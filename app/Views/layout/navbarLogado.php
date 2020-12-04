@@ -28,7 +28,7 @@ $uri = new \CodeIgniter\HTTP\URI(current_url());
           <a class="nav-link dropdown-toggle nav-tamanho text-white" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <?= $nome ?>
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <div class="dropdown-menu dropdown-menu-right " aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href=<?= base_url($uri->getSegment(1) . '/perfil') ?>>Perfil</a>
             <a class="dropdown-item disabled" href=<?= base_url($uri->getSegment(1) . '/premium') ?>>Se torne um Premium!</a>
             <div class="dropdown-divider"></div>

@@ -38,6 +38,34 @@ class DescModel extends Model
     'valid_url',
   ];
 
+  protected $validationMessage = [
+    'info_desc'        =>
+    [
+      'string' => 'O campo Descrição deve ser um texto.',
+    ],
+
+    'logo_desc'    =>
+    [
+      'is_image' => 'O Logo deve ser uma imagem.',
+    ],
+
+    'banner_desc'         =>
+    [
+      'is_image' => 'O Banner deve ser uma imagem.',
+    ],
+
+    'tempoMercado_desc'      =>
+    [
+      'min_length[8]' => 'O campo Tempo de Mercado deve conter no mínimo 8 caracteres.',
+      'max_length[10]' => 'O campo Tempo de Mercado deve conter no máximo 10 caracteres.',
+    ],
+
+    'site_desc'         =>
+    [
+      'valid_url' => 'O campo Site deve ser válido',
+    ],
+  ];
+
   protected $afterInsert = ['afterInsert'];
   protected $beforeUpdate = ['beforeUpdate'];
 
