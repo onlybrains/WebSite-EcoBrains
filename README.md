@@ -22,8 +22,9 @@
   <img alt="GitHub" src="https://img.shields.io/github/license/onlybrains/WebSite-EcoBrains.svg">
 </p>
 
-<p align="center">
-  <img alt="App EcoBrains" src=".github/iframe-notebook.png" width="80%" >
+
+<p float="center">
+  <img alt="App EcoBrains" src=".github/iframe-notebook.png" width="75%" >
   <img alt="App Mobile EcoBrains" src=".github/iframe-phone.png" width="20%" >  
 </p>
 
