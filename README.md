@@ -79,7 +79,7 @@ Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 ---
 
-<table>
+<table border="none">
 <tr>
 <td>
   <div style="margin-right: 20px">
