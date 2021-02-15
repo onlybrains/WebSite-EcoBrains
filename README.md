@@ -51,17 +51,23 @@ Pretendemos com essa aplicação interligar a comunicação e as necessidades pr
 ## ⚙️ Requisitos do servidor
 
 - PHP 7.2
+- composer
 - intl
 - libcurl
 - mbstring
+- dom
 - mysqlnd
 - mysqli
 
 ## 🔧 Setup
+```bash
+$ composer install
 
-```
- - Copy `env` to `.env` and tailor for your app, specifically the baseURL
-  and any database settings.
+- Renomeie `env` para `.env` e coloque as variaveis de ambiente necessárias.
+
+$ php spark migrate
+
+$ php spark serve
 ```
 
 ## :memo: Licença
