@@ -23,7 +23,7 @@
 </p>
 
 <p align="center">
-<table>
+<table border="0">
 <tr>
 <td>
   <img alt="App EcoBrains" src=".github/iframe-notebook.png" width="100%">
@@ -79,7 +79,7 @@ Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 ---
 
-<table border="none">
+<table border="0">
 <tr>
 <td>
   <div style="margin-right: 20px">
