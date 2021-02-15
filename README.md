@@ -22,18 +22,11 @@
   <img alt="GitHub" src="https://img.shields.io/github/license/onlybrains/WebSite-EcoBrains.svg">
 </p>
 
-<p align="center">
-<table border="0">
-<tr>
-<td>
-  <img alt="App EcoBrains" src=".github/iframe-notebook.png" width="100%">
-</td>
-<td>
-  <img alt="App Mobile EcoBrains" src=".github/iframe-phone.png" width="100%">
-</td>
-</tr>
-</table>
-</p>
+  <img alt="App Mobile EcoBrains" src=".github/iframe-phone.png" width="20%" align="right">
+  <img alt="App EcoBrains" src=".github/iframe-notebook.png" width="80%" align="left">
+</br>
+</br>
+</br>
 
 ## 🚀 Tecnologias
 
