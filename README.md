@@ -1,64 +1,107 @@
-# CodeIgniter 4 Application Starter
+<h1 align="center">
+  <img alt="Logo EcoBrains" title="Disk-Pizza" src=".github/logo-ecobrains.png" width="420px" />
+</h1>
 
-## What is CodeIgniter?
+<p align="center">
+  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-requisitos-do-servidor">Requisitos do servidor</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-setup">Setup</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#memo-licença">Licença</a>
+</p>
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible, and secure. 
-More information can be found at the [official site](http://codeigniter.com).
+<p align="center">
+  <a href="https://github.com/onlybrains/WebSite-EcoBrains/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/onlybrains/WebSite-EcoBrains.svg">
+  </a>
 
-This repository holds a composer-installable app starter.
-It has been built from the 
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+  <a href="https://github.com/cleysonsilvame/disk-pizza/issues">
+    <img alt="Repository issues" src="https://img.shields.io/github/issues/onlybrains/WebSite-EcoBrains.svg">
+  </a>
 
-More information about the plans for version 4 can be found in [the announcement](http://forum.codeigniter.com/thread-62615.html) on the forums.
+  <img alt="GitHub" src="https://img.shields.io/github/license/onlybrains/WebSite-EcoBrains.svg">
+</p>
 
-The user guide corresponding to this version of the framework can be found
-[here](https://codeigniter4.github.io/userguide/). 
+<div align="center" style="display: flex;">
+  <img alt="App EcoBrains" src=".github/iframe-notebook.png" width="80%">
+  <img alt="App Mobile EcoBrains" src=".github/iframe-phone.png" width="25%">
+</div>
 
-## Installation & updates
+## 🚀 Tecnologias
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+- PHP
+- CodeIgniter 4
+- MariaDB
+- HTML
+- CSS
+- Bootstrap
+- JavaScript
 
-## Setup
+## 💻 Projeto
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+Por meio de nossas pesquisas e entrevistas com funcionários ativos nas áreas que serão atingidas por essa aplicação, concluímos que podemos facilitar o contato entre empresas e cooperativas que atualmente ainda é muito burocrático e difícil.
 
-## Important Change with index.php
+Conseguimos entender que a maioria das empresas tanto quanto das cooperativas tem acesso a internet o que automaticamente facilita o acesso para aplicações web. Pensando nessa facilidade tivemos a ideia de desenvolver uma aplicação web utilizando as tecnologias mais recentes e as normas e instruções relacionadas a experiência e interface para o usuário.
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+Pretendemos com essa aplicação interligar a comunicação e as necessidades propostas por esses dois grupos, além de facilitar e agilizar o contato e a negociação entre estes ♻️.
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+## ⚙️ Requisitos do servidor
 
-**Please** read the user guide for a better explanation of how CI4 works!
-The user guide updating and deployment is a bit awkward at the moment, but we are working on it!
+- PHP 7.2
+- intl
+- libcurl
+- mbstring
+- mysqlnd
+- mysqli
 
-## Repository Management
+## 🔧 Setup
 
-We use Github issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+```
+ - Copy `env` to `.env` and tailor for your app, specifically the baseURL
+  and any database settings.
+```
 
-This repository is a "distribution" one, built by our release preparation script. 
-Problems with it can be raised on our forum, or as issues in the main repository.
+## :memo: Licença
 
-## Server Requirements
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
-PHP version 7.2 or higher is required, with the following extensions installed: 
+### 🙋‍♂️ Autores
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+---
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+<div style="display: flex;">
+  <div style="margin-right: 20px">
+  <a href="https://github.com/cleysonsilvame/" title="Cleyson Silva">
+  <img style="border-radius: 50%;" src="https://avatars1.githubusercontent.com/u/62582404?s=460&u=29db25e5cdf416891054e2130bb29b59ec824898&v=4" width="100px;" alt="Cleyson Silva">
+  <br />
 
-- json (enabled by default - don't turn it off)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php)
-- xml (enabled by default - don't turn it off)
+<sub><b>Cleyson Silva</b></sub> 🚀
+</a>
+
+  </div>
+
+  <div style="margin-right: 20px">
+  <a href="https://github.com/LuigiRamires" title="Luigi de Oliveira">
+  <img style="border-radius: 50%;" src="https://avatars3.githubusercontent.com/u/54213955?s=460&u=ffda1647819bde18373c6bc3a3f545d234f28e0a&v=4" width="100px;" alt="Luigi de Oliveira">
+  <br />
+
+<sub><b>Luigi de Oliveira</b></sub> 🚀</a>
+
+  </div>
+
+  <div style="margin-right: 20px">
+  <a href="https://github.com/franciscone" title="Matheus Franciscone">
+  <img style="border-radius: 50%;" src="https://avatars3.githubusercontent.com/u/63426394?s=460&u=1f9937c0f4fea5b1adb4c9b9dc44e99633e215c8&v=4" width="100px;" alt="Matheus Franciscone">
+  <br />
+
+<sub><b>Matheus Franciscone</b></sub> 🚀</a>
+
+  </div>
+
+</div>
+
+👋🏽 Entre em contato!
+
+[![Gmail Badge](https://img.shields.io/badge/-grouponlybrains@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:grouponlybrains@gmail.com)](mailto:grouponlybrains@gmail.com)
