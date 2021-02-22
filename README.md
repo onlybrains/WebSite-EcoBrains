@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img alt="Logo EcoBrains" title="Disk-Pizza" src=".github/logo-ecobrains.png" width="420px" />
+  <img alt="Logo EcoBrains" title="EcoBrains" src=".github/logo-ecobrains.png" width="420px" />
 </h1>
 
 <p align="center">
@@ -15,7 +15,7 @@
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/onlybrains/WebSite-EcoBrains.svg">
   </a>
 
-  <a href="https://github.com/cleysonsilvame/disk-pizza/issues">
+  <a href="https://github.com/onlybrains/WebSite-EcoBrains/issues">
     <img alt="Repository issues" src="https://img.shields.io/github/issues/onlybrains/WebSite-EcoBrains.svg">
   </a>
 
